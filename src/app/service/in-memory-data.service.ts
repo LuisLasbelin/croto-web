@@ -7,10 +7,12 @@ import { BlogEntry } from 'src/defs/blogentry';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    let date : Date = new Date();
+    let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 
     const entries: BlogEntry[] = [
-      { id: 1, title: 'Title 1', content: 'Content 1', updated: new Date(), created: new Date()},
-      { id: 2, title: 'Title 2', content: 'Content 2', updated: new Date(), created: new Date() },
-      { id: 3, title: 'Title 3', content: 'Content 3', updated: new Date(), created: new Date() }
+      { id: 1, title: 'Title 1', content: 'Content 1', updated: dateString, created: dateString },
+      { id: 2, title: 'Title 2', content: 'Content 2', updated: dateString, created: dateString },
+      { id: 3, title: 'Title 3', content: 'Content 3', updated: dateString, created: dateString }
     ];
     return {entries};
   }

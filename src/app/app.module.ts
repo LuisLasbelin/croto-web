@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     BlogListComponent,
     LandingComponent,
     BlogViewerComponent,
-    BlogEntryEditorComponent
+    BlogEntryEditorComponent,
   ],
   imports: [
     BrowserModule,

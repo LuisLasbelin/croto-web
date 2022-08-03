@@ -1,5 +1,7 @@
-<h2>Nueva entrada</h2>
-<textarea name="entry-text" id="entry-text" cols="30" rows="30" [(ngModel)]="content"></textarea>
-
-<button type="submit" (click)="newBlogEntry()">Guardar</button>
-<button type="submit" (click)="back()">Descartar</button>
+<div class="vertical-container">
+    <textarea name="title-text" id="title-box" cols="30" rows="1" [(ngModel)]="title"></textarea>
+    <textarea name="entry-text" id="entry-box" cols="30" rows="30" [(ngModel)]="content"></textarea>
+    
+    <button type="submit" (click)="newBlogEntry()">Guardar</button>
+    <button type="submit" (click)="back()">Descartar</button>
+</div>

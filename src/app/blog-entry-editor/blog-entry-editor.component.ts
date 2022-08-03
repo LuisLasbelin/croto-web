@@ -12,6 +12,7 @@ import { BlogEntryService } from '../service/blog-entry.service';
 export class BlogEntryEditorComponent implements OnInit {
 
   content: string = "";
+  title: string = "";
 
   constructor(    
     private route: ActivatedRoute,
@@ -22,8 +23,9 @@ export class BlogEntryEditorComponent implements OnInit {
   }
 
   newBlogEntry() {
-    console.log(this.content);
-    this.blogEntryService.addBlogEntry({title: "New Title", content: this.content} as BlogEntry)
+    let date : Date = new Date();
+    let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 
+    this.blogEntryService.addBlogEntry({title: this.title, content: this.content, updated: dateString} as BlogEntry)
       .subscribe(entry => {
         console.log(`Entrada creada con id = ${entry.id}`);
         this.back();
