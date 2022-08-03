@@ -17,14 +17,20 @@ export class BlogListComponent implements OnInit {
     this.getBlogEntries();
   }
 
+  /**
+   * Get all blog entries from the server.
+   * @returns BlogEntry[]
+   */
   getBlogEntries() {
     this.blogEntryService.getBlogEntries().subscribe(entries => this.entries = entries);
   }
 
+  /* OUTDATED
   newBlogEntry() {
     this.blogEntryService.addBlogEntry({title:"New Title", content:"New Content"} as BlogEntry)
       .subscribe(entry => {
         this.entries.push(entry);
       });
   }
+  */
 }
