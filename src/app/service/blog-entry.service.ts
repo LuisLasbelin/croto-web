@@ -1,0 +1,66 @@
+import { Injectable } from '@angular/core';
+import { BlogEntry } from 'src/defs/blogentry';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BlogEntryService {
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  private blogEntriesUrl = 'api/entries';  // URL to web api
+
+  constructor(
+    private http: HttpClient) { }
+
+  getBlogEntries(): Observable<BlogEntry[]> {
+    return this.http.get<BlogEntry[]>(this.blogEntriesUrl)
+      .pipe(
+        tap(_ => console.log('fetched blog entries')),
+        catchError(this.handleError<BlogEntry[]>('getBlogEntries', []))
+      );
+  }
+
+  /** GET hero by id. Will 404 if id not found */
+  getBlogEntry(id: number): Observable<BlogEntry> {
+    const url = `${this.blogEntriesUrl}/${id}`;
+    return this.http.get<BlogEntry>(url).pipe(
+      tap(_ => console.log(`fetched blog entry id=${id}`)),
+      catchError(this.handleError<BlogEntry>(`getBlogEntry id=${id}`))
+    );
+  }
+
+  addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
+    return this.http.post<BlogEntry>(this.blogEntriesUrl, entry, this.httpOptions).pipe(
+      tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
+      catchError(this.handleError<BlogEntry>('addBlogEntry'))
+    );
+  }
+
+  /**
+  * Handle Http operation that failed.
+  * Let the app continue.
+  *
+  * @param operation - name of the operation that failed
+  * @param result - optional value to return as the observable result
+  */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      console.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+}

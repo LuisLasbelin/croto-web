@@ -1,0 +1,10 @@
+<ul *ngFor="let entry of entries" class="blog-list">
+    <li>
+        <button class="entry" routerLink="/blog-viewer/{{entry.id}}">
+            <h3 class="title">{{entry.title}}</h3>
+            <p class="date">{{entry.updated}}</p>
+        </button>
+    </li>
+</ul>
+
+<button type="button" (click)="newBlogEntry()" class="b-new-entry">+</button>
