@@ -1,7 +1,8 @@
 <div *ngIf="entry">
     <h2>{{entry.title}}</h2>
     <h3>Por C.Roto</h3>
-    <div>{{entry.content}}</div>
+    <!-- Renders the entry.content: string as HTML elements -->
+    <div [innerHTML]="entry.content"></div>
     <button type="submit" (click)="goBack()">Volver</button>
     <p>Actualizado: {{entry.updated}}</p>
 </div>

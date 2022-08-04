@@ -26,7 +26,8 @@ export class BlogEntryEditorComponent implements OnInit {
   }
 
   newBlogEntry() {
-    if(this.title.length > 0 || this.content.length > 0) {
+    console.log("Title: " + this.title);
+    if(this.title.length > 0 && this.content.length > 0) {
       // DATE //
       let date : Date = new Date();
       let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 

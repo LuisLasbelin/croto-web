@@ -1,11 +1,10 @@
 <div class="vertical-container">
-    <textarea name="title-text" id="title-box" cols="30" rows="1"
-    [(ngModel)]="title"></textarea>
+    <textarea name="title-box" id="title-box" cols="30" rows="1" [(ngModel)]="title">Título</textarea>
     <select name="entry-tag" id="entry-tag" [(ngModel)]="tag">
         <option value="">Categoría</option>
         <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
     </select>
-    <textarea name="entry-text" id="entry-box" cols="30" rows="30" [(ngModel)]="content"></textarea>
+    <angular-editor id="content-box" [placeholder]="'Enter text here...'" [(ngModel)]="content"></angular-editor>
     
     <button type="submit" (click)="newBlogEntry()">Guardar</button>
     <button type="submit" (click)="back()">Descartar</button>
