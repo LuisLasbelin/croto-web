@@ -1,4 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Location } from '@angular/common';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { BlogEntryService } from '../service/blog-entry.service';
 
 import { BlogViewerComponent } from './blog-viewer.component';
 
@@ -8,7 +11,13 @@ describe('BlogViewerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlogViewerComponent ]
+      declarations: [ 
+        BlogViewerComponent,
+      ],
+      providers: [
+        BlogEntryService,
+        ActivatedRoute
+      ]
     })
     .compileComponents();
   });
@@ -19,7 +28,10 @@ describe('BlogViewerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create', inject(
+    [],
+    () => {
+      expect(component).toBeTruthy();
+    }
+  ));
 });

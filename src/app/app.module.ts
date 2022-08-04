@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './service/in-memory-data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AppComponent } from './app.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
@@ -11,6 +12,7 @@ import { LandingComponent } from './landing/landing.component';
 import { BlogViewerComponent } from './blog-viewer/blog-viewer.component';
 import { BlogEntryEditorComponent } from './blog-entry-editor/blog-entry-editor.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { FormsModule } from '@angular/forms';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientTestingModule,
+    RouterModule.forRoot([])
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

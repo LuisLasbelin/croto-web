@@ -13,6 +13,8 @@ export class BlogEntryEditorComponent implements OnInit {
 
   content: string = "";
   title: string = "";
+  tags: string[] = [];
+  tag: string = "";
 
   constructor(    
     private route: ActivatedRoute,
@@ -20,16 +22,24 @@ export class BlogEntryEditorComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
+    this.tags = this.blogEntryService.getBlogEntryTags();
   }
 
   newBlogEntry() {
-    let date : Date = new Date();
-    let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 
-    this.blogEntryService.addBlogEntry({title: this.title, content: this.content, updated: dateString} as BlogEntry)
-      .subscribe(entry => {
-        console.log(`Entrada creada con id = ${entry.id}`);
-        this.back();
-      });
+    if(this.title.length > 0 || this.content.length > 0) {
+      // DATE //
+      let date : Date = new Date();
+      let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 
+      ////////////////////////////////////////////////////////////////
+      this.blogEntryService.addBlogEntry({title: this.title, tag: this.tag, content: this.content, updated: dateString} as BlogEntry)
+        .subscribe(entry => {
+          console.log(`Entrada creada con id = ${entry.id}`);
+          this.back();
+        });
+    }
+    else {
+      console.log("No se puede crear una entrada sin título o sin contenido");
+    }
   }
 
   back() {

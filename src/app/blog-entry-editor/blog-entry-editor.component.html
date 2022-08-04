@@ -1,5 +1,10 @@
 <div class="vertical-container">
-    <textarea name="title-text" id="title-box" cols="30" rows="1" [(ngModel)]="title"></textarea>
+    <textarea name="title-text" id="title-box" cols="30" rows="1"
+    [(ngModel)]="title"></textarea>
+    <select name="entry-tag" id="entry-tag" [(ngModel)]="tag">
+        <option value="">Categoría</option>
+        <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
+    </select>
     <textarea name="entry-text" id="entry-box" cols="30" rows="30" [(ngModel)]="content"></textarea>
     
     <button type="submit" (click)="newBlogEntry()">Guardar</button>

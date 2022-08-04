@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { BlogEntryEditorComponent } from './blog-entry-editor.component';
 
@@ -19,7 +20,10 @@ describe('BlogEntryEditorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create', inject(
+    [ActivatedRoute],
+    () => {
+      expect(component).toBeTruthy();
+    }
+  ));
 });

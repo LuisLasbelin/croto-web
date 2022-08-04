@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BlogEntry } from 'src/defs/blogentry';
+import { BlogEntry, BlogEntryTag } from 'src/defs/blogentry';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,6 +17,21 @@ export class BlogEntryService {
 
   constructor(
     private http: HttpClient) { }
+
+
+  /**
+   * Returns the tags of the blog entries. 
+   *
+   * @returns string[]
+   */
+  getBlogEntryTags(): string[] {
+    // create array from enum BlogEntryTags
+    let tags: string[] = [];
+    for (let tag in BlogEntryTag) {
+      tags.push(tag);
+    }
+    return tags;
+  }
 
   getBlogEntries(): Observable<BlogEntry[]> {
     return this.http.get<BlogEntry[]>(this.blogEntriesUrl)
