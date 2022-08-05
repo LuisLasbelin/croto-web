@@ -14,6 +14,7 @@ import { BlogViewerComponent } from './blog-viewer/blog-viewer.component';
 import { BlogEntryEditorComponent } from './blog-entry-editor/blog-entry-editor.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ContentFragmentComponent } from './content-fragment/content-fragment.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     LandingComponent,
     BlogViewerComponent,
     BlogEntryEditorComponent,
+    ContentFragmentComponent,
   ],
   imports: [
     BrowserModule,

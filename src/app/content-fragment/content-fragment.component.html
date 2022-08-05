@@ -1,0 +1,2 @@
+<iframe *ngIf="contentType === 'video'" width="640" height="480" [src]="safeUrl" allowfullscreen></iframe>
+<p *ngIf="contentType === 'text'">{{content}}</p>

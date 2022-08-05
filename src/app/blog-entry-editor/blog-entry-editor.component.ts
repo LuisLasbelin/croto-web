@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { BlogEntry } from 'src/defs/blogentry';
+import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { BlogEntryService } from '../service/blog-entry.service';
 })
 export class BlogEntryEditorComponent implements OnInit {
 
-  content: string = "";
+  content: ContentFragment[] = [];
   title: string = "";
   tags: string[] = [];
   tag: string = "";
@@ -71,17 +71,9 @@ export class BlogEntryEditorComponent implements OnInit {
     ],
     customClasses: [
     {
-      name: 'quote',
-      class: 'quote',
-    },
-    {
-      name: 'redText',
-      class: 'redText'
-    },
-    {
-      name: 'titleText',
-      class: 'titleText',
-      tag: 'h1',
+      name: 'content',
+      class: 'content',
+      tag: 'app-content-fragment',
     },
   ],
   uploadUrl: 'v1/image',
