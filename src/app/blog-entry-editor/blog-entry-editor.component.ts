@@ -17,17 +17,30 @@ export class BlogEntryEditorComponent implements OnInit {
   tags: string[] = [];
   tag: string = "";
 
-  constructor(    
+  /// CONTENT FRAGMENT ///
+  contentFragmentTypes: {key: number, value: string}[] = [];
+  newFragmentType!: number;
+
+  constructor(
     private route: ActivatedRoute,
     private blogEntryService: BlogEntryService,
     private location: Location) { }
 
   ngOnInit(): void {
     this.tags = this.blogEntryService.getBlogEntryTags();
+    this.contentFragmentTypes = this.blogEntryService.getContentFragmentTypes();
+    this.newFragmentType = 0;
+  }
+
+  addContenFragment() {
+    console.log("Adding content fragment: " + this.newFragmentType);
+    let fragmentType = this.contentFragmentTypes.find(type => type.key == this.newFragmentType);
+    this.content.push({type: fragmentType, content: ""} as ContentFragment);
   }
 
   newBlogEntry() {
-    console.log("Title: " + this.title);
+    console.log("New blog entry");
+    console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
       // DATE //
       let date : Date = new Date();

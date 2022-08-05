@@ -4,9 +4,26 @@
         <option value="">Categoría</option>
         <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
     </select>
-    <angular-editor id="content-box" [placeholder]="'Enter text here...'"
-    [(ngModel)]="content" [config]="editorConfig"></angular-editor>
+    <ul>
+        <li *ngFor="let fragment of content">
+            <angular-editor *ngIf="fragment.type.key == 0" id="content-box" [placeholder]="'Enter text here...'"
+            [(ngModel)]="fragment.content" [config]="editorConfig"></angular-editor>
+
+            <textarea *ngIf="fragment.type.key == 2" name="content-box" cols="30" rows="1"
+            [(ngModel)]="fragment.content">Video URL</textarea>
+        </li>
+    </ul>
+
+    <div>
+        <button (click)="addContenFragment()">Añadir</button>
+        <select name="content-fragment-type" id="content-fragment-type"
+        [(ngModel)]="newFragmentType">
+            <option *ngFor="let type of contentFragmentTypes" [value]="type.key" >{{type.value}}</option>
+        </select>
+    </div>
     
-    <button type="submit" (click)="newBlogEntry()">Guardar</button>
-    <button type="submit" (click)="back()">Descartar</button>
+    <div>
+        <button type="submit" (click)="newBlogEntry()">Guardar</button>
+        <button type="submit" (click)="back()">Descartar</button>
+    </div>
 </div>

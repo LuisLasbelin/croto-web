@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ContentFragmentType } from 'src/defs/blogentry';
+import { BlogEntryService } from '../service/blog-entry.service';
 
 @Component({
   selector: 'app-content-fragment',
@@ -9,15 +9,21 @@ import { ContentFragmentType } from 'src/defs/blogentry';
 })
 export class ContentFragmentComponent implements OnInit {
 
-  @Input() contentType: ContentFragmentType = ContentFragmentType.Text;
+  @Input() contentType: {key: number, value: string} = {key: 0, value: 'Texto'};
   @Input() content: string = "";
+
+  contentFragmentTypes: {key: number, value: string}[] = [];
 
   safeUrl!: SafeResourceUrl;
 
-  constructor(private sanitizer : DomSanitizer) { }
+  constructor(
+    private sanitizer : DomSanitizer,
+    private blogEntryService: BlogEntryService) { }
 
   ngOnInit(): void {
-    if(this.contentType == ContentFragmentType.Video) {
+    this.contentFragmentTypes = this.blogEntryService.getContentFragmentTypes();
+
+    if(this.contentType.key == 2) {
       // Get video ID from youtube url
       let videoId = this.content.split('v=')[1];
 

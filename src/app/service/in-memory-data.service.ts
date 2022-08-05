@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { BlogEntry, BlogEntryTag, ContentFragmentType } from 'src/defs/blogentry';
-import { ContentFragmentComponent } from '../content-fragment/content-fragment.component';
+import { BlogEntry, BlogEntryTag } from 'src/defs/blogentry';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +9,15 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let date : Date = new Date();
     let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 
+    const contentFragmentTypes: { key: number, value: string }[] = [
+      { key: 0, value: 'Texto'},
+      { key: 1, value: 'Imagen'},
+      { key: 2, value: 'Video'}
+    ];
     const entries: BlogEntry[] = [
-      { id: 1, title: 'Title 1', tag: BlogEntryTag.Noticias, content: [{type: ContentFragmentType.Text, content: "Content1"}], updated: dateString, created: dateString },
-      { id: 2, title: 'Title 2', tag: BlogEntryTag.Otros, content: [{type: ContentFragmentType.Text, content: "Content22"}], updated: dateString, created: dateString },
-      { id: 3, title: 'I Can Hear You - A Bubble Orchestration', tag: BlogEntryTag.Tutorial, content: [{type: ContentFragmentType.Video, content: "https://www.youtube.com/watch?v=UCVVQ8bPRgY"}], updated: dateString, created: dateString }
+      { id: 1, title: 'Title 1', tag: BlogEntryTag.Noticias, content: [{type: contentFragmentTypes[0], content: "Content1"}], updated: dateString, created: dateString },
+      { id: 2, title: 'Title 2', tag: BlogEntryTag.Otros, content: [{type: contentFragmentTypes[0], content: "Content22"}], updated: dateString, created: dateString },
+      { id: 3, title: 'I Can Hear You - A Bubble Orchestration', tag: BlogEntryTag.Tutorial, content: [{type: contentFragmentTypes[2], content: "https://www.youtube.com/watch?v=UCVVQ8bPRgY"}, {type: contentFragmentTypes[0], content: "Esto es un vídeo"}], updated: dateString, created: dateString }
     ];
     return {entries};
   }

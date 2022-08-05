@@ -33,6 +33,19 @@ export class BlogEntryService {
     return tags;
   }
 
+  /**
+   * 
+   * @returns string[] types
+   */
+  getContentFragmentTypes(): { key: number, value: string }[] {
+    // create array from enum ContentFragmentType
+    return [
+      { key: 0, value: 'Texto'},
+      { key: 1, value: 'Imagen'},
+      { key: 2, value: 'Video'}
+    ]
+  }
+
   getBlogEntries(): Observable<BlogEntry[]> {
     return this.http.get<BlogEntry[]>(this.blogEntriesUrl)
       .pipe(

@@ -9,8 +9,15 @@ export interface BlogEntry {
     updated: string;
 }
 
+/**
+ * 
+ * type: 
+    * - 0: text
+    * - 1: image
+    * - 2: video
+ */
 export interface ContentFragment {
-    type: ContentFragmentType;
+    type: { key: number, value: string };
     content: string;
 }
 
@@ -19,10 +26,4 @@ export enum BlogEntryTag {
     Blog = 'Blog',
     Tutorial = 'Tutorial',
     Otros = 'Otros'
-}
-
-export enum ContentFragmentType {
-    Text = 'text',
-    Image = 'image',
-    Video = 'video'
 }

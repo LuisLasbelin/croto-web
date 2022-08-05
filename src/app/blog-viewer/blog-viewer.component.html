@@ -2,8 +2,8 @@
     <h2>{{entry.title}}</h2>
     <h3>Por C.Roto</h3>
     <!-- Renders the entry.content: string as HTML elements -->
-    <ul *ngFor="let fragment of entry.content">
-        <li>
+    <ul>
+        <li *ngFor="let fragment of entry.content">
             <app-content-fragment 
             [contentType]="fragment.type"
             [content]="fragment.content"></app-content-fragment>
