@@ -15,6 +15,8 @@ import { BlogEntryEditorComponent } from './blog-entry-editor/blog-entry-editor.
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ContentFragmentComponent } from './content-fragment/content-fragment.component';
+import { MapaMundiComponent } from './mapa-mundi/mapa-mundi.component';
+import { CharacterGalleryComponent } from './character-gallery/character-gallery.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ContentFragmentComponent } from './content-fragment/content-fragment.co
     BlogViewerComponent,
     BlogEntryEditorComponent,
     ContentFragmentComponent,
+    MapaMundiComponent,
+    CharacterGalleryComponent,
   ],
   imports: [
     BrowserModule,
