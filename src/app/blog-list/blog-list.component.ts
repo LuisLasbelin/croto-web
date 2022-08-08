@@ -27,7 +27,7 @@ export class BlogListComponent implements OnInit {
   }
 
   postCheckTable() {
-    this.blogEntryService.postCheckTable();
+    this.blogEntryService.postCheckTable().subscribe();
   }
 
   /* OUTDATED
