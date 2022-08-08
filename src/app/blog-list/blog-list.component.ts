@@ -29,13 +29,4 @@ export class BlogListComponent implements OnInit {
   postCheckTable() {
     this.blogEntryService.postCheckTable().subscribe();
   }
-
-  /* OUTDATED
-  newBlogEntry() {
-    this.blogEntryService.addBlogEntry({title:"New Title", content:"New Content"} as BlogEntry)
-      .subscribe(entry => {
-        this.entries.push(entry);
-      });
-  }
-  */
 }

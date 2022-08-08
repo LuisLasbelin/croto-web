@@ -9,7 +9,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppComponent } from './app.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { BlogViewerComponent } from './blog-viewer/blog-viewer.component';
@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { ContentFragmentComponent } from './content-fragment/content-fragment.component';
 import { MapaMundiComponent } from './mapa-mundi/mapa-mundi.component';
 import { CharacterGalleryComponent } from './character-gallery/character-gallery.component';
+import { NoopInterceptor } from './http-interceptors/noop.interceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { CharacterGalleryComponent } from './character-gallery/character-gallery
     HttpClientTestingModule,
     RouterModule.forRoot([])
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, 
+    // Interceptor providers can be grouped in a barrel
+    { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
