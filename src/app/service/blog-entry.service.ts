@@ -13,7 +13,10 @@ export class BlogEntryService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private blogEntriesUrl = 'api/entries';  // URL to web api
+  private blogEntriesUrl = 'https://sinfonia-de-sombras-p2u35.ondigitalocean.app/croto-api';
+
+  // Local testing
+  // private blogEntriesUrl = 'api/entries';  // URL to web api
 
   constructor(
     private http: HttpClient) { }
@@ -47,7 +50,8 @@ export class BlogEntryService {
   }
 
   getBlogEntries(): Observable<BlogEntry[]> {
-    return this.http.get<BlogEntry[]>(this.blogEntriesUrl)
+    const url = `${this.blogEntriesUrl}/entries`;
+    return this.http.get<BlogEntry[]>(url)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
         catchError(this.handleError<BlogEntry[]>('getBlogEntries', []))
@@ -64,7 +68,8 @@ export class BlogEntryService {
   }
 
   addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
-    return this.http.post<BlogEntry>(this.blogEntriesUrl, entry, this.httpOptions).pipe(
+    const url = `${this.blogEntriesUrl}/add-entry`;
+    return this.http.post<BlogEntry>(url, entry, this.httpOptions).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
     );

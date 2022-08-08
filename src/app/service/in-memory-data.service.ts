@@ -15,9 +15,9 @@ export class InMemoryDataService implements InMemoryDbService {
       { key: 2, value: 'Video'}
     ];
     const entries: BlogEntry[] = [
-      { id: 1, title: 'Title 1', tag: BlogEntryTag.Noticias, content: [{type: contentFragmentTypes[0], content: "Content1"}], updated: dateString, created: dateString },
-      { id: 2, title: 'Title 2', tag: BlogEntryTag.Otros, content: [{type: contentFragmentTypes[0], content: "Content22"}], updated: dateString, created: dateString },
-      { id: 3, title: 'I Can Hear You - A Bubble Orchestration', tag: BlogEntryTag.Tutorial, content: [{type: contentFragmentTypes[2], content: "https://www.youtube.com/watch?v=UCVVQ8bPRgY"}, {type: contentFragmentTypes[0], content: "Esto es un vídeo"}], updated: dateString, created: dateString }
+      { id: 1, title: 'Title 1', tag: BlogEntryTag.Noticias, content: [{type: contentFragmentTypes[0], content: "Content1"}], updated: dateString },
+      { id: 2, title: 'Title 2', tag: BlogEntryTag.Otros, content: [{type: contentFragmentTypes[0], content: "Content22"}], updated: dateString },
+      { id: 3, title: 'I Can Hear You - A Bubble Orchestration', tag: BlogEntryTag.Tutorial, content: [{type: contentFragmentTypes[2], content: "https://www.youtube.com/watch?v=UCVVQ8bPRgY"}, {type: contentFragmentTypes[0], content: "Esto es un vídeo"}], updated: dateString }
     ];
     return {entries};
   }

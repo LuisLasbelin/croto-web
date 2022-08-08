@@ -5,7 +5,6 @@ export interface BlogEntry {
     tag: BlogEntryTag;
     title: string;
     content: ContentFragment[];
-    created: string;
     updated: string;
 }
 
