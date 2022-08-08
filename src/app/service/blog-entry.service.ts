@@ -49,6 +49,14 @@ export class BlogEntryService {
     ]
   }
 
+  postCheckTable(): Observable<any> {
+    return this.http.post(this.blogEntriesUrl + '/check-table', {}, this.httpOptions)
+      .pipe(
+        tap(_ => console.log('checked table')),
+        catchError(this.handleError<any>('checkTable'))
+      );
+  }
+
   getBlogEntries(): Observable<BlogEntry[]> {
     const url = `${this.blogEntriesUrl}/entries`;
     return this.http.get<BlogEntry[]>(url)
@@ -60,7 +68,7 @@ export class BlogEntryService {
 
   /** GET hero by id. Will 404 if id not found */
   getBlogEntry(id: number): Observable<BlogEntry> {
-    const url = `${this.blogEntriesUrl}/${id}`;
+    const url = `${this.blogEntriesUrl}/entries/${id}`;
     return this.http.get<BlogEntry>(url).pipe(
       tap(_ => console.log(`fetched blog entry id=${id}`)),
       catchError(this.handleError<BlogEntry>(`getBlogEntry id=${id}`))

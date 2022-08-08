@@ -14,6 +14,7 @@ export class BlogListComponent implements OnInit {
   constructor(private blogEntryService: BlogEntryService) {}
 
   ngOnInit(): void {
+    this.postCheckTable();
     this.getBlogEntries();
   }
 
@@ -23,6 +24,10 @@ export class BlogListComponent implements OnInit {
    */
   getBlogEntries() {
     this.blogEntryService.getBlogEntries().subscribe(entries => this.entries = entries);
+  }
+
+  postCheckTable() {
+    this.blogEntryService.postCheckTable();
   }
 
   /* OUTDATED
