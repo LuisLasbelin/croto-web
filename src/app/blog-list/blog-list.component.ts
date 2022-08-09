@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogEntry } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-blog-list',
@@ -9,7 +10,7 @@ import { BlogEntryService } from '../service/blog-entry.service';
 })
 export class BlogListComponent implements OnInit {
 
-  entries!: BlogEntry[];
+  entries!: Observable<BlogEntry[]>;
 
   constructor(private blogEntryService: BlogEntryService) {}
 
@@ -22,6 +23,26 @@ export class BlogListComponent implements OnInit {
    * @returns BlogEntry[]
    */
   getBlogEntries() {
-    this.blogEntryService.getBlogEntries().subscribe(entries => this.entries = entries);
+    var result : Observable<BlogEntry[]>;
+    this.blogEntryService.getBlogEntries().subscribe(entries => {
+      console.log(entries);
+      result = of(this._mapToBlogEntry(entries));
+      this.entries = result;
+    })
   }
+
+  private _mapToBlogEntry(array: any[]) {
+    let result: BlogEntry[] = [];
+    for (let i = 0; i < array.length; i++) {
+      result.push({
+        id: array[i].id,
+        tag: array[i].tag,
+        title: array[i].title,
+        content: array[i].content,
+        updated: array[i].updated
+      })
+    };
+    return result;
+  }
+  
 }
