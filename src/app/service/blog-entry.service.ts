@@ -57,14 +57,13 @@ export class BlogEntryService {
       );
   }
 
-  getBlogEntries(): Observable<BlogEntry[]> {
+  getBlogEntries(): Observable<any[]> {
     console.log("getBlogEntries");
     const url = `${this.blogEntriesUrl}/entries`;
-    return this.http.get<BlogEntry[]>(url)
+    return this.http.get<any[]>(url)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
-        map((res: any) => res as BlogEntry[]),
-        catchError(this.handleError<BlogEntry[]>('getBlogEntries', []))
+        catchError(this.handleError<any[]>('getBlogEntries', []))
       );
   }
 
