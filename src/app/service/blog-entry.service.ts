@@ -3,6 +3,7 @@ import { BlogEntry, BlogEntryTag } from 'src/defs/blogentry';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,7 @@ export class BlogEntryService {
     return this.http.get<BlogEntry[]>(url)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
+        map((res: any) => res as BlogEntry[]),
         catchError(this.handleError<BlogEntry[]>('getBlogEntries', []))
       );
   }
