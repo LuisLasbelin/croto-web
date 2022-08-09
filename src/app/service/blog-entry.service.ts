@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BlogEntry, BlogEntryTag } from 'src/defs/blogentry';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -58,6 +58,7 @@ export class BlogEntryService {
   }
 
   getBlogEntries(): Observable<BlogEntry[]> {
+    console.log("getBlogEntries");
     const url = `${this.blogEntriesUrl}/entries`;
     return this.http.get<BlogEntry[]>(url)
       .pipe(
@@ -68,14 +69,17 @@ export class BlogEntryService {
 
   /** GET hero by id. Will 404 if id not found */
   getBlogEntry(id: number): Observable<BlogEntry> {
+    console.log("getBlogEntry");
     const url = `${this.blogEntriesUrl}/entries/${id}`;
     return this.http.get<BlogEntry>(url).pipe(
       tap(_ => console.log(`fetched blog entry id=${id}`)),
+      retry(3),
       catchError(this.handleError<BlogEntry>(`getBlogEntry id=${id}`))
     );
   }
 
   addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
+    console.log("addBlogEntry");
     const url = `${this.blogEntriesUrl}/add-entry`;
     return this.http.post<BlogEntry>(url, entry, this.httpOptions).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),

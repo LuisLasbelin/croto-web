@@ -45,7 +45,6 @@ import { NoopInterceptor } from './http-interceptors/noop.interceptor';
       InMemoryDataService, { dataEncapsulation: false }
     ),
     //////////////////////////////*/
-
     AppRoutingModule,
     HttpClientTestingModule,
     RouterModule.forRoot([])
