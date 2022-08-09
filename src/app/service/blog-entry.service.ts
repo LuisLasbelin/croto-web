@@ -59,7 +59,7 @@ export class BlogEntryService {
 
   getBlogEntries() {
     console.log("getBlogEntries");
-    const url = `${this.blogEntriesUrl}/entries`;
+    const url = 'https://sinfonia-de-sombras-p2u35.ondigitalocean.app/croto-api/entries';
     return this.http.get(url)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
