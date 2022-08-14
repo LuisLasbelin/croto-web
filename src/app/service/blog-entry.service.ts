@@ -68,7 +68,7 @@ export class BlogEntryService {
 
   getBlogEntries() {
     console.log("getBlogEntries");
-    const url = 'https://jsonplaceholder.typicode.com/users';
+    const url = '/api/users';
     return this.http.get(url, this.httpOptions)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
