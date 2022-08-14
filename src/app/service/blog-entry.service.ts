@@ -9,10 +9,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class BlogEntryService {
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
   private blogEntriesUrl = 'https://sinfonia-de-sombras-p2u35.ondigitalocean.app/croto-api';
 
   // Local testing
@@ -59,7 +55,7 @@ export class BlogEntryService {
   }
 
   postCheckTable(): Observable<any> {
-    return this.http.post(this.blogEntriesUrl + '/check-table', {}, this.httpOptions)
+    return this.http.post(this.blogEntriesUrl + '/check-table', {})
       .pipe(
         tap(_ => console.log('checked table')),
         catchError(this.handleError<any>('checkTable'))
@@ -69,7 +65,7 @@ export class BlogEntryService {
   getBlogEntries() {
     console.log("getBlogEntries");
     const url = '/api/users';
-    return this.http.get(url, this.httpOptions)
+    return this.http.get(url)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
         catchError(this.handleError<any[]>('getBlogEntries', []))
@@ -90,7 +86,7 @@ export class BlogEntryService {
   addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
     console.log("addBlogEntry");
     const url = `${this.blogEntriesUrl}/add-entry`;
-    return this.http.post<BlogEntry>(url, entry, this.httpOptions).pipe(
+    return this.http.post<BlogEntry>(url, entry).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
     );
