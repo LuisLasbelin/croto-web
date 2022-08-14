@@ -64,8 +64,7 @@ export class BlogEntryService {
 
   getBlogEntries() {
     console.log("getBlogEntries");
-    const url = '/croto-api/entries';
-    return this.http.get(url)
+    return this.http.get(`/croto-api/entries`)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
         catchError(this.handleError<any[]>('getBlogEntries', []))
