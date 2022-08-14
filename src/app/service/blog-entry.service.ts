@@ -19,7 +19,7 @@ export class BlogEntryService {
 
 
   testFunction() {
-    const req = this.http.get('https://jsonplaceholder.typicode.com/users', {responseType:'text'});
+    const req = this.http.get('/croto-api', {responseType:'text'});
 
     req.subscribe(data => {
       console.log(data);
@@ -64,7 +64,7 @@ export class BlogEntryService {
 
   getBlogEntries() {
     console.log("getBlogEntries");
-    const url = '/api/users';
+    const url = '/croto-api/users';
     return this.http.get(url)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
