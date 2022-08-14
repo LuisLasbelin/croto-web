@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogEntry } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-blog-list',
@@ -15,7 +14,11 @@ export class BlogListComponent implements OnInit {
   constructor(private blogEntryService: BlogEntryService) {}
 
   ngOnInit(): void {
+
+    this.blogEntryService.testFunction();
+
     this.getBlogEntries();
+
   }
 
   /**

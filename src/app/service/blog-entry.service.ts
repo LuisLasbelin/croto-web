@@ -22,6 +22,15 @@ export class BlogEntryService {
     private http: HttpClient) { }
 
 
+  testFunction() {
+    const req = this.http.get('https://jsonplaceholder.typicode.com/users', {responseType:'text'});
+
+    req.subscribe(data => {
+      console.log(data);
+    });
+
+  }
+
   /**
    * Returns the tags of the blog entries. 
    *
@@ -67,7 +76,7 @@ export class BlogEntryService {
       );
   }
 
-  /** GET hero by id. Will 404 if id not found */
+  
   getBlogEntry(id: number): Observable<BlogEntry> {
     console.log("getBlogEntry");
     const url = `${this.blogEntriesUrl}/entries/${id}`;
