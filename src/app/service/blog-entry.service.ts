@@ -15,6 +15,19 @@ export class BlogEntryService {
   constructor(
     private http: HttpClient) { }
 
+  /**
+   * 
+   * @returns string[] types
+   */
+  getContentFragmentTypes(): { key: number, value: string }[] {
+    // create array from enum ContentFragmentType
+    return [
+      { key: 0, value: 'Texto'},
+      { key: 1, value: 'Imagen'},
+      { key: 2, value: 'Video'}
+    ]
+  }
+
   testFunction(): Observable<any> {
     console.log("Testing connection api")
     return this.http.get('/api', {responseType: 'text'});
@@ -34,19 +47,6 @@ export class BlogEntryService {
     return tags;
   }
 
-  /**
-   * 
-   * @returns string[] types
-   */
-  getContentFragmentTypes(): { key: number, value: string }[] {
-    // create array from enum ContentFragmentType
-    return [
-      { key: 0, value: 'Texto'},
-      { key: 1, value: 'Imagen'},
-      { key: 2, value: 'Video'}
-    ]
-  }
-
   getBlogEntries() {
     console.log("getBlogEntries");
     return this.http.get(`/api/entries`)
@@ -60,7 +60,7 @@ export class BlogEntryService {
   
   getBlogEntry(id: number): Observable<BlogEntry> {
     console.log("getBlogEntry");
-    const url = `/entries/${id}`;
+    const url = `/api/entries/${id}`;
     return this.http.get<BlogEntry>(url).pipe(
       tap(_ => console.log(`fetched blog entry id=${id}`)),
       retry(3),
@@ -70,7 +70,7 @@ export class BlogEntryService {
 
   addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
     console.log("addBlogEntry");
-    const url = `/add-entry`;
+    const url = `/api/add-entry`;
     return this.http.post<BlogEntry>(url, entry).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
