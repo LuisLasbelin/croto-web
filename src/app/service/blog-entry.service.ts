@@ -19,11 +19,9 @@ export class BlogEntryService {
 
 
   testFunction() {
-    const req = this.http.get('/croto-api', {responseType:'text'});
+    return this.http.get('/croto-api');
 
-    req.subscribe(data => {
-      console.log(data);
-    });
+
 
   }
 

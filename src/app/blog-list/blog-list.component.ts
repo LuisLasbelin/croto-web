@@ -15,7 +15,10 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.blogEntryService.testFunction();
+    this.blogEntryService.testFunction()
+    .subscribe(data => {
+      console.log(data);
+    });
 
     this.getBlogEntries();
 
