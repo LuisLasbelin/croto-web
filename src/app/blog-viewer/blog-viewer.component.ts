@@ -29,7 +29,6 @@ export class BlogViewerComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.blogEntryService.getBlogEntry(id)
       .subscribe((entry: BlogEntry[]) => {
-        console.log(entry);
         this.entry = {
           id: entry[0].id,
           title: entry[0].title,
@@ -37,7 +36,7 @@ export class BlogViewerComponent implements OnInit {
           content: entry[0].content as ContentFragment[],
           date: entry[0].date
         }
-        console.log(this.entry);
+        console.log(this.entry.content.toString());
       });
   }
 
