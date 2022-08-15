@@ -17,10 +17,12 @@ export class BlogViewerComponent implements OnInit {
     private route: ActivatedRoute,
     private blogEntryService: BlogEntryService,
     private location: Location
-  ) {}
+  ) {
+    this.getBlogEntry();
+  }
 
   ngOnInit(): void {
-    this.getBlogEntry();
+    
   }
   
   getBlogEntry(): void {
