@@ -28,14 +28,14 @@ export class BlogViewerComponent implements OnInit {
   getBlogEntry(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.blogEntryService.getBlogEntry(id)
-      .subscribe((entry) => {
+      .subscribe((entry: BlogEntry[]) => {
         console.log(entry);
         this.entry = {
-          id: entry.id,
-          title: entry.title,
-          tag: entry.tag,
-          content: entry.content,
-          date: entry.date
+          id: entry[0].id,
+          title: entry[0].title,
+          tag: entry[0].tag,
+          content: entry[0].content,
+          date: entry[0].date
         }
         console.log(this.entry);
       });
