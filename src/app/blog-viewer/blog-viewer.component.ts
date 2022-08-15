@@ -18,11 +18,11 @@ export class BlogViewerComponent implements OnInit {
     private blogEntryService: BlogEntryService,
     private location: Location
   ) {
-    this.getBlogEntry();
+    
   }
 
   ngOnInit(): void {
-    console.log(this.entry);
+    this.getBlogEntry();
   }
   
   getBlogEntry(): void {
@@ -36,6 +36,7 @@ export class BlogViewerComponent implements OnInit {
           content: entry.content,
           date: entry.date
         }
+        console.log(this.entry);
       });
   }
 
