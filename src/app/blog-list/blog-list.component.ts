@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { BlogEntry } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
 
@@ -10,18 +11,13 @@ import { BlogEntryService } from '../service/blog-entry.service';
 export class BlogListComponent implements OnInit {
 
   entries!: BlogEntry[];
-  req$: any;
 
   constructor(private blogEntryService: BlogEntryService) {
-    this.req$ = this.blogEntryService.testFunction();
-    console.log(this.req$);
   }
 
   ngOnInit(): void {
     console.log("Init page");
-    this.req$.subscribe(() => {
-      console.log("LOG GET");
-    });
+    this.blogEntryService.testFunction().subscribe({ next: response => {console.log(response);}});
 
     //this.getBlogEntries();
 
