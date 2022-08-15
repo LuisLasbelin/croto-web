@@ -29,6 +29,7 @@ export class BlogViewerComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.blogEntryService.getBlogEntry(id)
       .subscribe((entry: BlogEntry) => {
+        console.log(entry);
         this.entry = {
           id: entry.id,
           title: entry.title,
