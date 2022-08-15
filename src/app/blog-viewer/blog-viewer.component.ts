@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BlogEntry } from 'src/defs/blogentry';
+import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
 
 @Component({
@@ -34,7 +34,7 @@ export class BlogViewerComponent implements OnInit {
           id: entry[0].id,
           title: entry[0].title,
           tag: entry[0].tag,
-          content: entry[0].content,
+          content: entry[0].content as ContentFragment[],
           date: entry[0].date
         }
         console.log(this.entry);
