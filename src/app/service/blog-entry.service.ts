@@ -62,6 +62,7 @@ export class BlogEntryService {
     return this.http.get(`/api/entries`)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
+        retry(3),
         catchError(this.handleError<any[]>('getBlogEntries', []))
       );
   }
