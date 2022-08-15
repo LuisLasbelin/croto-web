@@ -9,8 +9,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class BlogEntryService {
 
-  private blogEntriesUrl = 'https://sinfonia-de-sombras-p2u35.ondigitalocean.app/api';
-
   // Local testing
   // private blogEntriesUrl = 'api/entries';  // URL to web api
 
@@ -19,7 +17,7 @@ export class BlogEntryService {
 
   testFunction(): Observable<any> {
     console.log("Testing connection api")
-    return this.http.get('https://sinfonia-de-sombras-p2u35.ondigitalocean.app/api', {responseType: 'text'});
+    return this.http.get('/api', {responseType: 'text'});
   }
 
   /**
@@ -49,14 +47,6 @@ export class BlogEntryService {
     ]
   }
 
-  postCheckTable(): Observable<any> {
-    return this.http.post(this.blogEntriesUrl + '/check-table', {})
-      .pipe(
-        tap(_ => console.log('checked table')),
-        catchError(this.handleError<any>('checkTable'))
-      );
-  }
-
   getBlogEntries() {
     console.log("getBlogEntries");
     return this.http.get(`/api/entries`)
@@ -70,7 +60,7 @@ export class BlogEntryService {
   
   getBlogEntry(id: number): Observable<BlogEntry> {
     console.log("getBlogEntry");
-    const url = `${this.blogEntriesUrl}/entries/${id}`;
+    const url = `/entries/${id}`;
     return this.http.get<BlogEntry>(url).pipe(
       tap(_ => console.log(`fetched blog entry id=${id}`)),
       retry(3),
@@ -80,7 +70,7 @@ export class BlogEntryService {
 
   addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
     console.log("addBlogEntry");
-    const url = `${this.blogEntriesUrl}/add-entry`;
+    const url = `/add-entry`;
     return this.http.post<BlogEntry>(url, entry).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
