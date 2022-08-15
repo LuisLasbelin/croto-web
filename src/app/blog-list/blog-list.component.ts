@@ -14,10 +14,11 @@ export class BlogListComponent implements OnInit {
 
   constructor(private blogEntryService: BlogEntryService) {
     this.req$ = this.blogEntryService.testFunction();
+    console.log(this.req$);
   }
 
   ngOnInit(): void {
-
+    console.log("Init page");
     this.req$.subscribe((data: any) => {
       console.log(data);
     });
