@@ -10,15 +10,18 @@ import { BlogEntryService } from '../service/blog-entry.service';
 export class BlogListComponent implements OnInit {
 
   entries!: BlogEntry[];
+  req$: any;
 
   constructor(private blogEntryService: BlogEntryService) {}
 
   ngOnInit(): void {
 
-    this.blogEntryService.testFunction()
-    .subscribe(data => {
+    this.req$ = this.blogEntryService.testFunction();
+
+    this.req$.subscribe((data: any) => {
       console.log(data);
     });
+    
 
     //this.getBlogEntries();
 

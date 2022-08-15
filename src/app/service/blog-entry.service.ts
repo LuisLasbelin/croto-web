@@ -20,7 +20,7 @@ export class BlogEntryService {
 
   testFunction() {
     console.log("Testing connection")
-    return this.http.get(`/api`, {responseType: 'text' as const, observe: 'response'});
+    return this.http.get<string>(`/api`, { observe: 'response'});
   }
 
   /**
