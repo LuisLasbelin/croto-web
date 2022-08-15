@@ -12,16 +12,15 @@ export class BlogListComponent implements OnInit {
   entries!: BlogEntry[];
   req$: any;
 
-  constructor(private blogEntryService: BlogEntryService) {}
+  constructor(private blogEntryService: BlogEntryService) {
+    this.req$ = this.blogEntryService.testFunction();
+  }
 
   ngOnInit(): void {
-
-    this.req$ = this.blogEntryService.testFunction();
 
     this.req$.subscribe((data: any) => {
       console.log(data);
     });
-    
 
     //this.getBlogEntries();
 
