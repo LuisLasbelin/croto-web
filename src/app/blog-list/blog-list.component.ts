@@ -20,7 +20,7 @@ export class BlogListComponent implements OnInit {
       console.log(data);
     });
 
-    this.getBlogEntries();
+    //this.getBlogEntries();
 
   }
 

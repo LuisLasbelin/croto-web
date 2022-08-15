@@ -19,7 +19,8 @@ export class BlogEntryService {
 
 
   testFunction() {
-    return this.http.get('/croto-api', {responseType: 'text' as const, observe: 'response'});
+    console.log("Testing connection")
+    return this.http.get(`/api`, {responseType: 'text' as const, observe: 'response'});
   }
 
   /**
@@ -59,7 +60,7 @@ export class BlogEntryService {
 
   getBlogEntries() {
     console.log("getBlogEntries");
-    return this.http.get(`/croto-api/entries`)
+    return this.http.get(`/api/entries`)
       .pipe(
         tap(_ => console.log('fetched blog entries')),
         catchError(this.handleError<any[]>('getBlogEntries', []))
