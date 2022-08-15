@@ -22,7 +22,7 @@ export class BlogViewerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    console.log(this.entry);
   }
   
   getBlogEntry(): void {
