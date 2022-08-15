@@ -20,7 +20,7 @@ export class BlogListComponent implements OnInit {
     this.blogEntryService.testFunction().subscribe({ next: response => {console.log(response);}});
 
 
-    //this.getBlogEntries();
+    this.getBlogEntries();
 
   }
 
