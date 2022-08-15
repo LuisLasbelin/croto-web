@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class BlogEntryService {
 
-  private blogEntriesUrl = 'https://sinfonia-de-sombras-p2u35.ondigitalocean.app/croto-api';
+  private blogEntriesUrl = 'https://sinfonia-de-sombras-p2u35.ondigitalocean.app/api';
 
   // Local testing
   // private blogEntriesUrl = 'api/entries';  // URL to web api
@@ -20,7 +20,7 @@ export class BlogEntryService {
 
   testFunction() {
     console.log("Testing connection")
-    return this.http.get<string>(`/api`, { observe: 'response'});
+    return this.http.get<string>(`https://sinfonia-de-sombras-p2u35.ondigitalocean.app/api`, { observe: 'response'});
   }
 
   /**
