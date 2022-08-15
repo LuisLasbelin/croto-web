@@ -19,15 +19,7 @@ export class BlogViewerComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {
-    this.getBlogEntry();
-  }
-  
-  getBlogEntry(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.blogEntryService.getBlogEntry(id)
-      .subscribe((entry: BlogEntry) => this.entry = entry);
-  }
+  ngOnInit(): void {}
 
   goBack(): void {
     this.location.back();
