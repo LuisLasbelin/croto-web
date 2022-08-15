@@ -10,7 +10,7 @@ import { BlogEntryService } from '../service/blog-entry.service';
 })
 export class BlogListComponent implements OnInit {
 
-  entries!: BlogEntry[];
+  entries: BlogEntry[] = [];
 
   constructor(private blogEntryService: BlogEntryService) {
   }
