@@ -71,7 +71,14 @@ export class BlogEntryService {
   addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
     console.log("addBlogEntry");
     const url = `/api/add-entry`;
-    return this.http.post<BlogEntry>(url, entry).pipe(
+    // We need to upload items as strings to avoid return type problems
+    let data = {
+      title: entry.title,
+      tag: entry.tag,
+      date: new Date().getDate().toString(),
+      content: entry.content.toLocaleString()
+    }
+    return this.http.post<BlogEntry>(url, data).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
     );

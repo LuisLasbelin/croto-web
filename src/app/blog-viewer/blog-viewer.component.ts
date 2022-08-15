@@ -33,7 +33,7 @@ export class BlogViewerComponent implements OnInit {
           id: entry[0].id,
           title: entry[0].title,
           tag: entry[0].tag,
-          content: entry[0].content as ContentFragment[],
+          content: entry[0].content,
           date: entry[0].date
         }
         console.log(this.entry.content.toString());
