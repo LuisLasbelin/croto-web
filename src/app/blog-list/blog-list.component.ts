@@ -19,6 +19,7 @@ export class BlogListComponent implements OnInit {
     console.log("Init page");
     this.blogEntryService.testFunction().subscribe({ next: response => {console.log(response);}});
 
+
     //this.getBlogEntries();
 
   }

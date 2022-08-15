@@ -17,7 +17,6 @@ export class BlogEntryService {
   constructor(
     private http: HttpClient) { }
 
-
   testFunction(): Observable<any> {
     console.log("Testing connection api")
     return this.http.get('https://sinfonia-de-sombras-p2u35.ondigitalocean.app/api');
