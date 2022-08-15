@@ -20,7 +20,7 @@ export class BlogEntryService {
 
   testFunction() {
     console.log("Testing connection")
-    return this.http.get<string>(`https://sinfonia-de-sombras-p2u35.ondigitalocean.app/api`, { observe: 'response'});
+    return this.http.get<string>(`https://sinfonia-de-sombras-p2u35.ondigitalocean.app/api`);
   }
 
   /**

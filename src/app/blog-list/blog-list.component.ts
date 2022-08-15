@@ -19,9 +19,7 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("Init page");
-    this.req$.subscribe(() => {
-      console.log("LOG GET");
-    });
+    this.req$.subscribe({next: () => console.log("Fetched"), error: (error: any) => console.error(error)});
 
     //this.getBlogEntries();
 
