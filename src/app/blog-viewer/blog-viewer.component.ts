@@ -11,7 +11,7 @@ import { BlogEntryService } from '../service/blog-entry.service';
 })
 export class BlogViewerComponent implements OnInit {
 
-  @Input('entry') entry!: BlogEntry;
+  entry!: BlogEntry;
 
   constructor(
     private route: ActivatedRoute,
