@@ -72,11 +72,12 @@ export class BlogEntryService {
     console.log("addBlogEntry");
     const url = `/api/add-entry`;
     // We need to upload items as strings to avoid return type problems
+    let today = new Date();
     let data = {
       id: entry.id,
       title: entry.title,
       tag: entry.tag.toString(),
-      date: new Date(),
+      date: `${today.getFullYear}-${today.getMonth}-${today.getDay}`,
       content: entry.content[0].content
     }
     return this.http.post<BlogEntry>(url, data).pipe(
