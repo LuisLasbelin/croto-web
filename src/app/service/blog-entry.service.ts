@@ -76,7 +76,7 @@ export class BlogEntryService {
       id: entry.id,
       title: entry.title,
       tag: entry.tag.toString(),
-      date: new Date().getDate().toString(),
+      date: new Date(),
       content: entry.content[0].content
     }
     return this.http.post<BlogEntry>(url, data).pipe(
