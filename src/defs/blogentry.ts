@@ -1,4 +1,3 @@
-import { ContentFragmentComponent } from "src/app/content-fragment/content-fragment.component";
 
 export interface BlogEntry {
     id: number;

@@ -32,21 +32,24 @@ export class BlogEntryEditorComponent implements OnInit {
     this.newFragmentType = 0;
   }
 
-  addContenFragment() {
+  /**
+   * Adds a new content fragment to the entry
+   */
+  addContentFragment() {
     console.log("Adding content fragment: " + this.newFragmentType);
     let fragmentType = this.contentFragmentTypes.find(type => type.key == this.newFragmentType);
     this.content.push({type: fragmentType, content: ""} as ContentFragment);
   }
 
+  /**
+   * Adds a new blog entry to the database using form data
+   */
   newBlogEntry() {
     console.log("New blog entry");
     console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
-      // DATE //
-      let date : Date = new Date();
-      let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 
-      ////////////////////////////////////////////////////////////////
-      this.blogEntryService.addBlogEntry({id: 0, title: this.title, tag: this.tag, content: this.content, date: dateString} as BlogEntry)
+      // NOTE: Date is done by the server. This one is overwritten
+      this.blogEntryService.addBlogEntry({id: 0, title: this.title, tag: this.tag, content: this.content, date: new Date().toDateString()} as BlogEntry)
         .subscribe(entry => {
           console.log(`Entrada creada con id = ${entry.id}`);
           this.back();

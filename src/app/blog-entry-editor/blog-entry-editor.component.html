@@ -15,7 +15,7 @@
     </ul>
 
     <div>
-        <button (click)="addContenFragment()">Añadir</button>
+        <button (click)="addContentFragment()">Añadir</button>
         <select name="content-fragment-type" id="content-fragment-type"
         [(ngModel)]="newFragmentType">
             <option *ngFor="let type of contentFragmentTypes" [value]="type.key" >{{type.value}}</option>
