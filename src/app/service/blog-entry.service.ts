@@ -77,7 +77,7 @@ export class BlogEntryService {
       id: entry.id,
       title: entry.title,
       tag: entry.tag.toString(),
-      date: `${today.getFullYear}-${today.getMonth}-${today.getDay}`,
+      date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
       content: entry.content[0].content
     }
     return this.http.post<BlogEntry>(url, data).pipe(
