@@ -111,7 +111,7 @@ export class BlogEntryService {
 
   parseContent(s: string): ContentFragment[] {
     let content: ContentFragment[] = [];
-    JSON.parse(s);
+    content = JSON.parse(s);
     return content;
   }
 
