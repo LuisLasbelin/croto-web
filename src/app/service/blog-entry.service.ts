@@ -105,14 +105,7 @@ export class BlogEntryService {
    * @returns string
    */
   contentToString(entry: BlogEntry): string {
-    let contentString: string = "[";
-    for (let i = 0; i < entry.content.length; i++) {
-      // add a content fragment to array
-      contentString += `{"type": { "key": ${entry.content[i].type.key}, "value": ${entry.content[i].type.value}},"content": ${entry.content[i].content}}`;
-      // Only if the iteration is not the last
-      if(entry.content.length > i+1) contentString += ',';
-    }
-    contentString += "]"
+    let contentString = JSON.stringify(entry.content);
     return contentString;
   }
 
