@@ -78,7 +78,7 @@ export class BlogEntryService {
       title: entry.title,
       tag: entry.tag.toString(),
       date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
-      content: entry.content[0].content
+      content: [entry.content[0].content]
     }
     return this.http.post<BlogEntry>(url, data).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
