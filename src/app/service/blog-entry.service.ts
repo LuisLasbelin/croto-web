@@ -75,7 +75,7 @@ export class BlogEntryService {
     let data = {
       id: entry.id,
       title: entry.title,
-      tag: entry.tag,
+      tag: entry.tag.toString(),
       date: new Date().getDate().toString(),
       content: entry.content[0].content
     }
