@@ -36,7 +36,7 @@ export class BlogViewerComponent implements OnInit {
           content: this.blogEntryService.parseContent(entry[0].content),
           date: entry[0].date
         }
-        console.log(this.entry.content.toString());
+        console.log(this.entry);
       });
   }
 
