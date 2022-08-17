@@ -46,7 +46,7 @@ export class BlogEntryEditorComponent implements OnInit {
       let date : Date = new Date();
       let dateString : string = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`; 
       ////////////////////////////////////////////////////////////////
-      this.blogEntryService.addBlogEntry({title: this.title, tag: this.tag, content: this.content, date: dateString} as BlogEntry)
+      this.blogEntryService.addBlogEntry({id: 0, title: this.title, tag: this.tag, content: this.content, date: dateString} as BlogEntry)
         .subscribe(entry => {
           console.log(`Entrada creada con id = ${entry.id}`);
           this.back();
