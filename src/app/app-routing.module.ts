@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { BlogEntryEditorComponent } from './blog-entry-editor/blog-entry-editor.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogViewerComponent } from './blog-viewer/blog-viewer.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'blog-editor', component: BlogEntryEditorComponent },
   { path: 'character-gallery', component: CharacterGalleryComponent },
   { path: 'mapamundi', component: MapaMundiComponent },
+  { path: process.env['ADMIN'], component: AdminPanelComponent}
 ];
 
 @NgModule({
