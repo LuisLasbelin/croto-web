@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'blog-editor', component: BlogEntryEditorComponent },
   { path: 'character-gallery', component: CharacterGalleryComponent },
   { path: 'mapamundi', component: MapaMundiComponent },
-  { path: process.env['ADMIN'], component: AdminPanelComponent}
+  { path: 'admin', component: AdminPanelComponent}
 ];
 
 @NgModule({
