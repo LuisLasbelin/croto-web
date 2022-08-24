@@ -15,6 +15,11 @@ export class CookiesService {
     document.cookie = `${name}=${value}; ${expires}${cpath}`;
   }
 
+  /**
+   * 
+   * @param name string of cookie
+   * @returns cookie or ""
+   */
   getCookie(name: string) {
     let ca: Array<string> = document.cookie.split(';');
     let caLen: number = ca.length;
