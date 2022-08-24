@@ -3,6 +3,7 @@ import { BlogEntry, BlogEntryTag, ContentFragment } from 'src/defs/blogentry';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Session } from 'src/defs/session';
 
 @Injectable({
   providedIn: 'root'
@@ -96,6 +97,15 @@ export class BlogEntryService {
     return this.http.post<BlogEntry>(url, data).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
+    );
+  }
+
+  login(password: string) {
+    console.log("login");
+    const url = `/api/login`;
+    return this.http.post<Session>(url, password).pipe(
+      tap(_ => console.log(`login OK`)),
+      catchError(this.handleError('login'))
     );
   }
 
