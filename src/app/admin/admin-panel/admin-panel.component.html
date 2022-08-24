@@ -3,14 +3,6 @@
     <textarea name="password" id="password" cols="30" rows="1" [(ngModel)]="password"></textarea>
     <button type="submit" (click)="login()">Entrar</button>
 </div>
-<div if="panel" *ngIf="session.session">
-    <ul>
-        <li *ngFor="let entry of entries" class="blog-list">
-            <button class="entry" routerLink="/blog-viewer/{{entry.id}}">
-                <h3 class="title">{{entry.title}}</h3>
-                <p>{{entry.tag}}</p>
-                <p class="date">{{entry.date}}</p>
-            </button>
-        </li>
-    </ul>
+<div id="panel" *ngIf="session.session">
+    <app-blog-list></app-blog-list>
 </div>
