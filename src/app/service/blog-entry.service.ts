@@ -103,7 +103,7 @@ export class BlogEntryService {
   login(password: string) {
     console.log("login");
     const url = `/api/login`;
-    return this.http.post<Session>(url, password).pipe(
+    return this.http.post<Session>(url, {password: password}).pipe(
       tap(_ => console.log(`login OK`)),
       catchError(this.handleError('login'))
     );
