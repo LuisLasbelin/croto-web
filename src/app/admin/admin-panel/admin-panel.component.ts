@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogEntryService } from 'src/app/service/blog-entry.service';
+import { CookiesService } from 'src/app/service/cookies.service';
 import { Session } from 'src/defs/session';
 
 @Component({
@@ -13,13 +14,18 @@ export class AdminPanelComponent implements OnInit {
 
   password: string = "";
 
-  constructor(private bogEntryService: BlogEntryService) { }
+  constructor(private bogEntryService: BlogEntryService, private cookiesService: CookiesService) { }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.bogEntryService.login(this.password).subscribe(data => this.session = data as Session);
+    this.bogEntryService.login(this.password).subscribe(data => this.afterLogin(data as Session));
+  }
+
+  afterLogin(data: Session) {
+    this.session = data;
+    this.cookiesService.setCookie("SESSION", this.password, 2);
   }
 
 }
