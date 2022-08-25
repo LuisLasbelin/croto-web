@@ -20,7 +20,7 @@ export class AdminPanelComponent implements OnInit {
   constructor(private blogEntryService: BlogEntryService, private cookiesService: CookiesService) { }
 
   ngOnInit(): void {
-    let sessionCookie = this.cookiesService.getCookie("SESSION");
+    let sessionCookie = this.cookiesService.getCookie("ADMIN");
     if(sessionCookie != "") {
       this.session = {session: true}
     }
@@ -47,7 +47,7 @@ export class AdminPanelComponent implements OnInit {
 
   afterLogin(data: Session) {
     this.session = data;
-    this.cookiesService.setCookie("SESSION", "true", 2);
+    this.cookiesService.setCookie("ADMIN", "true", 2);
   }
 
 }

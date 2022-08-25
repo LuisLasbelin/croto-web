@@ -124,7 +124,12 @@ export class BlogEntryService {
     );
   }
 
-  login(password: string) {
+  /**
+   * 
+   * @param password defaults to the cookie ADMIN
+   * @returns Session result
+   */
+  login(password: string = this.cookiesService.getCookie('ADMIN')) {
     console.log("login");
     const url = `/api/login`;
     return this.http.post<Session>(url, {password: password}).pipe(

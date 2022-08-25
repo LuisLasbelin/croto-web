@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
+import { Session } from 'src/defs/session';
 import { BlogEntryService } from '../../service/blog-entry.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { BlogEntryService } from '../../service/blog-entry.service';
   styleUrls: ['./blog-entry-editor.component.scss']
 })
 export class BlogEntryEditorComponent implements OnInit {
+
+  session: Session = {session: false};
 
   content: ContentFragment[] = [];
   title: string = "";
@@ -27,6 +30,17 @@ export class BlogEntryEditorComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
+
+    // Check if you are allowed
+    this.blogEntryService.login().subscribe(result => {
+      this.session = result as Session;
+      // if the sessio is not correct, go away
+      if(!this.session.session) {
+        this.back();
+      }
+    });
+
+    // preparations
     this.tags = this.blogEntryService.getBlogEntryTags();
     this.contentFragmentTypes = this.blogEntryService.getContentFragmentTypes();
     this.newFragmentType = 0;
