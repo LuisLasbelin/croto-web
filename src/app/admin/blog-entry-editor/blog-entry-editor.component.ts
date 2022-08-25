@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
-import { BlogEntryService } from '../service/blog-entry.service';
+import { BlogEntryService } from '../../service/blog-entry.service';
 
 @Component({
   selector: 'app-blog-entry-editor',

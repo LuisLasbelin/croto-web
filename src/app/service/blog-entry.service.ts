@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Session } from 'src/defs/session';
+import { CookiesService } from './cookies.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class BlogEntryService {
   // private blogEntriesUrl = 'api/entries';  // URL to web api
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private cookiesService: CookiesService) { }
 
   /**
    * 
@@ -78,13 +80,15 @@ export class BlogEntryService {
   }
 
   /**
-   * 
+   * Adds a new entry from a BlogEntry object
    * @param entry BlogEntry
    * @returns Observable of entries
    */
   addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
     console.log("addBlogEntry");
     const url = `/api/add-entry`;
+    // Check if there is a cookie with credentials
+    let cookie: string = this.cookiesService.getCookie("ADMIN");
     // We need to upload items as strings to avoid return type problems
     let today = new Date();
     let data = {
@@ -92,11 +96,31 @@ export class BlogEntryService {
       title: entry.title,
       tag: entry.tag.toString(),
       date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
-      content: this.contentToString(entry)
+      content: this.contentToString(entry),
+      password: cookie
     }
     return this.http.post<BlogEntry>(url, data).pipe(
       tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
+    );
+  }
+
+  /**
+   * Deletes an entry based on its ID
+   * @param id number 
+   * @returns None
+   */
+  deleteBlogEntry(id: number) {
+    console.log("deleteBlogEntry");
+    const url = `/api/delete-entry`;
+    // Check if there is a cookie with credentials
+    let cookie: string = this.cookiesService.getCookie("ADMIN");
+    let data = {
+      id: id,
+      password: cookie
+    }
+    return this.http.post(url, data).pipe(
+      catchError(this.handleError('addBlogEntry'))
     );
   }
 
