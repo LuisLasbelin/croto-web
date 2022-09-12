@@ -1,6 +1,5 @@
 nav {
     /* Auto layout */
-
     display: flex;
     flex-direction: row;
     /* Center text verticaly */
@@ -8,7 +7,7 @@ nav {
     justify-content: space-around;
 
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: 10%;
     top: 0px;
 
