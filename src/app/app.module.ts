@@ -5,6 +5,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
@@ -33,6 +35,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([]),
