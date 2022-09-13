@@ -1,7 +1,23 @@
+p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+h2 {
+    font-family: 'Cinzel';
+    color: white;
+    font-size: 52px;
+}
+
 #background {
     position: absolute;
-    z-index: -999;
+    z-index: -100;
     width: 100%;
+    top: 5%;
 }
 
 #content {
@@ -23,10 +39,11 @@
 }
 
 .links a {
-    width: 15%;
+    width: 100%;
     padding: 0.5rem;
     border: 1px solid #FFFFFF;
     border-radius: 2px;
+    margin: 0.5rem;
 
     font-family: 'Montserrat';
     font-style: normal;
@@ -53,4 +70,96 @@
     text-align: center;
 
     color: #FFFFFF;
+}
+
+.mobile-hide {
+    display: flex;
+}
+
+.mobile-show {
+    display: none;
+}
+
+.intro-body {
+    margin-top: 200px;
+    width: 65%;
+}
+
+.col2 {
+    display: flex;
+}
+
+
+
+.intro-body p {
+    color: #FFFFFF;
+
+    margin: 1rem 1rem 1rem 0;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.img-book {
+    width: 50%;
+    margin: 1rem;
+}
+
+.white-box {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.primary-button {
+    background-color: #FD696F;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    /* identical to box height, or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* White */
+
+    color: #FFFFFF;
+
+    border: none;
+}
+
+/* Mobile mode */
+@media screen and (max-width: 1007px) {
+
+    .paragraph {
+        width: 75%;
+        font-size: 10px;
+    }
+
+    .links {
+        width: 75%;
+    }
+
+    .links a {
+        font-size: 10px;
+    }
+
+    #logo {
+        margin-top: 20%;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .mobile-show {
+        display: flex;
+    }
 }
