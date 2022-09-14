@@ -7,7 +7,7 @@ p {
     text-align: justify;
 }
 
-h2 {
+h1 {
     font-family: 'Cinzel';
     color: white;
     font-size: 52px;
@@ -89,11 +89,15 @@ h2 {
     display: flex;
 }
 
+.txt-black {
+    color: black;
+}
 
+.txt-white {
+    color: white;
+}
 
 .intro-body p {
-    color: #FFFFFF;
-
     margin: 1rem 1rem 1rem 0;
 }
 
@@ -109,9 +113,21 @@ h2 {
 .white-box {
     width: 100%;
     background-color: white;
-    display: flex;
     justify-content: center;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
+    padding-left: 35%;
+  
+    clip-path: 
+        polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        0% 75%
+        );
+}
+
+.white-box div {
+    width: 30%;
 }
 
 .primary-button {
@@ -127,16 +143,30 @@ h2 {
     display: flex;
     align-items: center;
     text-align: center;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 
     /* White */
 
-    color: #FFFFFF;
-
     border: none;
+
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background-color: #a03e41;
 }
 
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
+
+    h1 {
+        font-size: 12px;
+        margin-top: 2rem;
+    }
+
+    p {
+        font-size: 9px;
+    }
 
     .paragraph {
         width: 75%;
@@ -153,6 +183,18 @@ h2 {
 
     #logo {
         margin-top: 20%;
+    }
+
+    .mobile-content {
+        flex-direction: column;
+        align-items: center;
+
+        width: 75%;
+    }
+
+    .primary-button {
+        font-size: 10px;
+        padding: 0.3rem 0.5rem 0.3rem 0.5rem;
     }
 
     .mobile-hide {
