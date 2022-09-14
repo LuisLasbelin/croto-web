@@ -111,11 +111,11 @@ h1 {
 }
 
 .white-box {
-    width: 100%;
+    width: auto;
     background-color: white;
     justify-content: center;
     padding-bottom: 3rem;
-    padding-left: 35%;
+    padding-left: 17.5%;
     z-index: -10;
   
     clip-path: 
@@ -127,7 +127,7 @@ h1 {
         );
 }
 
-.white-box div {
+.white-box p {
     width: 30%;
 }
 
@@ -157,6 +157,12 @@ h1 {
     background-color: #a03e41;
 }
 
+.desktop-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
 
@@ -167,6 +173,10 @@ h1 {
 
     p {
         font-size: 9px;
+    }
+
+    .col1 {
+        width: 75%;
     }
 
     .paragraph {
@@ -190,12 +200,17 @@ h1 {
         flex-direction: column;
         align-items: center;
 
-        width: 75%;
+        width: 100%;
     }
 
     .primary-button {
         font-size: 10px;
         padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    }
+
+    .white-box {
+        width: 100%;
+        padding-left: 0;
     }
 
     .mobile-hide {
