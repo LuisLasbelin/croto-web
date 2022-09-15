@@ -20,10 +20,10 @@
 </nav>
 
 <span class="nav-links-mobile" [@hamburguerX]="isHamburguer ? 'closed' : 'open'">
-    <a href="#landing">Home</a>
-    <a href="#blog-list">Blog</a>
-    <a href="#character-gallery">Personajes</a>
-    <a href="#mapamundi">El Mundo</a>
+    <a (click)="scroll(landing)">Home</a>
+    <a (click)="scroll(blog)">Blog</a>
+    <a (click)="scroll(personajes)">Personajes</a>
+    <a (click)="scroll(mundo)">El Mundo</a>
 </span>
 
 <span #landing></span>

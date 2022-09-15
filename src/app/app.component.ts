@@ -66,6 +66,8 @@ export class AppComponent {
 
   scroll(el: HTMLElement) {
     el.scrollIntoView({behavior: 'smooth'});
+
+    this.isHamburguer = true;
   }
 
   ngOnInit(): void {
