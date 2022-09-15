@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscriber, Subscription } from 'rxjs';
 import { BlogEntry } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
 
@@ -10,7 +9,7 @@ import { BlogEntryService } from '../service/blog-entry.service';
 })
 export class BlogListComponent implements OnInit {
 
-  entries: BlogEntry[] = [];
+  entries: BlogEntry[][] = [];
 
   constructor(private blogEntryService: BlogEntryService) {
   }
@@ -30,7 +29,11 @@ export class BlogListComponent implements OnInit {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
       console.debug("Entry");
       for (let i = 0; i < res.length; i++) {
-        this.entries.push(res[i]);
+        for (let j = 0; j < 3; j++) {
+          // adds entries in groups of 3
+          this.entries[i].push(res[(i+2*i)+j]);
+        }
+
       }
     })
   }
