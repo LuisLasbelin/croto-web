@@ -18,7 +18,6 @@ import { ContentFragmentComponent } from './content-fragment/content-fragment.co
 import { MapaMundiComponent } from './mapa-mundi/mapa-mundi.component';
 import { CharacterGalleryComponent } from './character-gallery/character-gallery.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
-import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     MapaMundiComponent,
     CharacterGalleryComponent,
     AdminPanelComponent,
-    NavbarComponent,
   ],
   imports: [
     BrowserModule,
