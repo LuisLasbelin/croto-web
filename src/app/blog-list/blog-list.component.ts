@@ -9,7 +9,7 @@ import { BlogEntryService } from '../service/blog-entry.service';
 })
 export class BlogListComponent implements OnInit {
 
-  entries: BlogEntry[][] = [];
+  entries: BlogEntry[][] = [[]];
 
   constructor(private blogEntryService: BlogEntryService) {
   }
@@ -28,12 +28,13 @@ export class BlogListComponent implements OnInit {
   getBlogEntries() {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
       console.debug("Entry");
+      let group = []
       for (let i = 0; i < res.length; i++) {
         for (let j = 0; j < 3; j++) {
           // adds entries in groups of 3
-          this.entries[i].push(res[(i+2*i)+j]);
+          group.push(res[(i+2*i)+j]);
         }
-
+        this.entries.push(group);
       }
     })
   }
