@@ -1,5 +1,5 @@
 <h2>Blog</h2>
-<ul>
+<ul class="container">
     <li *ngFor="let entry of entries" class="blog-list">
         <button class="entry" routerLink="/blog-viewer/{{entry.id}}">
             <h3 class="title">{{entry.title}}</h3>

@@ -28,6 +28,7 @@ export class BlogListComponent implements OnInit {
    */
   getBlogEntries() {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
+      console.debug("Entry");
       for (let i = 0; i < res.length; i++) {
         this.entries.push(res[i]);
       }

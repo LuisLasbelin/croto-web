@@ -3,21 +3,36 @@ h2 {
     align-self: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .blog-list {
     padding: 0;
     margin: 0;
     list-style: none;
+    width: 30%;
 }
 
 .entry {
     padding: 1rem;
     background-color: white;
     border: none;
-    background: none;
     width: 100%;
     text-align: left;
     margin: 1rem 0 1rem 0;
 }
+
+.entry:active {
+    background-color: lightgrey;
+}
+
+.b-new-entry:active {
+    box-shadow: none;
+    bottom: 14px;
+}
+
 
 @media screen and (max-width: 1007px) {
     .b-new-entry {
@@ -34,13 +49,4 @@ h2 {
         // Temp
         font-size: xx-large;
     }
-}
-
-.b-new-entry:active {
-    box-shadow: none;
-    bottom: 14px;
-}
-
-.entry:active {
-    background-color: aquamarine;
 }
