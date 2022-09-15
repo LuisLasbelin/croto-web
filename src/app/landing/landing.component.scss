@@ -1,17 +1,4 @@
-p {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
-    text-align: justify;
-}
 
-h1 {
-    font-family: 'Cinzel';
-    color: white;
-    font-size: 52px;
-}
 
 #background {
     position: absolute;
@@ -170,15 +157,6 @@ h1 {
 
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
-
-    h1 {
-        font-size: 12px;
-        margin-top: 2rem;
-    }
-
-    p {
-        font-size: 9px;
-    }
 
     .col1 {
         width: 75%;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Character, characters } from 'src/defs/characters';
 
 @Component({
   selector: 'app-character-gallery',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterGalleryComponent implements OnInit {
 
+  characters: Character[] = characters;
+
+  currCharacter: Character = characters[0];
+
+  backgroundSrc: string = '../../assets/Personajes/' + this.currCharacter.background;
+  portraitSrc: string = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectCharacter(name: string) {
+    for (let i = 0; i < characters.length; i++) {
+      if(characters[i].name == name) {
+        this.currCharacter = characters[i];
+        this.refresh();
+        return;
+      }
+    }
+  }
+
+  refresh() {
+    this.backgroundSrc = '../../assets/Personajes/' + this.currCharacter.background;
+    this.portraitSrc = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;  
   }
 
 }
