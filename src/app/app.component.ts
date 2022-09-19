@@ -41,11 +41,11 @@ import {
       ),
       // menu open 
       state('open', style({
-        top: 0
+        top: '10px'
       })),
       // menu close
       state('closed', style({
-        top: "-700px"
+        top: "-900px"
       })),
       transition('* => *', [
         animate('0.2s'), // controls animation speed
