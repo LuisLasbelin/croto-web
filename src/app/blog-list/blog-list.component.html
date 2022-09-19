@@ -1,12 +1,10 @@
 <h2>Blog</h2>
 <ul class="container">
     <li *ngFor="let entry of entries" class="blog-list">
-        <span *ngFor="let btn of entry">
-            <button class="entry" routerLink="/blog-viewer/{{btn.id}}">
-                <h3 class="title">{{btn.title}}</h3>
-                <p>{{btn.tag}}</p>
-                <p class="date">{{btn.date}}</p>
+            <button class="entry" routerLink="/blog-viewer/{{entry.id}}">
+                <h3 class="title">{{entry.title}}</h3>
+                <p>{{entry.tag}}</p>
+                <p class="date">{{entry.date}}</p>
             </button>
-        </span>
     </li>
 </ul>
