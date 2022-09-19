@@ -16,10 +16,11 @@ import { ContentFragmentComponent } from './content-fragment/content-fragment.co
 import { MapaMundiComponent } from './mapa-mundi/mapa-mundi.component';
 import { CharacterGalleryComponent } from './character-gallery/character-gallery.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  { path: 'landing', component: AppComponent },
+  { path: 'landing', component: LandingPageComponent },
   { path: 'blog-viewer/:id', component: BlogViewerComponent },
   { path: 'blog-editor', component: BlogEntryEditorComponent },
   { path: 'admin', component: AdminPanelComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
     MapaMundiComponent,
     CharacterGalleryComponent,
     AdminPanelComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,

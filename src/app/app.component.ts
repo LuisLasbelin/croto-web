@@ -64,8 +64,10 @@ export class AppComponent {
     this.isHamburguer = !this.isHamburguer;
   }
 
-  scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior: 'smooth'});
+  scroll(id: string) {
+    let el: HTMLElement | null = document.getElementById(id);
+
+    if(el != null) el?.scrollIntoView({behavior: 'smooth'});
 
     this.isHamburguer = true;
   }

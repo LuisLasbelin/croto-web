@@ -3,10 +3,10 @@
         <img src="../../assets/Imágenes/Luna azul.png" alt="Luna azul">
     </span>
     <span class="nav-links">
-        <a (click)="scroll(landing)">Home</a>
-        <a (click)="scroll(blog)">Blog</a>
-        <a (click)="scroll(personajes)">Personajes</a>
-        <a (click)="scroll(mundo)">El Mundo</a>
+        <a (click)="scroll('landing')">Home</a>
+        <a (click)="scroll('blog')">Blog</a>
+        <a (click)="scroll('personajes')">Personajes</a>
+        <a (click)="scroll('mundo')">El Mundo</a>
     </span>
     <span class="tw-link">
         <a href="https://twitter.com/c__roto">@c_roto</a>
@@ -20,17 +20,10 @@
 </nav>
 
 <span class="nav-links-mobile" [@hamburguerX]="isHamburguer ? 'closed' : 'open'">
-    <a (click)="scroll(landing)">Home</a>
-    <a (click)="scroll(blog)">Blog</a>
-    <a (click)="scroll(personajes)">Personajes</a>
-    <a (click)="scroll(mundo)">El Mundo</a>
+    <a (click)="scroll('landing')">Home</a>
+    <a (click)="scroll('blog')">Blog</a>
+    <a (click)="scroll('personajes')">Personajes</a>
+    <a (click)="scroll('mundo')">El Mundo</a>
 </span>
 
-<span #landing></span>
-<app-landing></app-landing>
-<span #blog></span>
-<app-blog-list></app-blog-list>
-<span #personajes></span>
-<app-character-gallery></app-character-gallery>
-<span #mundo></span>
-<app-mapa-mundi></app-mapa-mundi>
+<router-outlet></router-outlet>
