@@ -4,12 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
-import { AppRoutingModule } from './app-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { BlogViewerComponent } from './blog-viewer/blog-viewer.component';
 import { BlogEntryEditorComponent } from './admin/blog-entry-editor/blog-entry-editor.component';
@@ -17,6 +16,15 @@ import { ContentFragmentComponent } from './content-fragment/content-fragment.co
 import { MapaMundiComponent } from './mapa-mundi/mapa-mundi.component';
 import { CharacterGalleryComponent } from './character-gallery/character-gallery.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  { path: 'landing', component: AppComponent },
+  { path: 'blog-viewer/:id', component: BlogViewerComponent },
+  { path: 'blog-editor', component: BlogEntryEditorComponent },
+  { path: 'admin', component: AdminPanelComponent},
+  { path: '**', component: AppComponent }
+];
 
 @NgModule({
   declarations: [
@@ -34,8 +42,7 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot(routes),
     AngularEditorModule,
     FormsModule,
   ],
