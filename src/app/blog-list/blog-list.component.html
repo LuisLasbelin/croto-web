@@ -11,6 +11,9 @@
             <div class="entry-bottom">
                 <p class="btn-read" routerLink="/blog-viewer/{{entry.id}}">LEER MÁS</p>
                 <p *ngIf="entry.tag == 'Blog'" class="entry-tag tag-blog">{{entry.tag}}</p>
+                <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">{{entry.tag}}</p>
+                <p *ngIf="entry.tag == 'Reseñas'" class="entry-tag tag-resenya">{{entry.tag}}</p>
+                <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">{{entry.tag}}</p>
             </div>
         </div>
     </div>

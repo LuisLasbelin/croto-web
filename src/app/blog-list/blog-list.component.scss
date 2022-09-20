@@ -65,10 +65,22 @@
 
 .entry-tag {
     border: 1px solid black;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .tag-blog {
+    background-color: #F3F4B4;
+}
+
+.tag-resenya {
+    background-color: #DDC8FF;
+}
+
+.tag-entrevista {
+    background-color: #FC9696;
+}
+
+.tag-noticia {
     background-color: #F3F4B4;
 }
 

@@ -1,14 +1,15 @@
 <nav class="navbar">
     <span class="container">
-        <img src="../../assets/Imágenes/Luna azul.png" alt="Luna azul">
+        <img src="../../assets/Imágenes/Luna azul.png" alt="Luna azul" routerLink="/landing">
     </span>
     <span class="nav-links">
-        <a (click)="scroll('landing')">Home</a>
-        <a (click)="scroll('blog')">Blog</a>
-        <a (click)="scroll('personajes')">Personajes</a>
-        <a (click)="scroll('mundo')">El Mundo</a>
+        <a routerLink="/landing" (click)="scroll('landing')">Home</a>
+        <a routerLink="/landing" (click)="scroll('blog')">Blog</a>
+        <a routerLink="/landing" (click)="scroll('personajes')">Personajes</a>
+        <a routerLink="/landing" (click)="scroll('mundo')">El Mundo</a>
     </span>
     <span class="tw-link">
+        <span class="fas fa-twitter"></span>
         <a href="https://twitter.com/c__roto">@c_roto</a>
     </span>
     <div (click)="toggle()" class="btn-navbar">
@@ -20,10 +21,10 @@
 </nav>
 
 <span class="nav-links-mobile" [@hamburguerX]="isHamburguer ? 'closed' : 'open'">
-    <a (click)="scroll('landing')">Home</a>
-    <a (click)="scroll('blog')">Blog</a>
-    <a (click)="scroll('personajes')">Personajes</a>
-    <a (click)="scroll('mundo')">El Mundo</a>
+    <a routerLink="/landing" (click)="scroll('landing')">Home</a>
+    <a routerLink="/landing" (click)="scroll('blog')">Blog</a>
+    <a routerLink="/landing" (click)="scroll('personajes')">Personajes</a>
+    <a routerLink="/landing" (click)="scroll('mundo')">El Mundo</a>
 </span>
 
 <router-outlet></router-outlet>
