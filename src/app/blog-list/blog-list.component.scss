@@ -96,20 +96,6 @@
 }
 
 @media screen and (max-width: 1007px) {
-    .b-new-entry {
-        position: fixed;
-        right: 16px;
-        bottom: 16px;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        background: aquamarine;
-        border: none;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-
-        // Temp
-        font-size: xx-large;
-    }
 
     .list-element {
         width: 100%;
