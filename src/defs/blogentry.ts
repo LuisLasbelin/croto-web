@@ -5,6 +5,9 @@ export interface BlogEntry {
     title: string;
     content: ContentFragment[];
     date: string;
+    brief: string;
+    frontImageURL: string;
+    frontImageAlt: string;
 }
 
 /**
