@@ -29,17 +29,8 @@ export class BlogListComponent implements OnInit {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
       console.debug("Entry");
       this.entries = res as BlogEntry[];
-      /* PROVISIONAL
-      let group = []
-      for (let i = 0; i < res.length; i++) {
-        for (let j = 0; j < 3; j++) {
-          // adds entries in groups of 3
-          group.push(res[(i+2*i)+j]);
-        }
-        this.entries.push(group);
-        group = [];
-      }
-      */
+      
+      // State the tag color for each
     })
   }
 }

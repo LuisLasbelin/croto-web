@@ -10,7 +10,7 @@
             <p class="entry-brief">{{entry.brief}}</p>
             <div class="entry-bottom">
                 <p class="btn-read" routerLink="/blog-viewer/{{entry.id}}">LEER MÁS</p>
-                <p class="entry-tag">{{entry.tag}}</p>
+                <p *ngIf="entry.tag == 'Blog'" class="entry-tag tag-blog">{{entry.tag}}</p>
             </div>
         </div>
     </div>
