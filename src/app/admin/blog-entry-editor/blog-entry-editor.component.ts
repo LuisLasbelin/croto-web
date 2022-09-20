@@ -19,6 +19,9 @@ export class BlogEntryEditorComponent implements OnInit {
   title: string = "";
   tags: string[] = [];
   tag: string = "";
+  brief: string = "";
+  frontImageURL: string = "";
+  frontImageAlt: string = "";
 
   /// CONTENT FRAGMENT ///
   contentFragmentTypes: {key: number, value: string}[] = [];
@@ -63,7 +66,14 @@ export class BlogEntryEditorComponent implements OnInit {
     console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
       // NOTE: Date is done by the server. This one is overwritten
-      this.blogEntryService.addBlogEntry({id: 0, title: this.title, tag: this.tag, content: this.content, date: new Date().toDateString()} as BlogEntry)
+      this.blogEntryService.addBlogEntry({id: 0, 
+        title: this.title, 
+        tag: this.tag, 
+        content: this.content, 
+        date: new Date().toDateString(), 
+        frontImageURL: this.frontImageURL, 
+        frontImageAlt: this.frontImageAlt, 
+        brief: this.brief} as BlogEntry)
         .subscribe(entry => {
           console.log(`Entrada creada con id = ${entry.id}`);
           this.back();

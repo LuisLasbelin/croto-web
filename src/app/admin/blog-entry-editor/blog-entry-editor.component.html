@@ -4,6 +4,8 @@
         <option value="">Categoría</option>
         <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
     </select>
+    <textarea name="url-box" cols="30" rows="1" [(ngModel)]="frontImageURL">URL de la portada</textarea>
+    <textarea name="alt-box" cols="30" rows="1" [(ngModel)]="frontImageAlt">Alt text de la portada</textarea>
     <ul>
         <li *ngFor="let fragment of content">
             <angular-editor *ngIf="fragment.type.key == 0" id="content-box" [placeholder]="'Enter text here...'"
