@@ -1,10 +1,16 @@
-<h2>Blog</h2>
+<div class="title">
+    <h2>Personajes</h2>
+</div>
 <div class="container">
     <div *ngFor="let entry of entries" class="list-element">
-        <button class="entry" routerLink="/blog-viewer/{{entry.id}}">
-            <h3 class="title">{{entry.title}}</h3>
-            <p>{{entry.tag}}</p>
+        <div class="entry" routerLink="/blog-viewer/{{entry.id}}">
+            <h3 class="entry-title">{{entry.title}}</h3>
             <p class="date">{{entry.date}}</p>
-        </button>
+            <p class="entry-brief">{{entry.content[0]}}</p>
+            <div class="entry-bottom">
+                <p>{{entry.tag}}</p>
+                <p class="btn-read"></p>
+            </div>
+        </div>
     </div>
 </div>
