@@ -97,6 +97,9 @@ export class BlogEntryService {
       tag: entry.tag.toString(),
       date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
       content: this.contentToString(entry),
+      brief: entry.brief,
+      frontImageURL: entry.frontImageURL,
+      frontImageAlt: entry.frontImageAlt,
       password: cookie
     }
     return this.http.post<BlogEntry>(url, data).pipe(

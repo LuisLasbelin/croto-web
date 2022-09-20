@@ -34,7 +34,11 @@ export class BlogViewerComponent implements OnInit {
           title: entry[0].title,
           tag: entry[0].tag,
           content: this.blogEntryService.parseContent(entry[0].content),
-          date: entry[0].date
+          date: entry[0].date,
+          // TODO: add params from database
+          brief: "This is a brief",
+          frontImageURL: "",
+          frontImageAlt: ""
         }
         console.log(this.entry);
       });
