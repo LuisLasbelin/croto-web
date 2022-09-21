@@ -9,15 +9,14 @@
         <a routerLink="/landing" (click)="scroll('mundo')">El Mundo</a>
     </span>
     <span class="tw-link">
-        <span class="fas fa-twitter"></span>
+        <i class="fa-brands fa-twitter"></i>
         <a href="https://twitter.com/c__roto">@c_roto</a>
     </span>
     <div (click)="toggle()" class="btn-navbar">
         <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'topX'"></div>
         <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'hide'"></div>
-        <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'bottomX'">
+        <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'bottomX'"></div>
     </div>
-</div>
 </nav>
 
 <span class="nav-links-mobile" [@hamburguerX]="isHamburguer ? 'closed' : 'open'">

@@ -2,19 +2,19 @@
     <div class="title">
         <h2>Personajes</h2>
     </div>
-    <img class="background" src={{backgroundSrc}} alt="">
+    <img class="background" src={{backgroundSrc}} alt={{currCharacter.name}}>
     <div class="content">
         <div class="column">
-            <img src={{portraitSrc}} alt="Khalia">
+            <img src={{portraitSrc}} alt={{currCharacter.name}}>
         </div>
-        <div class="column static-bottom">
-            <h3 class="char-name">{{currCharacter.name}}</h3>
+        <div class="column">
             <div class="descriptions">
+                <h3 class="char-name">{{currCharacter.name}}</h3>
                 <p *ngFor="let p of currCharacter.description">{{p}}</p>
             </div>
 
             <div class="buttons">
-                <button *ngFor="let b of characters" type="submit" (click)="selectCharacter(b.name)">{{b.button}}</button>
+                <img class="char-button" src='{{buttonSrc}}/{{b.button}}' alt={{currCharacter.name}} *ngFor="let b of characters" (click)="selectCharacter(b.name)">
             </div>
         </div>
     </div>

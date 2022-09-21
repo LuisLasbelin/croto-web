@@ -12,8 +12,9 @@ export class CharacterGalleryComponent implements OnInit {
 
   currCharacter: Character = characters[0];
 
-  backgroundSrc: string = '../../assets/Personajes/' + this.currCharacter.background;
+  backgroundSrc: string = '../../assets/Personajes/Fondos/' + this.currCharacter.background;
   portraitSrc: string = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;
+  buttonSrc: string = '../../assets/Personajes/Botones/';
 
   constructor() { }
 
@@ -31,8 +32,8 @@ export class CharacterGalleryComponent implements OnInit {
   }
 
   refresh() {
-    this.backgroundSrc = '../../assets/Personajes/' + this.currCharacter.background;
-    this.portraitSrc = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;  
+    this.backgroundSrc = '../../assets/Personajes/Fondos/' + this.currCharacter.background;
+    this.portraitSrc = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;
   }
 
 }
