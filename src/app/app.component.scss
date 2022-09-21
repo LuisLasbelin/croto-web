@@ -23,7 +23,7 @@ nav {
     justify-content: space-around;
 
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 10%;
     top: 0px;
 
@@ -81,8 +81,17 @@ nav img {
 
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
+
+    nav {
+        justify-content: space-between;
+    }
+
     .nav-links {
         display: none;
+    }
+
+    .container {
+        margin-left: 20px;
     }
 
     .nav-links-mobile {
@@ -97,7 +106,7 @@ nav img {
         background-color: #050918e1;
     }
 
-    .tw-link a {
+    .tw-link {
         display: none;
     }
 
