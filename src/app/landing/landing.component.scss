@@ -5,6 +5,7 @@
     z-index: -100;
     width: 100%;
     top: 5%;
+    mask-image: linear-gradient(180deg, rgb(0,0,0,1), rgb(0,0,0,0));
 }
 
 #content {
@@ -79,6 +80,8 @@
 
 .col2 {
     display: flex;
+    width: 50%;
+    justify-content: flex-start;
 }
 
 .txt-black {
@@ -98,8 +101,11 @@
 }
 
 .img-book {
-    width: 50%;
+    position: absolute;
+    width: 60%;
     margin: 1rem;
+    right: 0;
+    overflow: hidden;
 }
 
 .white-box {
@@ -177,6 +183,13 @@
 
     #logo {
         margin-top: 20%;
+    }
+
+    .img-book {
+        position: relative;
+        width: 60%;
+        margin: 1rem;
+        overflow: hidden;
     }
 
     .mobile-content {
