@@ -1,3 +1,4 @@
 export interface Session {
-    session: boolean
+    session: boolean,
+    password: string
 }

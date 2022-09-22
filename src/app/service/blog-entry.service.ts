@@ -81,10 +81,10 @@ export class BlogEntryService {
 
   /**
    * Adds a new entry from a BlogEntry object
-   * @param entry BlogEntry
+   * @param entry BlogEntry format with password
    * @returns Observable of entries
    */
-  addBlogEntry(entry: BlogEntry): Observable<BlogEntry> {
+  addBlogEntry(entry: any): Observable<BlogEntry> {
     console.log("addBlogEntry");
     const url = `/api/add-entry`;
     // Check if there is a cookie with credentials

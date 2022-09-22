@@ -1,9 +1,9 @@
-<div id="form" *ngIf="!session.session">
+<div id="form" *ngIf="!adminAccess">
     <h2>Contraseña</h2>
     <textarea name="password" id="password" cols="30" rows="1" [(ngModel)]="password"></textarea>
     <button type="submit" (click)="login()">Entrar</button>
 </div>
-<div id="panel" *ngIf="session.session">
+<div id="panel" *ngIf="adminAccess">
     <app-blog-list></app-blog-list>
     
     <button type="button" routerLink="/blog-editor" class="b-new-entry">+</button>

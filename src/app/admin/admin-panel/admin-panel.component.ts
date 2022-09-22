@@ -11,19 +11,16 @@ import { Session } from 'src/defs/session';
 })
 export class AdminPanelComponent implements OnInit {
 
-  session: Session = {session: false};
-
   entries: BlogEntry[] = [];
 
   password: string = "";
+
+  adminAccess: boolean = false;
 
   constructor(private blogEntryService: BlogEntryService, private cookiesService: CookiesService) { }
 
   ngOnInit(): void {
     let sessionCookie = this.cookiesService.getCookie("ADMIN");
-    if(sessionCookie != "") {
-      this.session = {session: true}
-    }
 
     this.getBlogEntries();
 
@@ -46,8 +43,7 @@ export class AdminPanelComponent implements OnInit {
   }
 
   afterLogin(data: Session) {
-    this.session = data;
-    this.cookiesService.setCookie("ADMIN", "true", 2);
+    this.cookiesService.setCookie("ADMIN", data.password, 2);
   }
 
 }
