@@ -12,6 +12,10 @@
         <h3>Alt text de la portada</h3>
         <textarea name="alt-box" cols="30" rows="1" [(ngModel)]="frontImageAlt">Alt text de la portada</textarea>
     </div>
+    <div>
+        <h3>Resumen</h3>
+        <textarea name="alt-box" cols="30" rows="1" [(ngModel)]="brief">Alt text de la portada</textarea>
+    </div>
     <ul>
         <li *ngFor="let fragment of content">
             <angular-editor *ngIf="fragment.type.key == 0" id="content-box" [placeholder]="'Enter text here...'"
