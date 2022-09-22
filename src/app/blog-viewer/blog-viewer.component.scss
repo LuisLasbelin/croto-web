@@ -3,10 +3,48 @@ li {
     margin: 6px;
 }
 
+h2 {
+    color: white;
+}
+
+hr {
+    color: white
+}
+
 p {
     color: white;
 }
 
 i {
     color: white;
+}
+
+img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.entry-body {
+    margin-top: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entry-heading {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.left-side {
+    align-self: flex-start;
+}
+
+.right-side {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
