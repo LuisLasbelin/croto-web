@@ -26,5 +26,5 @@ export enum BlogEntryTag {
     Noticias = 'Noticias',
     Blog = 'Blog',
     Resenyas = 'Reseñas',
-    Entrevista = 'Entrevistas'
+    Entrevistas = 'Entrevistas'
 }
