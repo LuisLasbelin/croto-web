@@ -43,7 +43,13 @@ export class AdminPanelComponent implements OnInit {
   }
 
   afterLogin(data: Session) {
-    this.cookiesService.setCookie("ADMIN", data.password, 2);
+    if(data.session) {
+      this.cookiesService.setCookie("ADMIN", data.password, 2);
+      this.adminAccess = true;
+    }
+    else {
+      console.log("Could not Login");
+    }
   }
 
 }

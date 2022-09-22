@@ -1,6 +1,6 @@
 <div id="form" *ngIf="!adminAccess">
     <h2>Contraseña</h2>
-    <textarea name="password" id="password" cols="30" rows="1" [(ngModel)]="password"></textarea>
+    <input type="password" name="password" id="password" cols="30" rows="1" [(ngModel)]="password">
     <button type="submit" (click)="login()">Entrar</button>
 </div>
 <div id="panel" *ngIf="adminAccess">
