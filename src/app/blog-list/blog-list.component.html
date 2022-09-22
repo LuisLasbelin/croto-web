@@ -4,7 +4,7 @@
 <div class="container">
     <div *ngFor="let entry of entries" class="list-element">
         <div class="entry">
-            <img src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
+            <img class="entry-image" src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
             <h3 class="entry-title">{{entry.title}}</h3>
             <p class="date">{{entry.date}}</p>
             <p class="entry-brief">{{entry.brief}}</p>
