@@ -22,8 +22,11 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit(): void {
     let sessionCookie = this.cookiesService.getCookie("ADMIN");
 
-    this.getBlogEntries();
+    if(sessionCookie != null) {
+      this.adminAccess = true;
+    }
 
+    this.getBlogEntries();
   }
 
   /**
