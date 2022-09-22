@@ -135,7 +135,7 @@ export class BlogEntryService {
   login(password: string = this.cookiesService.getCookie('ADMIN')) {
     console.log("login");
     const url = `/api/login`;
-    return this.http.post<Session>(url, {password: password}).pipe(
+    return this.http.post<Session>(url, password).pipe(
       catchError(this.handleError('login'))
     );
   }
