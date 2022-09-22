@@ -14,7 +14,7 @@
             </div>
 
             <div class="buttons">
-                <img class="char-button" src='{{buttonSrc}}/{{b.button}}' alt={{currCharacter.name}} *ngFor="let b of characters" (click)="selectCharacter(b.name)">
+                <img class="char-button" src='{{buttonSrc}}{{b.button}}' alt={{currCharacter.name}} *ngFor="let b of characters" (click)="selectCharacter(b.name)">
             </div>
         </div>
     </div>
