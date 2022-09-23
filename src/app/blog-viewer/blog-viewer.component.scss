@@ -5,14 +5,12 @@ li {
 
 h2 {
     color: white;
+    text-align: center;
 }
 
 hr {
-    color: white
-}
-
-p {
     color: white;
+    width: 100%;
 }
 
 i {
@@ -22,6 +20,12 @@ i {
 img {
     width: 100%;
     overflow: hidden;
+}
+
+.viewer-body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 .entry-body {
@@ -35,7 +39,7 @@ img {
 .entry-heading {
     display: flex;
     flex-direction: row;
-
+    width: 100%;
 }
 
 .left-side {
