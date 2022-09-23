@@ -1,10 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Character, characters } from 'src/defs/characters';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-character-gallery',
   templateUrl: './character-gallery.component.html',
-  styleUrls: ['./character-gallery.component.scss']
+  styleUrls: ['./character-gallery.component.scss'],
+  animations: [
+    trigger('imageBlend', [
+      state('active', style({
+        opacity: 1
+      })),
+      state('start', style({
+        opacity: 0
+      })),
+      transition('start => active', [
+        animate('0.5s')
+      ])
+    ])
+  ]
 })
 export class CharacterGalleryComponent implements OnInit {
 
@@ -16,9 +37,12 @@ export class CharacterGalleryComponent implements OnInit {
   portraitSrc: string = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;
   buttonSrc: string = '../../assets/Personajes/Botones/';
 
+  animationState: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.animate();
   }
 
   selectCharacter(name: string) {
@@ -34,6 +58,15 @@ export class CharacterGalleryComponent implements OnInit {
   refresh() {
     this.backgroundSrc = '../../assets/Personajes/Fondos/' + this.currCharacter.background;
     this.portraitSrc = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;
+    this.animate();
+  }
+
+  animate() {
+    console.log('animating!')
+    this.animationState = false;
+    setTimeout(() => {
+      this.animationState = true;
+    }, 0.2);
   }
 
 }

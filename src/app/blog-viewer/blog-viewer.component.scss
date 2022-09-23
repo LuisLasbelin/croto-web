@@ -15,6 +15,7 @@ hr {
 
 i {
     color: white;
+    margin: 0.1rem;
 }
 
 img {
@@ -40,15 +41,16 @@ img {
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
 }
 
 .left-side {
-    align-self: flex-start;
+    justify-self: flex-start
 }
 
 .right-side {
-    align-self: flex-end;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    justify-self: flex-end;
 }

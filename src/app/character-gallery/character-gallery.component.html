@@ -2,10 +2,10 @@
     <div class="title">
         <h2>Personajes</h2>
     </div>
-    <img class="background" src={{backgroundSrc}} alt={{currCharacter.name}}>
+    <img  [@imageBlend]="animationState ? 'active' : 'start'" class="background" src={{backgroundSrc}} alt={{currCharacter.name}}>
     <div class="content">
         <div class="column">
-            <img src={{portraitSrc}} alt={{currCharacter.name}}>
+            <img [@imageBlend]="animationState ? 'active' : 'start'" src={{portraitSrc}} alt={{currCharacter.name}}>
         </div>
         <div class="column">
             <div class="descriptions">
