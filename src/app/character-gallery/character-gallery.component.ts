@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { Character, characters } from 'src/defs/characters';
 import {
   trigger,
@@ -35,14 +35,12 @@ import {
     ])
   ]
 })
-export class CharacterGalleryComponent implements OnInit {
+export class CharacterGalleryComponent implements OnInit, AfterContentChecked {
 
   characters: Character[] = characters;
 
   currCharacter: Character = characters[0];
 
-  backgroundSrc: string = '../../assets/Personajes/Fondos/' + this.currCharacter.background;
-  portraitSrc: string = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;
   buttonSrc: string = '../../assets/Personajes/Botones/';
 
   animationState: boolean = false;
@@ -50,9 +48,12 @@ export class CharacterGalleryComponent implements OnInit {
   currentButtonActiveId: number = 1;
 
   constructor() { }
-
+  
   ngOnInit(): void {
-    this.animate();
+  }
+  
+  ngAfterContentChecked(): void {
+    this.animate()
   }
 
   selectCharacter(name: string) {
@@ -66,8 +67,6 @@ export class CharacterGalleryComponent implements OnInit {
   }
 
   refresh() {
-    this.backgroundSrc = '../../assets/Personajes/Fondos/' + this.currCharacter.background;
-    this.portraitSrc = '../../assets/Personajes/Ilustraciones/' + this.currCharacter.portrait;
     this.animate();
   }
 
@@ -75,14 +74,24 @@ export class CharacterGalleryComponent implements OnInit {
     console.log('animating!')
     this.animationState = false;
 
+    // Deactivate new portrait and background
+    let pastPortrait = document.getElementById('portrait' + this.currentButtonActiveId.toString());
+    pastPortrait?.classList.add('inactive');
+    let pastBackground = document.getElementById('background' + this.currentButtonActiveId.toString());
+    pastBackground?.classList.add('inactive');
     // Deactivate the past button
     let pastButton = document.getElementById(this.currentButtonActiveId.toString());
     pastButton?.classList.remove('btn-active');
-    setTimeout(() => {
-      this.currentButtonActiveId = this.currCharacter.id;
-      let currButton = document.getElementById(this.currentButtonActiveId.toString());
-      currButton?.classList.add('btn-active');
-      this.animationState = true;
-    }, 0.5);
+    // Change ID
+    this.currentButtonActiveId = this.currCharacter.id;
+    // Activate images
+    let currPortrait = document.getElementById('portrait' + this.currentButtonActiveId.toString());
+    currPortrait?.classList.remove('inactive');
+    let currBackground = document.getElementById('background' + this.currentButtonActiveId.toString());
+    currBackground?.classList.remove('inactive');
+    // Activate new button
+    let currButton = document.getElementById(this.currentButtonActiveId.toString());
+    currButton?.classList.add('btn-active');
+    this.animationState = true;
   }
 }

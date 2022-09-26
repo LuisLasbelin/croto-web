@@ -2,10 +2,10 @@
     <div class="title">
         <h2>Personajes</h2>
     </div>
-    <img  [@imageBlend]="animationState ? 'active' : 'start'" class="background" src={{backgroundSrc}} alt={{currCharacter.name}}>
+    <img id="background{{char.id}}"  *ngFor="let char of characters" class="background inactive" src='../../assets/Personajes/Fondos/{{char.background}}' alt={{char.name}}>
     <div class="content">
-        <div class="column">
-            <img [@imageBlend]="animationState ? 'active' : 'start'" src={{portraitSrc}} alt={{currCharacter.name}}>
+        <div class="column img-container">
+            <img id="portrait{{char.id}}" class="portrait inactive" *ngFor="let char of characters" src='../../assets/Personajes/Ilustraciones/{{char.portrait}}' alt={{char.name}}>
         </div>
         <div class="column">
             <div class="descriptions">

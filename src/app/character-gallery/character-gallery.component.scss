@@ -7,7 +7,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 160vh;
+    height: 120vh;
 }
 
 .background {
@@ -15,6 +15,14 @@ p {
     z-index: -100;
     width: 100%;
     mask-image: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.background.inactive {
+    opacity: 0;
 }
 
 .title {
@@ -22,6 +30,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5rem;
 }
 
 .content {
@@ -39,8 +48,17 @@ p {
     align-items: center;
 }
 
-img {
-    width: 75%;
+.portrait {
+    position: absolute;
+    width: 30%;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.portrait.inactive {
+    opacity: 0;
 }
 
 .char-name {
@@ -58,7 +76,6 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 18px;
 }
 
 .buttons {
@@ -74,25 +91,25 @@ img {
 }
 
 .char-button {
-    width: 7%;
-    height: 70%;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 100%;
     border: 2px transparent yellow;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 700ms linear;
+    -moz-transition: all 700ms linear;
+    -o-transition: all 700ms linear;
+    transition: all 700ms linear;
 }
 
 .btn-active {
     border: 2px solid yellow;
-    width: 10%;
-    height: 95%;
+    width: 60px;
+    height: 60px;
 }
 
 /* Mobile mode */
-@media screen and (max-width: 1007px) {
+@media screen and (max-width: 500px) {
 
     .char-body {
         height: auto;
@@ -108,7 +125,42 @@ img {
         width: 90%;
     }
 
+    .img-container {
+        height: 300px;
+    }
+    .img-container img {
+        width: 40%;
+    }
+
     .background {
         display: none;
+    }
+}
+
+/* Tablet mode */
+@media screen and (max-width: 1000px) and (min-width: 501px) {
+    .char-body {
+        height: auto;
+        margin-bottom: 5rem;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 90%;
+    }
+
+    .img-container img {
+        width: 40%;
+    }
+
+    .background {
+        display: none;
+    }
+    .img-container {
+        height: 600px;
     }
 }
