@@ -20,12 +20,12 @@
             </div>
         </div>
         <!-- Renders the entry.content: string as HTML elements -->
-        <ul>
-            <li *ngFor="let fragment of entry.content">
+        <div>
+            <div *ngFor="let fragment of entry.content">
                 <app-content-fragment 
                 [contentType]="fragment.type"
                 [content]="fragment.content"></app-content-fragment>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </div>
