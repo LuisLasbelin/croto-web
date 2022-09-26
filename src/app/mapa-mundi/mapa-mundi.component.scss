@@ -3,6 +3,13 @@ canvas {
     height: 100%;
 }
 
-img {
-    display: none;
+h2 {
+    text-align: center;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
 }
