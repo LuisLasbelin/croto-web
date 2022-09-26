@@ -6,7 +6,8 @@ import {
   style,
   animate,
   transition,
-  // ...
+  query,
+  stagger
 } from '@angular/animations';
 
 @Component({
@@ -16,14 +17,21 @@ import {
   animations: [
     trigger('imageBlend', [
       state('active', style({
-        opacity: 1
+        opacity: 1,
       })),
       state('start', style({
-        opacity: 0
+        opacity: 0,
       })),
       transition('start => active', [
         animate('0.5s')
       ])
+    ]),
+    trigger('buttonSelected', [
+      state('selected', style({
+        border: '2px solid yellow',
+        borderRadius: '100%',
+        width: '70px'
+      }))
     ])
   ]
 })
@@ -38,6 +46,8 @@ export class CharacterGalleryComponent implements OnInit {
   buttonSrc: string = '../../assets/Personajes/Botones/';
 
   animationState: boolean = false;
+
+  currentButtonActiveId: number = 1;
 
   constructor() { }
 
@@ -64,9 +74,15 @@ export class CharacterGalleryComponent implements OnInit {
   animate() {
     console.log('animating!')
     this.animationState = false;
-    setTimeout(() => {
-      this.animationState = true;
-    }, 0.2);
-  }
 
+    // Deactivate the past button
+    let pastButton = document.getElementById(this.currentButtonActiveId.toString());
+    pastButton?.classList.remove('btn-active');
+    setTimeout(() => {
+      this.currentButtonActiveId = this.currCharacter.id;
+      let currButton = document.getElementById(this.currentButtonActiveId.toString());
+      currButton?.classList.add('btn-active');
+      this.animationState = true;
+    }, 0.5);
+  }
 }

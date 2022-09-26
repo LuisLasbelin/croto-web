@@ -1,4 +1,5 @@
 export interface Character {
+    id: number,
     portrait: string;
     background: string;
     name: string;
@@ -8,6 +9,7 @@ export interface Character {
 
 export var characters: Character[] = [
     {
+        id: 1,
         portrait: "Khalia.png",
         background: "Khalia.png",
         name: "KHALIA DE MERËASS",
@@ -18,6 +20,7 @@ export var characters: Character[] = [
         button: "Khalia.png"
     },
     {
+        id: 2,
         portrait: "Elio.png",
         background: "Elio.png",
         name: "ËLIO DE AMALNYS",
@@ -28,6 +31,7 @@ export var characters: Character[] = [
         button: "Elio.png"
     },
     {
+        id: 3,
         portrait: "Aiyana.png",
         background: "Aiyana.png",
         name: "AIYANA DE HUAYTA",
@@ -39,6 +43,7 @@ export var characters: Character[] = [
         button: "Aiyana.png"
     },
     {
+        id: 4,
         portrait: "Khoril.png",
         background: "Khoril.png",
         name: "KHORIL DE MERËASS",
@@ -50,6 +55,7 @@ export var characters: Character[] = [
         button: "Khoril.png"
     },
     {
+        id: 5,
         portrait: "Nyd.png",
         background: "Nyd.png",
         name: "NYD DE LA COLUMNA",
@@ -60,6 +66,7 @@ export var characters: Character[] = [
         button: "Nyd.png"
     },
     {
+        id: 6,
         portrait: "Alena.png",
         background: "Alena.png",
         name: "ALENA DE TAELIN",
@@ -69,6 +76,7 @@ export var characters: Character[] = [
         button: "Alena.png"
     },
     {
+        id: 7,
         portrait: "Hojad.png",
         background: "Hojad.png",
         name: "HOJAD DE IONOT",
