@@ -17,6 +17,7 @@ import { MapaMundiComponent } from './mapa-mundi/mapa-mundi.component';
 import { CharacterGalleryComponent } from './character-gallery/character-gallery.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -39,6 +40,7 @@ const routes: Routes = [
     CharacterGalleryComponent,
     AdminPanelComponent,
     LandingPageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
