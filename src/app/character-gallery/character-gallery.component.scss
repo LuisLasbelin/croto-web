@@ -41,6 +41,8 @@ p {
 
 .column {
     width: 50%;
+    height: 600px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -79,14 +81,14 @@ p {
 
 .buttons {
     width: 100%;
-    height: auto;
+    height: 90px;
     display: flex;
     flex-direction: row;
     margin-top: 5rem;
     align-self: flex-end;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: baseline;
+    align-items: flex-end;
 }
 
 .char-button {
@@ -122,6 +124,7 @@ p {
 
     .column {
         width: 90%;
+        height: auto;
     }
 
     .img-container {
@@ -150,6 +153,7 @@ p {
 
     .column {
         width: 90%;
+        height: 400px;
     }
 
     .img-container img {

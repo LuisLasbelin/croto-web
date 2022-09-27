@@ -27,14 +27,19 @@ export class BlogViewerComponent implements OnInit {
   
   getBlogEntry(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+
     this.blogEntryService.getBlogEntry(id)
       .subscribe((entry) => {
+        // Get the date
+        let date = entry[0].date.split('T');
+        // Keep only the numbers
+        let dateNums = date[0].split('/');
         this.entry = {
           id: entry[0].id,
           title: entry[0].title,
           tag: entry[0].tag,
           content: this.blogEntryService.parseContent(entry[0].content),
-          date: entry[0].date,
+          date: `${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`,
           // TODO: add params from database
           brief: entry[0].brief,
           frontImageURL: entry[0].frontImageURL,
