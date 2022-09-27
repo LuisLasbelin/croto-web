@@ -20,10 +20,11 @@ export class AdminPanelComponent implements OnInit {
   constructor(private blogEntryService: BlogEntryService, private cookiesService: CookiesService) { }
 
   ngOnInit(): void {
+    this.adminAccess = false;
     // Find a session cookie if there is any stored
     let sessionCookie = this.cookiesService.getCookie("ADMIN");
     // Access when there is a session cookie stored. It does NOT verify the cookie password
-    if(sessionCookie != null) {
+    if(sessionCookie.length > 10) {
       this.adminAccess = true;
       // Gets the blog entries to show
       this.getBlogEntries();
