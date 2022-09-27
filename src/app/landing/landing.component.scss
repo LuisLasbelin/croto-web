@@ -53,6 +53,16 @@ i {
 
     color: #FFFFFF;
     text-decoration: none;
+
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+}
+
+.links a:hover {
+    background-color: white;
+    color: black;
 }
 
 .paragraph {
@@ -130,7 +140,7 @@ i {
 }
 
 .white-box p {
-    width: 30%;
+    width: 38%;
 }
 
 .primary-button {

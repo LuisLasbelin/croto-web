@@ -24,7 +24,6 @@ export interface ContentFragment {
 
 export enum BlogEntryTag {
     Noticias = 'Noticias',
-    Blog = 'Blog',
     Resenyas = 'Reseñas',
     Entrevistas = 'Entrevistas'
 }
