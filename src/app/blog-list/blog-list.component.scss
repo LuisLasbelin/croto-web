@@ -25,10 +25,18 @@
     padding: 1rem;
     background-color: #d1d1d1;
     border: none;
-    width: 100%;
+    width: 90%;
     text-align: left;
     margin: 0.2rem;
     overflow: hidden;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.entry:hover {
+    width: 100%;
 }
 
 .entry-image {
