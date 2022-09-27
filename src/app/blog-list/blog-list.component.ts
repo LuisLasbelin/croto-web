@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogEntry } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
+import { CookiesService } from '../service/cookies.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -11,14 +12,26 @@ export class BlogListComponent implements OnInit {
 
   entries: BlogEntry[] = [];
 
-  constructor(private blogEntryService: BlogEntryService) {
+  adminAccess: boolean = false;
+
+  constructor(private blogEntryService: BlogEntryService, private cookiesService: CookiesService) {
   }
 
   ngOnInit(): void {
-    console.log("Init page");
+    
+    this.adminAccess = false;
+
+    // Find a session cookie if there is any stored
+    let sessionCookie = this.cookiesService.getCookie("ADMIN");
+    // Access when there is a session cookie stored. It does NOT verify the cookie password
+    if(sessionCookie.length > 10) {
+      this.adminAccess = true;
+    }
+    else {
+      this.adminAccess = false;
+    }
 
     this.getBlogEntries();
-
   }
 
   /**
@@ -48,8 +61,6 @@ export class BlogListComponent implements OnInit {
           frontImageAlt: entry.frontImageAlt,
         })
       });
-      
-      // State the tag color for each
     })
   }
 }

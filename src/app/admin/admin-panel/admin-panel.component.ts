@@ -16,6 +16,7 @@ export class AdminPanelComponent implements OnInit {
   password: string = "";
 
   adminAccess: boolean = false;
+  passFailed: boolean = false;
 
   constructor(private blogEntryService: BlogEntryService, private cookiesService: CookiesService) { }
 
@@ -57,6 +58,7 @@ export class AdminPanelComponent implements OnInit {
     }
     else {
       console.log("Could not Login");
+      this.passFailed = true;
     }
   }
 

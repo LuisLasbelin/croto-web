@@ -47,6 +47,19 @@ export class BlogEntryEditorComponent implements OnInit {
     this.tags = this.blogEntryService.getBlogEntryTags();
     this.contentFragmentTypes = this.blogEntryService.getContentFragmentTypes();
     this.newFragmentType = 0;
+
+    // Check if it is called to edit
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if(id >= 0) {
+      this.blogEntryService.getBlogEntry(id).subscribe(result => {
+        this.content = result[0].content;
+        this.title = result[0].title;
+        this.tag = result[0].tags;
+        this.brief = result[0].brief;
+        this.frontImageAlt = result[0].frontImageAlt;
+        this.frontImageURL = result[0].frontImageURL;
+      })
+    }
   }
 
   /**

@@ -25,5 +25,36 @@ input {
 }
 
 .btn-login {
+  background-color: #07024c;
+  border-radius: 12px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
 
+.btn-login:not(:disabled):hover,
+.btn-login:not(:disabled):focus {
+  outline: 0;
+  background: #07024c;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+.btn-login32:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
+
+.error-text {
+    color: #f69797
 }

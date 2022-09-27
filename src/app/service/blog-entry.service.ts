@@ -108,6 +108,30 @@ export class BlogEntryService {
     );
   }
 
+  editBlogEntry(id: number, entry: BlogEntry) {
+    console.log("editBlogEntry");
+    const url = `/api/edit-entry`;
+    // Check if there is a cookie with credentials
+    let cookie: string = this.cookiesService.getCookie("ADMIN");
+    // We need to upload items as strings to avoid return type problems
+    let today = new Date();
+    let data = {
+      id: entry.id,
+      title: entry.title,
+      tag: entry.tag.toString(),
+      date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
+      content: this.contentToString(entry),
+      brief: entry.brief,
+      frontImageURL: entry.frontImageURL,
+      frontImageAlt: entry.frontImageAlt,
+      password: cookie
+    }
+    return this.http.post<BlogEntry>(url, data).pipe(
+      tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
+      catchError(this.handleError<BlogEntry>('addBlogEntry'))
+    );
+  }
+
   /**
    * Deletes an entry based on its ID
    * @param id number 

@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'landing', component: LandingPageComponent },
   { path: 'blog-viewer/:id', component: BlogViewerComponent },
   { path: 'blog-editor', component: BlogEntryEditorComponent },
+  { path: 'blog-editor/:id', component: BlogEntryEditorComponent},
   { path: 'admin', component: AdminPanelComponent},
   { path: '**', component: AppComponent }
 ];

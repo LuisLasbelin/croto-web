@@ -13,6 +13,7 @@
                 <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">{{entry.tag}}</p>
                 <p *ngIf="entry.tag == 'Reseñas'" class="entry-tag tag-resenya">{{entry.tag}}</p>
                 <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">{{entry.tag}}</p>
+                <button type="submit" routerLink="/blog-editor/{{entry.id}}">Editar</button>
             </div>
         </div>
     </div>
