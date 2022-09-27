@@ -81,23 +81,44 @@ export class BlogEntryEditorComponent implements OnInit {
    * Adds a new blog entry to the database using form data
    */
   newBlogEntry() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
     console.log("New blog entry");
     console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
-      // NOTE: Date is done by the server. This one is overwritten
-      this.blogEntryService.addBlogEntry({
-        password: this.session.password,
-        title: this.title, 
-        tag: this.tag, 
-        content: this.content, 
-        date: new Date().toDateString(), 
-        frontImageURL: this.frontImageURL, 
-        frontImageAlt: this.frontImageAlt, 
-        brief: this.brief})
-        .subscribe(entry => {
-          console.log(`Entrada creada con id = ${entry.id}`);
+      // Editing an entry
+      if(id >= 0) {
+        this.blogEntryService.editBlogEntry(id,{
+          password: this.session.password,
+          title: this.title, 
+          tag: this.tag, 
+          content: this.content, 
+          date: new Date().toDateString(), 
+          frontImageURL: this.frontImageURL, 
+          frontImageAlt: this.frontImageAlt, 
+          brief: this.brief
+        }).subscribe(entry => {
+          console.log(`Entrada editada con id = ${entry.id}`);
           this.back();
         });
+      }
+      // Actual new entry
+      else {
+        // NOTE: Date is done by the server. This one is overwritten
+        this.blogEntryService.addBlogEntry({
+          password: this.session.password,
+          title: this.title, 
+          tag: this.tag, 
+          content: this.content, 
+          date: new Date().toDateString(), 
+          frontImageURL: this.frontImageURL, 
+          frontImageAlt: this.frontImageAlt, 
+          brief: this.brief})
+          .subscribe(entry => {
+            console.log(`Entrada creada con id = ${entry.id}`);
+            this.back();
+          });
+      }
     }
     else {
       console.log("No se puede crear una entrada sin título o sin contenido");

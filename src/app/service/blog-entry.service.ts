@@ -108,7 +108,7 @@ export class BlogEntryService {
     );
   }
 
-  editBlogEntry(id: number, entry: BlogEntry) {
+  editBlogEntry(id: number, entry: any) {
     console.log("editBlogEntry");
     const url = `/api/edit-entry`;
     // Check if there is a cookie with credentials
