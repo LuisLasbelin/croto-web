@@ -22,6 +22,7 @@ export class AdminPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.adminAccess = false;
+    this.passFailed = false;
     // Find a session cookie if there is any stored
     let sessionCookie = this.cookiesService.getCookie("ADMIN");
     // Access when there is a session cookie stored. It does NOT verify the cookie password

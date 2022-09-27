@@ -1,9 +1,13 @@
 <div class="vertical-container">
-    <textarea name="title-box" id="title-box" cols="30" rows="1" [(ngModel)]="title">Título</textarea>
-    <select name="entry-tag" id="entry-tag" [(ngModel)]="tag">
-        <option value="">Categoría</option>
-        <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
-    </select>
+    <div>
+        <textarea name="title-box" id="title-box" cols="30" rows="1" [(ngModel)]="title">Título</textarea>
+    </div>
+    <div>
+        <select name="entry-tag" id="entry-tag" [(ngModel)]="tag">
+            <option value="">Categoría</option>
+            <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
+        </select>
+    </div>
     <div>
         <h3>URL de la portada</h3>
         <textarea name="url-box" cols="30" rows="1" [(ngModel)]="frontImageURL">URL de la portada</textarea>

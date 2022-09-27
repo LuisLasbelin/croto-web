@@ -59,16 +59,22 @@ export class BlogEntryEditorComponent implements OnInit {
         this.frontImageAlt = result[0].frontImageAlt;
         this.frontImageURL = result[0].frontImageURL;
       })
+      // Add a new fragment for every content fragment
+      this.content.forEach(fragment => {
+        this.addContentFragment(fragment.type, fragment.content);
+      });
     }
   }
 
   /**
    * Adds a new content fragment to the entry
    */
-  addContentFragment() {
+  addContentFragment(fragmentType?: {key: number, value: string}, content: string = "") {
     console.log("Adding content fragment: " + this.newFragmentType);
-    let fragmentType = this.contentFragmentTypes.find(type => type.key == this.newFragmentType);
-    this.content.push({type: fragmentType, content: ""} as ContentFragment);
+    // Only if there is no inserted fragment type
+    if(fragmentType != null) fragmentType = this.contentFragmentTypes.find(type => type.key == this.newFragmentType);
+   
+    this.content.push({type: fragmentType, content: content} as ContentFragment);
   }
 
   /**
