@@ -33,7 +33,7 @@ export class BlogViewerComponent implements OnInit {
         // Get the date
         let date = entry[0].date.split('T');
         // Keep only the numbers
-        let dateNums = date[0].split('/');
+        let dateNums = date[0].split('-');
         this.entry = {
           id: entry[0].id,
           title: entry[0].title,
