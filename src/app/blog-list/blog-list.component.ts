@@ -35,7 +35,7 @@ export class BlogListComponent implements OnInit {
         // Get the date
         let date = entry.date.split('T');
         // Keep only the numbers
-        let dateNums = date[0].split('/');
+        let dateNums = date[0].split('-');
 
         this.entries.push({
           id: entry.id,
