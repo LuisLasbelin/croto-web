@@ -65,6 +65,9 @@ export class BlogEntryEditorComponent implements OnInit {
       this.content.forEach(fragment => {
         this.addContentFragment(fragment.type, fragment.content);
       });
+      // Select the current blog entry tag
+      let tagSelector = document.getElementById('entry-tag') as HTMLSelectElement;
+      tagSelector.value = this.tag;
     }
   }
 

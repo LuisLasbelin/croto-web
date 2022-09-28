@@ -4,7 +4,7 @@
     </div>
     <div>
         <select name="entry-tag" id="entry-tag" [(ngModel)]="tag">
-            <option value="">Categoría</option>
+            <option selected value="">Categoría</option>
             <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
         </select>
     </div>
