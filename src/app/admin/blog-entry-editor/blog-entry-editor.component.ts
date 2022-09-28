@@ -15,6 +15,7 @@ export class BlogEntryEditorComponent implements OnInit {
 
   session: Session = {session: false, password: ""};
 
+  id: number | null = null;
   content: ContentFragment[] = [];
   title: string = "";
   tags: string[] = [];
@@ -49,9 +50,10 @@ export class BlogEntryEditorComponent implements OnInit {
     this.newFragmentType = 0;
 
     // Check if it is called to edit
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    if(id >= 0) {
-      this.blogEntryService.getBlogEntry(id).subscribe(entry => {
+    this.id = null;
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    if(this.id != null) {
+      this.blogEntryService.getBlogEntry(this.id).subscribe(entry => {
         this.content = this.blogEntryService.parseContent(entry[0].content),
         this.title = entry[0].title;
         this.tag = entry[0].tags;
@@ -81,19 +83,17 @@ export class BlogEntryEditorComponent implements OnInit {
    * Adds a new blog entry to the database using form data
    */
   newBlogEntry() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-
     console.log("New blog entry");
     console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
       // Editing an entry
-      if(id >= 0) {
-        this.blogEntryService.editBlogEntry(id,{
+      if(this.id != null) {
+        this.blogEntryService.editBlogEntry(this.id,{
           password: this.session.password,
           title: this.title, 
-          tag: this.tag, 
-          content: this.content, 
-          date: new Date().toDateString(), 
+          tag: this.tag,
+          content: this.content,
+          date: new Date().toDateString(),
           frontImageURL: this.frontImageURL, 
           frontImageAlt: this.frontImageAlt, 
           brief: this.brief
