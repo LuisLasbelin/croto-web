@@ -15,7 +15,7 @@ export class BlogEntryEditorComponent implements OnInit {
 
   session: Session = {session: false, password: ""};
 
-  id: number | null = null;
+  id: number | undefined = undefined;
   content: ContentFragment[] = [];
   title: string = "";
   tags: string[] = [];
@@ -50,9 +50,9 @@ export class BlogEntryEditorComponent implements OnInit {
     this.newFragmentType = 0;
 
     // Check if it is called to edit
-    this.id = null;
+    this.id = undefined;
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    if(this.id != null) {
+    if(this.id != undefined) {
       this.blogEntryService.getBlogEntry(this.id).subscribe(entry => {
         this.content = this.blogEntryService.parseContent(entry[0].content),
         this.title = entry[0].title;
@@ -90,7 +90,7 @@ export class BlogEntryEditorComponent implements OnInit {
     console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
       // Editing an entry
-      if(this.id != null) {
+      if(this.id != undefined) {
         this.blogEntryService.editBlogEntry(this.id,{
           password: this.session.password,
           title: this.title, 
