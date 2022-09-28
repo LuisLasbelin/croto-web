@@ -11,13 +11,14 @@ import { CookiesService } from '../service/cookies.service';
 export class BlogListComponent implements OnInit {
 
   entries: BlogEntry[] = [];
-
+  canExpand: boolean = false;
   adminAccess: boolean = false;
 
   constructor(private blogEntryService: BlogEntryService, private cookiesService: CookiesService) {
   }
 
   ngOnInit(): void {
+    this.canExpand = false;
     
     this.adminAccess = false;
 
@@ -42,6 +43,8 @@ export class BlogListComponent implements OnInit {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
       console.debug("Entry");
       let unformatEntries = res as BlogEntry[];
+      // Check if the blog list is too big and can be expanded
+      if(unformatEntries.length > 4) this.canExpand = true;
       // Change the date format to dd/mm/yyyy
       unformatEntries.forEach(entry => {
 
@@ -62,5 +65,10 @@ export class BlogListComponent implements OnInit {
         })
       });
     })
+  }
+
+  expand() {
+    let container = document.getElementById('blog-list');
+    container?.classList.add('expanded');
   }
 }
