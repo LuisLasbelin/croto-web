@@ -11,7 +11,10 @@ export class MapaMundiComponent implements OnInit {
 
   constructor() { }
 
-  pointerLoop: any;
+  noZoom: boolean = true;
+
+  canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanvasElement;
+  ctx = this.canvas?.getContext('2d');
 
   // create circles to draw
   areas: Area[] = [
@@ -32,47 +35,52 @@ export class MapaMundiComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
-    const ctx = canvas.getContext("2d");
+    this.noZoom = true;
 
-    const img = new Image();
+    this.canvas = document.getElementById("canvas") as HTMLCanvasElement;
+
+    this.ctx = this.canvas.getContext("2d");
+
+    let img = new Image();
     img.src = '../../assets/Mapa/Mapa general.png';
     img.onload = () => {
-      if(ctx != null) {
-        ctx.imageSmoothingEnabled = false
-        ctx.drawImage(img, 0, 0);
-        
+      if(this.ctx != null) {
+        this.ctx.imageSmoothingEnabled = false
+        this.ctx.drawImage(img, 0, 0);
         // draw circles
         this.areas.forEach(area => {
-          ctx.beginPath();
-          ctx.arc(area.x, area.y, area.radius, 0, 2 * Math.PI, false);
+          this.ctx?.beginPath();
+          this.ctx?.arc(area.x, area.y, area.radius, 0, 2 * Math.PI, false);
         }); 
       }
     };
 
-    canvas.addEventListener('click', (e: MouseEvent) => {
-      let pos = this.getCurrentMousePosition(e, canvas);
+    this.canvas.addEventListener('click', (e: MouseEvent) => {
+      let pos = this.getCurrentMousePosition(e, this.canvas);
       this.areas.forEach(area => {
         if (this.isIntersect(pos, area)) {
           console.log('click on circle: ' + area.id);
+          this.openArea();
         }
       })
     }) // canvas
 
     // POINTER MOUSE
-    canvas.onmousemove = (e: MouseEvent) => {
-      let pos = this.getCurrentMousePosition(e, canvas);
-      let pointing: boolean = false;
-      this.areas.forEach(area => {
-        if (this.isIntersect(pos, area)) {
-          pointing = true;
+    this.canvas.onmousemove = (e: MouseEvent) => {
+      if(this.noZoom) {
+        let pos = this.getCurrentMousePosition(e, this.canvas);
+        let pointing: boolean = false;
+        this.areas.forEach(area => {
+          if (this.isIntersect(pos, area)) {
+            pointing = true;
+          }
+        })
+        if(pointing) {
+          this.canvas.style.cursor = "pointer";
+        } else {
+          this.canvas.style.cursor = "default";
         }
-      })
-      if(pointing) {
-        canvas.style.cursor = "pointer";
-      } else {
-        canvas.style.cursor = "default";
       }
     }
   }
@@ -95,5 +103,16 @@ export class MapaMundiComponent implements OnInit {
     let dy = point.y - circle.y;
     let distance = Math.sqrt(dx * dx + dy * dy);
     return distance < circle.radius;
+  }
+
+  openArea() {
+    this.noZoom = false;
+    this.canvas.style.cursor = 'default';
+    //this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    let img = new Image();
+    img.src = '../../assets/Mapa/Mapas_zoom-01.jpg';
+    img.onload = ()=> {
+      this.ctx?.drawImage(img, this.canvas.width/4, 0);
+    };
   }
 }
