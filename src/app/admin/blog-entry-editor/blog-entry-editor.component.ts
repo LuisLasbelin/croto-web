@@ -90,6 +90,7 @@ export class BlogEntryEditorComponent implements OnInit {
     console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
       // Editing an entry
+      console.log(this.id)
       if(this.id != undefined) {
         this.blogEntryService.editBlogEntry(this.id,{
           password: this.session.password,
