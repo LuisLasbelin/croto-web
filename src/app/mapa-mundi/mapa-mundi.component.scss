@@ -1,5 +1,5 @@
 canvas {
-    width: 100%;
+    width: 80%;
     height: 100%;
 }
 
@@ -13,4 +13,9 @@ h2 {
     align-items: center;
     margin-bottom: 5rem;
     margin-top: 5rem;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
 }
