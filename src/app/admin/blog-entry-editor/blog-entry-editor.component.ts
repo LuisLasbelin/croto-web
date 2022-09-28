@@ -77,7 +77,7 @@ export class BlogEntryEditorComponent implements OnInit {
   addContentFragment(fragmentType?: {key: number, value: string}, content: string = "") {
     console.log("Adding content fragment: " + this.newFragmentType);
     // Only if there is no inserted fragment type
-    if(fragmentType != null) fragmentType = this.contentFragmentTypes.find(type => type.key == this.newFragmentType);
+    if(fragmentType == undefined) fragmentType = this.contentFragmentTypes.find(type => type.key == this.newFragmentType);
    
     this.content.push({type: fragmentType, content: content} as ContentFragment);
   }

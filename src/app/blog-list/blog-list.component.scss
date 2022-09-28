@@ -11,7 +11,7 @@
     justify-content: center;
 
     // animation when expanded list
-    height: 100vh;
+    height: 140vh;
     overflow: hidden;
     // -----------------
     -webkit-transition: all 500ms linear;
@@ -28,9 +28,8 @@
 .list-element {
     padding: 0;
     margin: 0;
-    list-style: none;
     width: 30%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -41,6 +40,7 @@
     background-color: #d1d1d1;
     border: none;
     width: 85%;
+    height: fit-content;
     text-align: left;
     margin: 0.2rem;
     overflow: hidden;
