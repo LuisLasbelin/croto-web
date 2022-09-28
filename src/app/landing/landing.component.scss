@@ -116,9 +116,9 @@ i {
 
 .img-book {
     position: absolute;
-    width: 60%;
-    margin: 1rem;
+    width: 100%;
     right: 0;
+    top: 60rem;
     overflow: hidden;
 }
 
@@ -203,6 +203,7 @@ i {
         position: relative;
         width: 60%;
         margin: 1rem;
+        top: 4rem;
         overflow: hidden;
     }
 
