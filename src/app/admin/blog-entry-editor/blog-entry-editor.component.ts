@@ -51,13 +51,13 @@ export class BlogEntryEditorComponent implements OnInit {
     // Check if it is called to edit
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if(id >= 0) {
-      this.blogEntryService.getBlogEntry(id).subscribe(result => {
-        this.content = result[0].content;
-        this.title = result[0].title;
-        this.tag = result[0].tags;
-        this.brief = result[0].brief;
-        this.frontImageAlt = result[0].frontImageAlt;
-        this.frontImageURL = result[0].frontImageURL;
+      this.blogEntryService.getBlogEntry(id).subscribe(entry => {
+        this.content = this.blogEntryService.parseContent(entry[0].content),
+        this.title = entry[0].title;
+        this.tag = entry[0].tags;
+        this.brief = entry[0].brief;
+        this.frontImageAlt = entry[0].frontImageAlt;
+        this.frontImageURL = entry[0].frontImageURL;
       })
       // Add a new fragment for every content fragment
       this.content.forEach(fragment => {
