@@ -112,6 +112,16 @@
     cursor: pointer;
 }
 
+.btn-expand {
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    background-color: #d1d1d1;
+    color: white;
+    font-size: 52px;
+    z-index: 10;
+}
+
 @media screen and (max-width: 1007px) {
 
     .list-element {

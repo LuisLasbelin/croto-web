@@ -44,7 +44,7 @@ export class BlogListComponent implements OnInit {
       console.debug("Entry");
       let unformatEntries = res as BlogEntry[];
       // Check if the blog list is too big and can be expanded
-      if(unformatEntries.length > 4) this.canExpand = true;
+      if(unformatEntries.length >= 4) this.canExpand = true;
       // Change the date format to dd/mm/yyyy
       unformatEntries.forEach(entry => {
 
