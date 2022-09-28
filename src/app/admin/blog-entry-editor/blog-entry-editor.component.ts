@@ -56,7 +56,7 @@ export class BlogEntryEditorComponent implements OnInit {
       this.blogEntryService.getBlogEntry(this.id).subscribe(entry => {
         this.content = this.blogEntryService.parseContent(entry[0].content),
         this.title = entry[0].title;
-        this.tag = entry[0].tags;
+        this.tag = entry[0].tag;
         this.brief = entry[0].brief;
         this.frontImageAlt = entry[0].frontImageAlt;
         this.frontImageURL = entry[0].frontImageURL;
