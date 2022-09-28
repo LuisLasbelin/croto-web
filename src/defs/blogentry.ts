@@ -21,9 +21,3 @@ export interface ContentFragment {
     type: { key: number, value: string };
     content: string;
 }
-
-export enum BlogEntryTag {
-    Noticias = 'Noticias',
-    Resenyas = 'Reseñas',
-    Entrevistas = 'Entrevistas'
-}

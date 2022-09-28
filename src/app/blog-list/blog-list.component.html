@@ -10,9 +10,9 @@
             <p class="entry-brief">{{entry.brief}}</p>
             <div class="entry-bottom">
                 <p class="btn-read">LEER MÁS</p>
-                <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">{{entry.tag}}</p>
-                <p *ngIf="entry.tag == 'Reseñas'" class="entry-tag tag-resenya">{{entry.tag}}</p>
-                <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">{{entry.tag}}</p>
+                <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">Entrevista</p>
+                <p *ngIf="entry.tag == 'Resenyas'" class="entry-tag tag-resenya">Reseña</p>
+                <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">Noticia</p>
                 <button type="submit" routerLink="/blog-editor/{{entry.id}}">Editar</button>
             </div>
         </div>

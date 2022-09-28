@@ -31,23 +31,17 @@ export class BlogEntryService {
     ]
   }
 
+  getBlogEntryTags(): string[] {
+    return [
+      'Entrevistas',
+      'Resenyas',
+      'Noticias'
+    ]
+  }
+
   testFunction(): Observable<any> {
     console.log("Testing connection api")
     return this.http.get('/api', {responseType: 'text'});
-  }
-
-  /**
-   * Returns the tags of the blog entries. 
-   *
-   * @returns string[]
-   */
-  getBlogEntryTags(): string[] {
-    // create array from enum BlogEntryTags
-    let tags: string[] = [];
-    for (let tag in BlogEntryTag) {
-      tags.push(tag);
-    }
-    return tags;
   }
 
   /**
