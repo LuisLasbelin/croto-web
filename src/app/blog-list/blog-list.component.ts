@@ -70,5 +70,6 @@ export class BlogListComponent implements OnInit {
   expand() {
     let container = document.getElementById('blog-list');
     container?.classList.add('expanded');
+    this.canExpand = false;
   }
 }
