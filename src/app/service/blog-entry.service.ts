@@ -116,7 +116,7 @@ export class BlogEntryService {
     // We need to upload items as strings to avoid return type problems
     let today = new Date();
     let data = {
-      id: entry.id,
+      id: id,
       title: entry.title,
       tag: entry.tag.toString(),
       date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
