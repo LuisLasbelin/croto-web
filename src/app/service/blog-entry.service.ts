@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BlogEntry, BlogEntryTag, ContentFragment } from 'src/defs/blogentry';
+import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

@@ -1,7 +1,7 @@
 
 export interface BlogEntry {
     id: number;
-    tag: BlogEntryTag;
+    tag: string;
     title: string;
     content: ContentFragment[];
     date: string;
