@@ -37,7 +37,7 @@ export class LandingComponent implements OnInit {
       this.loading = false;
       setTimeout(() => {
         document.getElementById('loading')?.classList.add('hide-loader');
-      }, 1000)
+      }, 500)
       return;
     }
     let number: string = index.toString();

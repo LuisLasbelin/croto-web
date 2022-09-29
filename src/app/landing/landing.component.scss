@@ -81,15 +81,18 @@ i {
 
 .mobile-hide {
     display: flex;
+    z-index: 0;
 }
 
 .mobile-show {
     display: none;
+    z-index: -1;
 }
 
 .intro-body {
     margin-top: 200px;
     width: 65%;
+    z-index: 2;
 }
 
 .col2 {
@@ -120,15 +123,16 @@ i {
     right: 0;
     top: 60rem;
     overflow: hidden;
+    z-index: 0;
 }
 
 .white-box {
-    width: auto;
+    width: 100vw;
+    overflow: hidden;
     background-color: white;
     justify-content: center;
     padding-bottom: 3rem;
-    padding-left: 17.5%;
-    z-index: -10;
+    padding-left: 35%;
   
     clip-path: 
         polygon(
@@ -140,7 +144,7 @@ i {
 }
 
 .white-box p {
-    width: 38%;
+    width: 31%;
 }
 
 .primary-button {
@@ -157,16 +161,16 @@ i {
     align-items: center;
     text-align: center;
     padding: 0.5rem 1rem 0.5rem 1rem;
+    z-index: 10;
 
     /* White */
 
     border: none;
-
-    cursor: pointer;
 }
 
 .primary-button:hover {
     background-color: #a03e41;
+    cursor: pointer;
 }
 
 .desktop-content {
@@ -178,6 +182,7 @@ i {
 .loading-screen {
     position: fixed;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     top: 0;
@@ -192,6 +197,10 @@ i {
     -moz-transition: all 1s linear;
     -o-transition: all 1s linear;
     transition: all 1s linear;
+}
+
+.loading-screen img {
+    width: 30%;
 }
 
 .loading-element {
@@ -210,6 +219,7 @@ i {
 
 .hide-loader {
     opacity: 0;
+    z-index: -1;
 }
 
 /* Mobile mode */
@@ -263,9 +273,11 @@ i {
 
     .mobile-hide {
         display: none;
+        z-index: -1;
     }
 
     .mobile-show {
         display: flex;
+        z-index: 0;
     }
 }
