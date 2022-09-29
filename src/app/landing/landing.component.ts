@@ -11,8 +11,11 @@ export class LandingComponent implements OnInit {
 
   frames: HTMLImageElement[] = []
   scrollSteps: number[] = []
+  loading: boolean = true;
 
   ngOnInit(): void {
+    this.loading = true;
+    
     document.addEventListener('scroll', (e: Event) => {
       this.animate();
     })
@@ -30,6 +33,11 @@ export class LandingComponent implements OnInit {
 
   loadImage(index: number) {
     if(index > 150) {
+      // end loading
+      this.loading = false;
+      setTimeout(() => {
+        document.getElementById('loading')?.classList.add('hide-loader');
+      }, 1000)
       return;
     }
     let number: string = index.toString();
