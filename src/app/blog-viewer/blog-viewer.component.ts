@@ -36,15 +36,23 @@ export class BlogViewerComponent implements OnInit {
         let dateNums = date[0].split('-');
         this.entry = {
           id: entry[0].id,
-          title: entry[0].title,
-          tag: entry[0].tag,
+          title: decodeURI(entry[0].title),
+          tag: decodeURI(entry[0].tag),
           content: this.blogEntryService.parseContent(entry[0].content),
           date: `${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`,
           // TODO: add params from database
-          brief: entry[0].brief,
+          brief: decodeURI(entry[0].brief),
           frontImageURL: entry[0].frontImageURL,
-          frontImageAlt: entry[0].frontImageAlt
+          frontImageAlt: decodeURI(entry[0].frontImageAlt)
         }
+        // for each fragment content
+        for (let i = 0; i < this.entry.content.length; i++) {
+          // if a fragment is text: decodeURI
+          if(this.entry.content[i].type.key == 0) {
+            this.entry.content[i].content = decodeURI(this.entry.content[i].content);
+          }
+        };
+
         console.log(this.entry);
       });
   }
