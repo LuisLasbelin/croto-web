@@ -23,8 +23,15 @@ export class LandingComponent implements OnInit {
     this.loadImage(0);
     
     // scroll until 1000 Y subdivided in 151 parts
-    let subdivision: number = 1000 / 151;
-    let accumulative = 0;
+    let subdivision: number = 650 / 151;
+    // Start offset
+    let accumulative = 100;
+    for (let i = 0; i < 151; i++) {
+      accumulative += subdivision;
+      this.scrollSteps.push(accumulative);
+    }
+    let subdivisionBack: number = 100 / 151;
+    let accumulativeBack = 0;
     for (let i = 0; i < 151; i++) {
       accumulative += subdivision;
       this.scrollSteps.push(accumulative);
@@ -64,8 +71,16 @@ export class LandingComponent implements OnInit {
     let frame = 150;
     for (let i = 0; i < this.scrollSteps.length; i++) {
       if(this.scrollSteps[i] > scroll) {
-        frame = i;
-        break;
+        // frontward
+        if(i < 151) {
+          frame = i;
+          break;
+        }
+        // backward
+        else {
+          frame = 150-(i-150);
+          break;
+        }
       }
     }
     for (let i = 0; i < booksAnim.length; i++) {

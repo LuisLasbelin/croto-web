@@ -21,6 +21,7 @@ i {
 
 nav {
     /* Auto layout */
+    display: -webkit-flex;
     display: flex;
     flex-direction: row;
     /* Center text verticaly */
