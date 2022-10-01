@@ -57,7 +57,7 @@ export class LandingComponent implements OnInit {
   }
 
   animate() {
-    let booksAnim = document.getElementsByClassName('img-book');
+    let booksAnim = document.getElementsByClassName('animated-book');
     let scroll = document.documentElement.scrollTop;
 
     //check current frame
