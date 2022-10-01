@@ -1,7 +1,7 @@
 <nav class="navbar">
-    <span class="container">
-        <img src="../../assets/Imágenes/Luna azul.png" alt="Luna azul" routerLink="/landing">
-    </span>
+    <a class="container" routerLink="/landing" (click)="scroll('landing')">
+        <img src="../../assets/Imágenes/Luna azul.png" alt="Luna azul">
+    </a>
     <span class="nav-links">
         <a routerLink="/landing" (click)="scroll('landing')">DEYTHEA</a>
         <a routerLink="/landing" (click)="scroll('blog')">BLOG</a>
