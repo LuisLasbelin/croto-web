@@ -15,7 +15,11 @@ h2 {
     margin-top: 5rem;
 }
 
-.canvas-container {
+.img-container {
     display: flex;
     justify-content: center;
+}
+
+.img-container img {
+    width: 80%;
 }

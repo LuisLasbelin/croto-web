@@ -18,10 +18,12 @@ import { CharacterGalleryComponent } from './character-gallery/character-gallery
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { MapaMundiFullComponent } from './mapa-mundi-full/mapa-mundi-full.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', component: LandingPageComponent },
+  { path: 'mapa-mundi-full', component: MapaMundiFullComponent},
   { path: 'blog-viewer/:id', component: BlogViewerComponent },
   { path: 'blog-editor', component: BlogEntryEditorComponent },
   { path: 'blog-editor/:id', component: BlogEntryEditorComponent},
@@ -42,6 +44,7 @@ const routes: Routes = [
     AdminPanelComponent,
     LandingPageComponent,
     FooterComponent,
+    MapaMundiFullComponent,
   ],
   imports: [
     BrowserModule,
