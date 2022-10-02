@@ -14,15 +14,15 @@
     height: 100vh;
     overflow: hidden;
     // -----------------
-    -webkit-transition: all 1s linear;
-    -moz-transition: all 1s linear;
-    -o-transition: all 1s linear;
-    transition: all 1s linear;
+    -webkit-transition: all 500ms linear;
+    -moz-transition: all 500ms linear;
+    -o-transition: all 500ms linear;
+    transition: all 500ms linear;
 }
 
 .expanded {
     height: fit-content;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .list-element {
@@ -121,10 +121,15 @@
 
     mask-image: linear-gradient(0deg, rgb(0,0,0,0), rgb(0,0,0,1), rgb(0,0,0,1), rgb(0,0,0,0));
 
-    color: white;
-    text-align: center;
-    font-size: 52px;
     z-index: 10;
+}
+
+.btn-expand i {
+    color: white;
+}
+
+.btn-expand i:hover {
+    color: aliceblue;
 }
 
 @media screen and (max-width: 1007px) {
