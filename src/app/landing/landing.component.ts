@@ -10,36 +10,54 @@ export class LandingComponent implements OnInit {
   constructor() { }
 
   frames: HTMLImageElement[] = []
+  totalFrames: number = 0;
   scrollSteps: number[] = []
   loading: boolean = true;
 
   ngOnInit(): void {
     this.loading = true;
     
-    document.addEventListener('scroll', (e: Event) => {
-      this.animate();
-    })
-
-    this.loadImage(0);
-    
-    // scroll until 1000 Y subdivided in 151 parts
-    let subdivision: number = 650 / 151;
-    // Start offset
-    let accumulative = 100;
-    for (let i = 0; i < 151; i++) {
-      accumulative += subdivision;
-      this.scrollSteps.push(accumulative);
+    // only if there is animation
+    if(this.totalFrames > 0) {
+      this.loadImage(0);
+      // add scroll event listener to animate
+      document.addEventListener('scroll', (e: Event) => {
+        this.animate();
+      })
+      
+      // scroll until 1000 Y subdivided in 151 parts
+      let subdivision: number = 650 / 151;
+      // Start offset
+      let accumulative = 100;
+      for (let i = 0; i < 151; i++) {
+        accumulative += subdivision;
+        this.scrollSteps.push(accumulative);
+      }
+      let subdivisionBack: number = 100 / 151;
+      let accumulativeBack = 0;
+      for (let i = 0; i < 151; i++) {
+        accumulative += subdivision;
+        this.scrollSteps.push(accumulative);
+      }
     }
-    let subdivisionBack: number = 100 / 151;
-    let accumulativeBack = 0;
-    for (let i = 0; i < 151; i++) {
-      accumulative += subdivision;
-      this.scrollSteps.push(accumulative);
+    else {
+      // if there is no animation only load de last frame of itself
+      this.loadImage(150);
     }
   }
 
   loadImage(index: number) {
     if(index > 150) {
+      // set default image
+      let booksAnim = document.getElementsByClassName('animated-book');
+      let bookAnim = booksAnim.item(0) as HTMLCanvasElement;
+        // set the image src to the next frame based on the scrolling value
+        let ctx = bookAnim.getContext('2d');
+        if(ctx != null) {
+          ctx.clearRect(0, 0, bookAnim.width, bookAnim.height);
+          // Frame
+          ctx.drawImage(this.frames[0], 0, 0);  
+      }
       // end loading
       this.loading = false;
       setTimeout(() => {
