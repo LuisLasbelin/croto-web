@@ -175,6 +175,34 @@ export class BlogEntryService {
   }
 
   /**
+   * Transforms string of date into text of date
+   * @param s string with the date in format dd/mm/yyyy
+   * @return string with the date in spanish format
+   */
+  parseDate(s: string): string {
+    // split the string for /
+    let date: string[] = s.split('/');
+    // check which number is the month
+    let months: string[] = [
+      'ENERO',
+      'FEBRERO',
+      'MARZO',
+      'ABRIL',
+      'MAYO',
+      'JUNIO',
+      'JULIO',
+      'AGOSTO',
+      'SEPTIEMBRE',
+      'OCTUBRE',
+      'NOVIEMBRE',
+      'DICIEMBRE',
+    ]
+    let monthNum = Number(date[1]);
+    let text = date[0] + 'DE' + monthNum + 'DE' + date[2];
+    return text;
+  }
+
+  /**
   * Handle Http operation that failed.
   * Let the app continue.
   *

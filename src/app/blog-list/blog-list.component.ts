@@ -52,6 +52,8 @@ export class BlogListComponent implements OnInit {
         let date = entry.date.split('T');
         // Keep only the numbers
         let dateNums = date[0].split('-');
+        let dateText = this.blogEntryService.parseDate(`${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`);
+
 
         this.entries.push({
           id: entry.id,
@@ -59,7 +61,7 @@ export class BlogListComponent implements OnInit {
           title: decodeURI(entry.title),
           // in this case we don't need to decode de content bcs it will not be shown
           content: entry.content,
-          date: `${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`,
+          date: dateText,
           brief: decodeURI(entry.brief),
           frontImageURL: entry.frontImageURL,
           frontImageAlt: decodeURI(entry.frontImageAlt),
