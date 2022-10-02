@@ -126,6 +126,7 @@ i {
 }
 
 .white-box {
+    display: block;
     position: absolute;
     background-color: white;
 
@@ -320,8 +321,7 @@ i {
     }
 
     .white-box {
-        width: 100%;
-        padding-left: 0;
+        display: none;
     }
 
     .mobile-hide {
