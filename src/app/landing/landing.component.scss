@@ -88,7 +88,7 @@ i {
 }
 
 .intro-body {
-    margin-top: 200px;
+    margin-top: 12rem;
     width: 65%;
     z-index: 2;
 }
@@ -99,16 +99,17 @@ i {
     justify-content: flex-start;
 }
 
+.intro-body p {
+    margin: 1rem 1rem 1rem 0;
+}
+
 .txt-black {
     color: black;
+    margin-top: 2rem;
 }
 
 .txt-white {
     color: white;
-}
-
-.intro-body p {
-    margin: 1rem 1rem 1rem 0;
 }
 
 .bold {
@@ -121,39 +122,27 @@ i {
     right: 0;
     top: 60rem;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
 }
 
 .white-box {
-    width: 100vw;
-    overflow: hidden;
-    justify-content: center;
-    padding-bottom: 3rem;
-
-    z-index: 1;
-}
-
-.white-box-background {
+    position: absolute;
     background-color: white;
 
-    width: 100%;
-    height: 100%;
+    left: 0;
+    width: 100vw;
+    height: 15rem;
+
+    overflow: hidden;
       
-    clip-path: 
+    clip-path:
         polygon(
         0% 0%,
         100% 0%,
         100% 100%,
         0% 75%
         );
-
     z-index: -1;
-}
-
-.white-box p {
-    width: 31%;
-    margin-left: 17.5%;
-    z-index: 10;
 }
 
 .primary-button {

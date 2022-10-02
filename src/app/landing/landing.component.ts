@@ -87,8 +87,12 @@ export class LandingComponent implements OnInit {
       // type
       let bookAnim = booksAnim.item(i) as HTMLCanvasElement;
       // set the image src to the next frame based on the scrolling value
-      bookAnim.getContext('2d')?.clearRect(0, 0, bookAnim.width, bookAnim.height);
-      bookAnim.getContext('2d')?.drawImage(this.frames[frame], 0, 0);  
+      let ctx = bookAnim.getContext('2d');
+      if(ctx != null) {
+        ctx.clearRect(0, 0, bookAnim.width, bookAnim.height);
+        // Frame
+        ctx.drawImage(this.frames[frame], 0, 0);  
+      }
     }
 
   }
