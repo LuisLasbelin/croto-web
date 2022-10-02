@@ -10,7 +10,7 @@ export class MapaMundiFullComponent implements OnInit {
 
   constructor() { }
 
-  noZoom: boolean = true;
+  zoomed: boolean = false;
 
   canvas: HTMLCanvasElement = document.getElementById("canvas") as HTMLCanvasElement;
   ctx = this.canvas?.getContext('2d');
@@ -38,7 +38,7 @@ export class MapaMundiFullComponent implements OnInit {
 
     window.scrollTo(0,0);
 
-    this.noZoom = true;
+    this.zoomed = false;
 
     this.canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
@@ -47,6 +47,11 @@ export class MapaMundiFullComponent implements OnInit {
     this.drawBackground();
 
     this.canvas.addEventListener('click', (e: MouseEvent) => {
+      // If there is already a zoom done, reset the canvas
+      if(this.zoomed) {
+        this.drawBackground();
+        this.zoomed = false;
+      }
       let pos = this.getCurrentMousePosition(e, this.canvas);
       this.areas.forEach(area => {
         if (this.isIntersect(pos, area)) {
@@ -54,16 +59,11 @@ export class MapaMundiFullComponent implements OnInit {
           this.openArea(area);
         }
       })
-      // If there is already a zoom done, reset the canvas
-      if(!this.noZoom) {
-        this.drawBackground();
-        this.noZoom = true;
-      }
     }) // canvas
 
     // POINTER MOUSE
     this.canvas.onmousemove = (e: MouseEvent) => {
-      if(this.noZoom) {
+      if(!this.zoomed) {
         let pos = this.getCurrentMousePosition(e, this.canvas);
         let pointing: boolean = false;
         this.areas.forEach(area => {
@@ -160,8 +160,8 @@ export class MapaMundiFullComponent implements OnInit {
    */
   openArea(a: Area) {
     // Can only open of it is not zoomed in already
-    if(this.noZoom) {
-      this.noZoom = false;
+    if(!this.zoomed) {
+      this.zoomed = true;
       this.canvas.style.cursor = 'default';
       //this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
       let img = new Image();
