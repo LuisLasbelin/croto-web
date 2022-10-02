@@ -47,16 +47,26 @@ p {
     gap: 1rem;
 }
 
+.link {
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat';
+}
+
+.link:active {
+    color: white;
+}
+
 // TOOLTIP
 /* Tooltip container */
 .tooltip {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-  }
+}
   
   /* Tooltip text */
-  .tooltip .tooltiptext {
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 200px;
     background-color: #555;
@@ -75,10 +85,10 @@ p {
     /* Fade in tooltip */
     opacity: 0;
     transition: opacity 0.3s;
-  }
+}
   
-  /* Tooltip arrow */
-  .tooltip .tooltiptext::after {
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -87,12 +97,12 @@ p {
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-  }
+}
   
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-  }
+}
   
-  //--------------------------------------------------------------------
+//--------------------------------------------------------------------
