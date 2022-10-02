@@ -10,6 +10,7 @@ export class LandingComponent implements OnInit {
   constructor() { }
 
   frames: HTMLImageElement[] = []
+  // WARNING: to animate set totalFrames to 150
   totalFrames: number = 0;
   scrollSteps: number[] = []
   loading: boolean = true;
