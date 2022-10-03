@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --grey-backgrounds: #d1d1d1;
+    --white-text: #E7E7E7;
+  }
+
 body { 
     padding:0;
     margin:0;
@@ -18,14 +23,14 @@ p {
 
 h1 {
     font-family: 'Cinzel';
-    color: white;
+    color: var(--white-text);
     font-weight: 700;
     font-size: 52px;
 }
 
 h2 {
     font-family: 'Cinzel';
-    color: white;
+    color: var(--white-text);
     font-weight: 700;
     font-size: 52px;
 }

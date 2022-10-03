@@ -1,5 +1,5 @@
 h3 {
-    color: white;
+    color: var(--white-text);
 }
 
 .vertical-container {
@@ -18,7 +18,7 @@ h3 {
     height: 20rem;
     border: 2px solid #ccc;
     padding: 5px;
-    color: white;
+    color: var(--white-text);
 }
 
 select {
@@ -29,5 +29,5 @@ select {
 
 li {
     list-style-type: none;
-    color: white;
+    color: var(--white-text);
 }

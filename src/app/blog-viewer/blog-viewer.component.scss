@@ -1,15 +1,15 @@
 h2 {
-    color: white;
+    color: var(--white-text);
     text-align: center;
 }
 
 hr {
-    color: white;
+    color: var(--white-text);
     width: 100%;
 }
 
 i {
-    color: white;
+    color: var(--white-text);
     margin: 0.1rem;
 }
 
@@ -33,7 +33,7 @@ img {
 }
 
 .entry-date {
-    color: white;
+    color: var(--white-text);
 }
 
 .entry-heading {

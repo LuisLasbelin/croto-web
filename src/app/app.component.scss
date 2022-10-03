@@ -15,7 +15,7 @@
 }
 
 i {
-    color: white;
+    color: var(--white-text);
     margin-right: 1rem;
 }
 
@@ -54,7 +54,7 @@ a {
     text-decoration: none;
 
     /* White */
-    color: #FFFFFF;
+    color: #E7E7E7;
 }
 
 a:hover {
