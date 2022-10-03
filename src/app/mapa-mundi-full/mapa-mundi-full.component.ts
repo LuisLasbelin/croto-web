@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Area } from 'src/defs/area';
+import { Area } from '../../defs/area'
 
 @Component({
   selector: 'app-mapa-mundi-full',
@@ -52,6 +52,7 @@ export class MapaMundiFullComponent implements OnInit {
         this.drawBackground();
         this.zoomed = false;
       }
+      // click on top of an area
       let pos = this.getCurrentMousePosition(e, this.canvas);
       this.areas.forEach(area => {
         if (this.isIntersect(pos, area)) {
@@ -64,10 +65,12 @@ export class MapaMundiFullComponent implements OnInit {
     // POINTER MOUSE
     this.canvas.onmousemove = (e: MouseEvent) => {
       if(!this.zoomed) {
+        // hover on top of an area
         let pos = this.getCurrentMousePosition(e, this.canvas);
         let pointing: boolean = false;
         this.areas.forEach(area => {
           if (this.isIntersect(pos, area)) {
+            // hovering
             pointing = true;
           }
         })

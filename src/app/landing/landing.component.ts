@@ -11,12 +11,19 @@ export class LandingComponent implements OnInit {
 
   frames: HTMLImageElement[] = []
   // WARNING: to animate set totalFrames to 150
-  totalFrames: number = 0;
+  totalFrames: number = -1;
   scrollSteps: number[] = []
   loading: boolean = true;
 
   ngOnInit(): void {
     this.loading = true;
+
+    if(this.totalFrames < 0) {
+      this.loading = false;
+      setTimeout(() => {
+        document.getElementById('loading')?.classList.add('hide-loader');
+      }, 500)
+    }
     
     // only if there is animation
     if(this.totalFrames > 0) {

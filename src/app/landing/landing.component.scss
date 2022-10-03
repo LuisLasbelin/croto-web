@@ -95,8 +95,23 @@ i {
 
 .col2 {
     display: flex;
-    width: 50%;
+    width: 100%;
     justify-content: flex-start;
+}
+
+.flex-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-book div {
+    height: 100%;
+    overflow: visible;
+}
+
+.book {
+    width: 150%;
 }
 
 .intro-body p.txt-white {
@@ -302,7 +317,7 @@ i {
 
     .img-book {
         position: relative;
-        width: 60%;
+        width: 100%;
         margin: 1rem;
         top: 1rem;
         overflow: hidden;
