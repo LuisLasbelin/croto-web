@@ -121,7 +121,7 @@ i {
     position: absolute;
     width: 100%;
     right: 0;
-    top: 60rem;
+    top: 66rem;
     overflow: hidden;
     z-index: -1;
 }
@@ -129,7 +129,7 @@ i {
 .white-box {
     display: block;
     position: absolute;
-    background-color: white;
+    background-color: #d1d1d1;
 
     left: 0;
     width: 100vw;
@@ -180,6 +180,7 @@ i {
     align-items: center;
     flex-direction: column;
     margin-bottom: 5rem;
+    margin-top: 10rem;
 }
 
 .loading-screen {
