@@ -198,7 +198,7 @@ export class BlogEntryService {
       'DICIEMBRE',
     ]
     let monthNum = Number(date[1]);
-    let text = date[0] + 'DE' + monthNum + 'DE' + date[2];
+    let text = date[0] + ' DE ' + monthNum + ' DE ' + date[2];
     return text;
   }
 
