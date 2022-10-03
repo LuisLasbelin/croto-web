@@ -21,7 +21,7 @@ i {
 
 nav {
     /* Auto layout */
-    display: -webkit-flex;
+    display: -webkit-flexbox;
     display: flex;
     flex-direction: row;
     /* Center text verticaly */
@@ -64,8 +64,8 @@ a:hover {
 /* Imagen */
 
 nav .container {
-    height: 50%;
-    width: auto;
+    height: 3rem;
+    width: 3rem;
 }
 
 nav img {
