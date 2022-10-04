@@ -66,11 +66,13 @@ i {
 .paragraph {
     width: 50%;
     margin: 2rem;
+}
 
+.paragraph p {
+    
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
 
     text-align: center;
 
@@ -350,5 +352,15 @@ i {
     .mobile-show {
         display: flex;
         z-index: 0;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .links a {
+        font-size: var(--big-text-p);
+    }
+
+    .white-box {
+        height: 20rem;
     }
 }

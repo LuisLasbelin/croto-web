@@ -132,3 +132,13 @@ nav img {
         position: relative;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    a {
+        font-size: var(--big-text-p);
+    }
+    i {
+        width: var(--big-text-p);
+        height: var(--big-text-p);
+    }
+}

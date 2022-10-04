@@ -169,3 +169,18 @@ p {
         display: none;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    p {
+        font-size: var(--big-text-p);
+    }
+
+    .column {
+        height: 50rem;
+    }
+
+    .char-button {
+        width: 5rem;
+        height: 5rem;;
+    }
+}

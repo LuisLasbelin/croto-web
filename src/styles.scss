@@ -3,7 +3,8 @@
 :root {
     --grey-backgrounds: #d1d1d1;
     --white-text: #E7E7E7;
-  }
+    --big-text-p: 24px;
+}
 
 body { 
     padding:0;
@@ -53,5 +54,25 @@ h2 {
 
     p {
         font-size: 9px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    h1 {
+        font-size: 72px;
+        font-weight: 700;
+        margin-top: 4rem;
+        margin-left: 3rem;
+    }
+
+    h2 {
+        margin-top: 2rem;
+        font-weight: 700;
+        font-size: 64px;
+    }
+
+    p {
+        font-size: var(--big-text-p);
+        line-height: 30px;
     }
 }
