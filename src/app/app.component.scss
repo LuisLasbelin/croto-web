@@ -85,17 +85,21 @@ a {
 
 /* Imagen */
 
-nav .container {
+.container {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .img-container {
     height: 3rem;
     width: 3rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-nav img {
-    width: 90%;
 
     -webkit-transition: all 300ms ease-in-out;
     -moz-transition: all 300ms ease-in-out;
@@ -103,9 +107,13 @@ nav img {
     transition: all 300ms ease-in-out;
 }
 
-nav img:hover {
-    height: 100%;
-    width: 100%;
+nav img {
+    width: 90%;
+}
+
+nav .img-container:hover {
+    height: 4rem;
+    width: 4rem;
 }
 
 #btn-navbar {
@@ -131,7 +139,7 @@ nav img:hover {
         display: none;
     }
 
-    .container {
+    .img-container {
         margin-left: 20px;
     }
 
@@ -173,7 +181,7 @@ nav img:hover {
         font-size: var(--big-text-p);
     }
 
-    nav .container {
+    nav .img-container {
         width: 100px;
     }
 }
@@ -181,5 +189,10 @@ nav img:hover {
 @media screen and (min-width: 3600px) {
     a {
         font-size: var(--4k-text-p);
+    }
+
+    nav .img-container:hover {
+        height: 10rem;
+        width: 10rem;
     }
 }
