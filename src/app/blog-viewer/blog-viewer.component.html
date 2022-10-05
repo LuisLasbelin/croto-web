@@ -1,14 +1,14 @@
 <div class="viewer-body">
     <div class="entry-body" *ngIf="entry">
         <img src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
-        <h2>{{entry.title}}</h2>
+        <h1>{{entry.title}}</h1>
         <hr> <!--LINE-->
         <div class="entry-heading">
             <div class="left-side">
                 <!--TAG-->
-                <div *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">{{entry.tag}}</div>
-                <div *ngIf="entry.tag == 'Reseñas'" class="entry-tag tag-resenya">{{entry.tag}}</div>
-                <div *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">{{entry.tag}}</div>
+                <div *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">ENTREVISTAS</div>
+                <div *ngIf="entry.tag == 'Resenyas'" class="entry-tag tag-resenya">RESEÑAS</div>
+                <div *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">NOTICIAS</div>
                 <!--DATE-->
                 <div class="entry-date">{{entry.date}}</div>
             </div>

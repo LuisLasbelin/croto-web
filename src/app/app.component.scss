@@ -45,6 +45,28 @@ nav {
     justify-content: space-between;
 }
 
+.tw-link a {
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.tw-link i {
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.tw-link:hover a{
+    font-weight: 900;
+}
+
+.tw-link:hover i {
+    color: #1D9BF0;
+}
+
 a {
     font-family: 'Montserrat';
     font-style: normal;
@@ -57,7 +79,7 @@ a {
     color: #E7E7E7;
 }
 
-a:hover {
+.nav-links a:hover {
     font-weight: 700;
 }
 
@@ -66,9 +88,22 @@ a:hover {
 nav .container {
     height: 3rem;
     width: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav img {
+    width: 90%;
+
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+nav img:hover {
     height: 100%;
     width: 100%;
 }
@@ -137,8 +172,14 @@ nav img {
     a {
         font-size: var(--big-text-p);
     }
-    i {
-        width: var(--big-text-p);
-        height: var(--big-text-p);
+
+    nav .container {
+        width: 100px;
+    }
+}
+
+@media screen and (min-width: 3600px) {
+    a {
+        font-size: var(--4k-text-p);
     }
 }

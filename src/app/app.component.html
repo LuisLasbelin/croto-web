@@ -11,10 +11,10 @@
         <a routerLink="/landing" (click)="scroll('contacto')">CONTACTA</a>
         <a routerLink="/landing" (click)="scroll('landing')">COMPRAR</a>
     </span>
-    <span class="tw-link">
-        <i class="fa-brands fa-twitter"></i>
-        <a href="https://twitter.com/c__roto">@c__roto</a>
-    </span>
+    <a href="https://twitter.com/c__roto" target="_blank" rel="noopener noreferrer" class="tw-link">
+        <i class="fa-brands fa-twitter fa-2xl"></i>
+        <a>@c__roto</a>
+    </a>
     <div (click)="toggle()" class="btn-navbar">
         <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'topX'"></div>
         <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'hide'"></div>

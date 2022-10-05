@@ -16,7 +16,11 @@ export class LandingComponent implements OnInit {
   loading: boolean = true;
 
   ngOnInit(): void {
+
+    // Setup variables
+    this.totalFrames = -1;
     this.loading = true;
+    // ---------------------
 
     if(this.totalFrames < 0) {
       this.loading = false;
