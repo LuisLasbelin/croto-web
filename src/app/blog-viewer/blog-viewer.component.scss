@@ -46,7 +46,9 @@ img {
 }
 
 .left-side {
-    justify-self: flex-start
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: row;
 }
 
 .right-side {
@@ -54,6 +56,11 @@ img {
     flex-direction: row;
     justify-content: space-between;
     justify-self: flex-end;
+}
+
+.tag {
+    font-family: 'Montserrat';
+    padding: 0.5rem;
 }
 
 .tag-resenya {
@@ -66,4 +73,15 @@ img {
 
 .tag-noticia {
     background-color: #F3F4B4;
+}
+
+@media screen and (min-width: 1600px) {
+    .tag {
+        font-size: var(--big-text-p);
+    }
+
+    i {
+        width: 60px;
+        height: 60px;
+    }
 }
