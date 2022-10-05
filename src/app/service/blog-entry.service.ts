@@ -171,6 +171,11 @@ export class BlogEntryService {
   parseContent(s: string): ContentFragment[] {
     let content: ContentFragment[] = [];
     content = JSON.parse(s);
+    for (let i = 0; i < content.length; i++) {
+      if(content[i].type.key == 0) {
+        content[i].content = decodeURI(content[i].content)
+      }
+    }
     return content;
   }
 
