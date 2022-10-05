@@ -1,6 +1,11 @@
 p {
     color: var(--white-text);
     font-size: small;
+
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 .char-body {
@@ -31,6 +36,7 @@ p {
     flex-direction: column;
     align-items: center;
     margin-bottom: 5rem;
+    width: 70%;
 }
 
 .content {
@@ -93,8 +99,8 @@ p {
 }
 
 .char-button {
-    width: 50px;
-    height: 50px;
+    width: 64px;
+    height: 64px;
     object-fit: cover;
     border-radius: 100%;
     border: 2px transparent yellow;
@@ -106,8 +112,8 @@ p {
 
 .btn-active {
     border: 2px solid yellow;
-    width: 60px;
-    height: 60px;
+    width: 66px;
+    height: 66px;
 }
 
 /* Mobile mode */
