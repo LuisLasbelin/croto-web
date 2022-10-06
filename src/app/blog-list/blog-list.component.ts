@@ -54,6 +54,11 @@ export class BlogListComponent implements OnInit {
         let dateNums = date[0].split('-');
         let dateText = this.blogEntryService.parseDate(`${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`);
 
+        // If there is no front image URL, set one default
+        if(entry.frontImageURL == "") {
+          entry.frontImageURL = '../../assets/Imágenes/Eclipse.png';
+          entry.frontImageAlt = 'Eclipse de lunas'
+        }
 
         this.entries.push({
           id: entry.id,

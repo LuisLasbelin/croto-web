@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, AfterContentChecked {
 
   constructor() { }
+
 
   frames: HTMLImageElement[] = []
   // WARNING: to animate set totalFrames to 150
@@ -15,19 +16,23 @@ export class LandingComponent implements OnInit {
   scrollSteps: number[] = []
   loading: boolean = true;
 
+
+  ngAfterContentChecked(): void {
+    this.loading = false;
+    if(this.totalFrames < 0) {
+      this.loading = false;
+      setTimeout(() => {
+        document.getElementById('loading')?.classList.add('hide-loader');
+      }, 500);
+    }
+  }
+
   ngOnInit(): void {
 
     // Setup variables
     this.totalFrames = -1;
     this.loading = true;
     // ---------------------
-
-    if(this.totalFrames < 0) {
-      this.loading = false;
-      setTimeout(() => {
-        document.getElementById('loading')?.classList.add('hide-loader');
-      }, 500)
-    }
     
     // only if there is animation
     if(this.totalFrames > 0) {

@@ -1,6 +1,8 @@
 <div class="viewer-body">
     <div class="entry-body" *ngIf="entry">
-        <img src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
+        <div class="img-container">
+            <img src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
+        </div>
         <h1>{{entry.title}}</h1>
         <hr> <!--LINE-->
         <div class="entry-heading">
