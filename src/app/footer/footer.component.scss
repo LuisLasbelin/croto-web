@@ -106,3 +106,15 @@ p {
 }
   
 //--------------------------------------------------------------------
+
+@media screen and (min-width: 1600px) {
+    .link {
+        font-size: var(--big-text-p);
+    }
+}
+
+@media screen and (min-width: 3600px) {
+    .link {
+        font-size: var(--4k-text-p);
+    }
+}

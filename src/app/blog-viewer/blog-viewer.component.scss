@@ -11,7 +11,7 @@ hr {
 
 i {
     color: var(--white-text);
-    margin: 0.1rem;
+    margin: 0 1rem 0 1rem;
 }
 
 .img-container {
@@ -87,6 +87,26 @@ img {
 
 .tag-noticia {
     background-color: #F3F4B4;
+}
+
+@media screen and (max-width: 1000px) {
+    .entry-heading {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .entry-tag {
+        font-size: 9px;
+    }
+
+    .entry-date {
+        font-size: 9px;
+    }
+
+    i {
+        font-size: 16px;
+    }
 }
 
 @media screen and (min-width: 1600px) {

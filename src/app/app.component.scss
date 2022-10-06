@@ -94,8 +94,8 @@ a {
 }
 
 nav .img-container {
-    height: 3rem;
-    width: 3rem;
+    height: 4rem;
+    width: 4rem;
 
     display: flex;
     align-items: center;
@@ -139,8 +139,15 @@ nav .img-container:hover {
         display: none;
     }
 
-    .img-container {
+    nav .container {
+        width: auto;
+    }
+
+    nav .img-container {
         margin-left: 20px;
+
+        height: 42px;
+        width: 42px;
     }
 
     .nav-links-mobile {
@@ -181,14 +188,21 @@ nav .img-container:hover {
         font-size: var(--big-text-p);
     }
 
-    nav .img-container {
-        width: 100px;
+    nav .img-container:hover {
+        height: 5rem;
+        width: 5rem;
     }
+    
 }
 
 @media screen and (min-width: 3600px) {
     a {
         font-size: var(--4k-text-p);
+    }
+
+    nav .img-container {
+        width: 8rem;
+        height: 8rem;
     }
 
     nav .img-container:hover {

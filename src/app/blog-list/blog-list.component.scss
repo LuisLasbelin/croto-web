@@ -159,6 +159,12 @@
     }
 }
 
+@media screen and (min-width: 1600px) {
+    .entry {
+        margin: 1rem;
+    }
+}
+
 @media screen and (min-width: 3600px) {
     .entry-title {
         font-size: 64px;
