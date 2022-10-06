@@ -83,4 +83,10 @@ export class BlogListComponent implements OnInit {
     container?.classList.add('expanded');
     this.canExpand = false;
   }
+
+  deleteEntry(id: number) {
+    this.blogEntryService.deleteBlogEntry(id).subscribe((res: any) => {
+      console.log("Entrada eliminada: " + id);
+    })
+  }
 }
