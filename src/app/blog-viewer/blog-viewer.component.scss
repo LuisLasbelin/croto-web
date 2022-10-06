@@ -15,7 +15,7 @@ i {
 }
 
 .img-container {
-    height: 10%;
+    height: 40vh;
     overflow: hidden;
 }
 
@@ -37,6 +37,12 @@ img {
     align-items: center;
 }
 
+.entry-tag {
+    padding: 0.5rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+
 .entry-date {
     font-family: 'Montserrat';
     color: var(--white-text);
@@ -55,6 +61,8 @@ img {
     justify-self: flex-start;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 1rem;
 }
 
 .right-side {
