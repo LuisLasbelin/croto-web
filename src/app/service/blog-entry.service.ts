@@ -166,6 +166,12 @@ export class BlogEntryService {
    * @returns string
    */
   contentToString(entry: BlogEntry): string {
+    for (let i = 0; i < entry.content.length; i++) {
+      // only encode if it is text
+      if(entry.content[i].type.key == 0) {
+        entry.content[i].content = encodeURI(entry.content[i].content);
+      }
+    }
     let contentString = JSON.stringify(entry.content);
     return contentString;
   }
