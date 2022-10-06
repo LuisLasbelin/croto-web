@@ -71,7 +71,6 @@ export class CharacterGalleryComponent implements OnInit, AfterContentChecked {
   }
 
   animate() {
-    console.log('animating!')
     this.animationState = false;
 
     // Deactivate new portrait and background
