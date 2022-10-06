@@ -4,6 +4,12 @@
 }
 
 @font-face {
+    font-family: 'Montserrat-Bold';
+    src: url("../assets/Tipografías/Montserrat/Montserrat-VariableFont_wght.ttf");
+    font-weight: bold;
+}
+
+@font-face {
     font-family: 'Montserrat';
     src: url("../assets/Tipografías/Montserrat/Montserrat-Italic-VariableFont_wght.ttf");
     font-style: italic;
@@ -65,7 +71,7 @@ nav {
 }
 
 .tw-link:hover a{
-    font-weight: 900;
+    font-family: 'Montserrat-Bold';
 }
 
 .tw-link:hover i {
@@ -85,7 +91,7 @@ a {
 }
 
 .nav-links a:hover {
-    font-weight: 700;
+    font-family: 'Montserrat-Bold';
 }
 
 /* Imagen */
@@ -99,8 +105,8 @@ a {
 }
 
 nav .img-container {
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
 
     display: flex;
     align-items: center;
@@ -117,8 +123,8 @@ nav img {
 }
 
 nav .img-container:hover {
-    height: 4rem;
-    width: 4rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 #btn-navbar {
