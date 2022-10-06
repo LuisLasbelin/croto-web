@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
+import { BlogEntry, ContentFragment, defaultEntries } from 'src/defs/blogentry';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -54,54 +54,7 @@ export class BlogEntryService {
       .pipe(
         tap(_ => console.log('fetched blog entries')),
         retry(3),
-        catchError(this.handleError<any[]>('getBlogEntries', [
-            {
-              id: 1,
-              tag: 'Resenyas',
-              title: 'Una reseña de prueba',
-              content: [
-                {
-                  type: {key: 0, value: 'Text'},
-                  content: 'Ahora veremos si esto funciona correctamente.'
-                }
-              ],
-              date: '2022-10-06T00000',
-              brief: 'Esto no es más que una prueba',
-              frontImageURL: '',
-              frontImageAlt: '',
-            },
-            {
-              id: 2,
-              tag: 'Entrevistas',
-              title: 'Una entrevista de prueba',
-              content: [
-                {
-                  type: {key: 0, value: 'Text'},
-                  content: 'Ahora veremos si esto funciona correctamente.'
-                }
-              ],
-              date: '2022-10-07T00000',
-              brief: 'Esto no es más que una prueba',
-              frontImageURL: '',
-              frontImageAlt: '',
-            },
-            {
-              id: 2,
-              tag: 'Noticias',
-              title: 'Una noticia de prueba',
-              content: [
-                {
-                  type: {key: 0, value: 'Text'},
-                  content: 'Ahora veremos si esto funciona correctamente.'
-                }
-              ],
-              date: '2022-10-08T00000',
-              brief: 'Esto no es más que una prueba',
-              frontImageURL: '',
-              frontImageAlt: '',
-            }
-          ] // entries
-        )) // catch error
+        catchError(this.handleError<any[]>('getBlogEntries', defaultEntries)) // catch error
       ) // pipe
   }
 
