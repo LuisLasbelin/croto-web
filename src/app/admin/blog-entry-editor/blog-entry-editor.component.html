@@ -22,8 +22,8 @@
     </div>
     <ul>
         <li *ngFor="let fragment of content">
-            <angular-editor *ngIf="fragment.type.key == 0" id="content-box" [placeholder]="'Enter text here...'"
-            [(ngModel)]="fragment.content" [config]="editorConfig"></angular-editor>
+            <textarea *ngIf="fragment.type.key == 0" name="content-box text" cols="30" rows="30"
+            [(ngModel)]="fragment.content">Texto de cuerpo</textarea>
 
             <textarea *ngIf="fragment.type.key == 2" name="content-box" cols="30" rows="1"
             [(ngModel)]="fragment.content">Video URL</textarea>

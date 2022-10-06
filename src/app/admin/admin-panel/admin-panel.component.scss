@@ -3,21 +3,6 @@ h2 {
   margin-top: 5rem;
 }
 
-.btn-new-entry {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background: aquamarine;
-    border: none;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-
-    // Temp
-    font-size: xx-large;
-}
-
 #form {
     width: 100%;
     display: flex;
@@ -62,4 +47,21 @@ input {
 
 .error-text {
     color: #f69797
+}
+
+@media screen and (max-width: 1000px) {
+  .btn-new-entry {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: aquamarine;
+    border: none;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+
+    // Temp
+    font-size: xx-large;
+  }
 }
