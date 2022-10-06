@@ -131,7 +131,7 @@
     height: 20rem;
     margin-top: -5rem;
 
-    background: linear-gradient(#03060f00, #122a72);
+    background: linear-gradient(#03060f00, #03060f);
 
     z-index: 10;
 }
@@ -159,6 +159,12 @@
     }
 }
 
+@media screen and (min-width: 1600px) {
+    .entry {
+        margin: 1rem;
+    }
+}
+
 @media screen and (min-width: 3600px) {
     .entry-title {
         font-size: 64px;
@@ -175,5 +181,18 @@
 
     .entry-tag {
         padding: 1rem 2rem 1rem 2rem;
+    }
+
+    .entry {
+        margin: 3rem;
+    }
+
+    .btn-expand {
+        height: 40rem;
+    }
+
+    .btn-expand svg {
+        height: 170px;
+        width: 170px;
     }
 }

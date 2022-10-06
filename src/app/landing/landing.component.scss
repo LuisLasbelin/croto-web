@@ -6,6 +6,10 @@
     mask-image: linear-gradient(180deg, rgb(0,0,0,1), rgb(0,0,0,0));
 }
 
+h1 {
+    margin-left: 3rem;
+}
+
 #content {
     display: flex;
     flex-direction: column;
@@ -373,5 +377,30 @@ i {
 
     .white-box {
         height: 20rem;
+    }
+}
+
+@media screen and (min-width: 3600px) {
+    .links a {
+        font-size: var(--4k-text-p);
+    }
+
+    .white-box {
+        height: 40rem;
+    }
+
+    .book {
+        width: 80%
+    }
+
+    .primary-button {
+        font-size: var(--4k-text-p);
+        margin-top: 10%;
+        padding: 3rem;
+    }
+
+    .tooltip .tooltiptext {
+        width: 400px;
+        margin-left: -200px;
     }
 }

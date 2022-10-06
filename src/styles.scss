@@ -3,8 +3,8 @@
 :root {
     --grey-backgrounds: #d1d1d1;
     --white-text: #E7E7E7;
-    --big-text-p: 24px;
-    --4k-text-p: 34px
+    --big-text-p: 20px;
+    --4k-text-p: 36px
 }
 
 body { 
@@ -43,7 +43,6 @@ h2 {
         font-size: 24px;
         font-weight: 700;
         margin-top: 4rem;
-        margin-left: 3rem;
     }
 
     h2 {
@@ -59,20 +58,39 @@ h2 {
 
 @media screen and (min-width: 1600px) {
     h1 {
-        font-size: 120px;
+        font-size: 86px;
         font-weight: 700;
         margin-top: 4rem;
-        margin-left: 3rem;
     }
 
     h2 {
         margin-top: 2rem;
         font-weight: 700;
-        font-size: 86px;
+        font-size: 72px;
     }
 
     p {
         font-size: var(--big-text-p);
         line-height: 30px;
+    }
+}
+
+// 4K
+@media screen and (min-width: 3600px) {
+    h1 {
+        font-size: 120px;
+        font-weight: 700;
+        margin-top: 4rem;
+    }
+
+    h2 {
+        margin-top: 2rem;
+        font-weight: 700;
+        font-size: 92px;
+    }
+
+    p {
+        font-size: var(--4k-text-p);
+        line-height: 56px;
     }
 }

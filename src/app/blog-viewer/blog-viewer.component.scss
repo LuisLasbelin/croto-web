@@ -11,7 +11,7 @@ hr {
 
 i {
     color: var(--white-text);
-    margin: 0.1rem;
+    margin: 0 1rem 0 1rem;
 }
 
 .img-container {
@@ -31,7 +31,7 @@ img {
 
 .entry-body {
     margin-top: 10%;
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,6 +41,7 @@ img {
     padding: 0.5rem;
     font-family: 'Montserrat';
     font-weight: 700;
+    font-size: 12px;
 }
 
 .entry-date {
@@ -89,13 +90,63 @@ img {
     background-color: #F3F4B4;
 }
 
+@media screen and (max-width: 1000px) {
+    .entry-heading {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .entry-tag {
+        font-size: 9px;
+    }
+
+    .entry-date {
+        font-size: 9px;
+    }
+
+    i {
+        font-size: 16px;
+    }
+}
+
 @media screen and (min-width: 1600px) {
     .tag {
         font-size: var(--big-text-p);
     }
+}
 
+@media screen and (min-width: 3600px) {
+    
     i {
-        width: 60px;
-        height: 60px;
+        margin: 0 1rem 0 1rem;
+    }
+
+    .entry-body {
+        width: 60%;
+    }
+
+    .entry-heading {
+        height: 5rem;
+    }
+
+    .right-side {
+        height: 100%;
+    }
+
+    .right-side a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        
+    }
+
+    .entry-tag {
+        font-size: var(--4k-text-p);
+    }
+
+    .entry-date {
+        font-size: var(--4k-text-p);
     }
 }
