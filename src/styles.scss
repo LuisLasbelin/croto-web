@@ -1,11 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
-.vertical-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+:root {
+    --grey-backgrounds: #d1d1d1;
+    --white-text: #E7E7E7;
+    --big-text-p: 24px;
+    --4k-text-p: 34px
 }
 
-ul {
-    padding: 0;
+body { 
+    padding:0;
+    margin:0;
+    background-color: #03060F;
+    overflow-x: hidden;
+}
+
+p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+h1 {
+    font-family: 'Cinzel';
+    color: var(--white-text);
+    font-weight: 900;
+    font-size: 52px;
+}
+
+h2 {
+    font-family: 'Cinzel';
+    color: var(--white-text);
+    font-weight: 700;
+    font-size: 52px;
+}
+
+/* Mobile mode */
+@media screen and (max-width: 1007px) {
+
+    h1 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 4rem;
+        margin-left: 3rem;
+    }
+
+    h2 {
+        margin-top: 2rem;
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 9px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    h1 {
+        font-size: 120px;
+        font-weight: 700;
+        margin-top: 4rem;
+        margin-left: 3rem;
+    }
+
+    h2 {
+        margin-top: 2rem;
+        font-weight: 700;
+        font-size: 86px;
+    }
+
+    p {
+        font-size: var(--big-text-p);
+        line-height: 30px;
+    }
 }

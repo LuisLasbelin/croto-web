@@ -1,0 +1,11 @@
+<div id="form" *ngIf="!adminAccess">
+    <h2>Contraseña</h2>
+    <input type="password" name="password" id="password" cols="30" rows="1" [(ngModel)]="password">
+    <p class="error-text" *ngIf="passFailed">Contraseña incorrecta o revisa tu conexión a internet</p>
+    <button class="btn-login" type="submit" (click)="login()">Entrar</button>
+</div>
+<div id="panel" *ngIf="adminAccess">
+    <app-blog-list></app-blog-list>
+    
+    <button type="button" routerLink="/blog-editor" class="btn-new-entry">+</button>
+</div>

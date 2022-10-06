@@ -1,11 +1,32 @@
-<ul>
-    <li *ngFor="let entry of entries" class="blog-list">
-        <button class="entry" routerLink="/blog-viewer/{{entry.id}}">
-            <h3 class="title">{{entry.title}}</h3>
-            <p>{{entry.tag}}</p>
-            <p class="date">{{entry.updated}}</p>
-        </button>
-    </li>
-</ul>
-
-<button type="button" routerLink="/blog-editor" class="b-new-entry">+</button>
+<div class="title">
+    <h2>BLOG</h2>
+</div>
+<div class="container" id="blog-list">
+    <div *ngFor="let entry of entries" class="list-element">
+        <div class="entry" routerLink="/blog-viewer/{{entry.id}}">
+            <div class="img-container">
+                <img class="entry-image" src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
+            </div>
+            <h3 class="entry-title">{{entry.title}}</h3>
+            <p class="date">{{entry.date}}</p>
+            <p class="entry-brief">{{entry.brief}}</p>
+            <div class="entry-bottom">
+                <p class="btn-read">LEER MÁS</p>
+                <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">ENTREVISTAS</p>
+                <p *ngIf="entry.tag == 'Resenyas'" class="entry-tag tag-resenya">RESEÑAS</p>
+                <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">NOTICIAS</p>
+                <button type="submit" routerLink="/blog-editor/{{entry.id}}" *ngIf="adminAccess">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-expand" *ngIf="canExpand" (click)="expand()">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 74.2 72.9" enable-background="new 0 0 74.2 72.9" xml:space="preserve">
+        <circle fill="none" class="btn-expand-svg" stroke="#F2F2F2" stroke-width="4" stroke-miterlimit="10" cx="36.8" cy="36.8" r="29.7"/>
+        <g>
+            <line fill="none" class="btn-expand-svg" stroke="#F2F2F2" stroke-width="4" stroke-miterlimit="10" x1="19.8" y1="36.6" x2="53.8" y2="36.6"/>
+            <line fill="none" class="btn-expand-svg" stroke="#F2F2F2" stroke-width="4" stroke-miterlimit="10" x1="36.8" y1="18.6" x2="36.8" y2="54.6"/>
+        </g>
+    </svg>
+</div>

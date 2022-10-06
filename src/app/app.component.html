@@ -1,7 +1,39 @@
 <nav class="navbar">
-    <a routerLink="/landing">Home</a>
-    <a routerLink="/blog-list">Blog</a>
-    <a routerLink="/character-gallery">Personajes</a>
-    <a routerLink="/mapamundi">El Mundo</a>
+    <div class="container">
+        <a class="img-container" routerLink="/landing" (click)="scroll('landing')">
+            <img src="../../assets/Imágenes/Luna azul.png" alt="Luna azul">
+        </a>
+    </div>
+    <span class="nav-links">
+        <a routerLink="/landing" (click)="scroll('landing')">DEYTHEA</a>
+        <a routerLink="/landing" (click)="scroll('saga')">LA SAGA</a>
+        <a routerLink="/landing" (click)="scroll('blog')">BLOG</a>
+        <a routerLink="/landing" (click)="scroll('personajes')">PERSONAJES</a>
+        <a routerLink="/landing" (click)="scroll('mundo')">MAPA</a>
+        <a routerLink="/landing" (click)="scroll('contacto')">CONTACTA</a>
+        <a routerLink="/landing" (click)="scroll('landing')">COMPRAR</a>
+    </span>
+    <a href="https://twitter.com/c__roto" target="_blank" rel="noopener noreferrer" class="tw-link">
+        <i class="fa-brands fa-twitter fa-2xl"></i>
+        <a>@c__roto</a>
+    </a>
+    <div (click)="toggle()" class="btn-navbar">
+        <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'topX'"></div>
+        <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'hide'"></div>
+        <div class="icon-bar" [@hamburguerX]="isHamburguer ? 'hamburguer' : 'bottomX'"></div>
+    </div>
 </nav>
+
+<span class="nav-links-mobile" [@hamburguerX]="isHamburguer ? 'closed' : 'open'">
+    <a routerLink="/landing" (click)="scroll('landing')">DEYTHEA</a>
+    <a routerLink="/landing" (click)="scroll('blog')">BLOG</a>
+    <a routerLink="/landing" (click)="scroll('personajes')">PERSONAJES</a>
+    <a routerLink="/landing" (click)="scroll('mundo')">MAPA</a>
+    <a routerLink="/landing" (click)="scroll('mundo')">CONTACTA</a>
+    <a routerLink="/landing" (click)="scroll('mundo')">COMPRAR</a>
+</span>
+
 <router-outlet></router-outlet>
+
+<span id="contacto"></span>
+<app-footer></app-footer>

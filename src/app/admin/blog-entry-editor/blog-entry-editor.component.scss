@@ -1,0 +1,33 @@
+h3 {
+    color: var(--white-text);
+}
+
+.vertical-container {
+    margin-top: 10%;
+}
+
+#title-box {
+    width: 80%;
+    height: 1.5rem;
+    border: 2px solid #ccc;
+    padding: 5px;
+}
+
+#content-box {
+    width: 100%;
+    height: 20rem;
+    border: 2px solid #ccc;
+    padding: 5px;
+    color: var(--white-text);
+}
+
+select {
+    border: 2px solid #ccc;
+    padding: 0.5rem;
+    margin: 10px;
+}
+
+li {
+    list-style-type: none;
+    color: var(--white-text);
+}

@@ -1,4 +1,101 @@
-li {
-    list-style: none;
-    margin: 6px;
+h1 {
+    color: var(--white-text);
+    text-align: center;
+    font-family: 'Montserrat';
+}
+
+hr {
+    color: var(--white-text);
+    width: 100%;
+}
+
+i {
+    color: var(--white-text);
+    margin: 0.1rem;
+}
+
+.img-container {
+    height: 40vh;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+.viewer-body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.entry-body {
+    margin-top: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entry-tag {
+    padding: 0.5rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+
+.entry-date {
+    font-family: 'Montserrat';
+    color: var(--white-text);
+    font-weight: 700;
+}
+
+.entry-heading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-side {
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-self: flex-end;
+}
+
+.tag {
+    font-family: 'Montserrat';
+    padding: 0.5rem;
+}
+
+.tag-resenya {
+    background-color: #DDC8FF;
+}
+
+.tag-entrevista {
+    background-color: #FC9696;
+}
+
+.tag-noticia {
+    background-color: #F3F4B4;
+}
+
+@media screen and (min-width: 1600px) {
+    .tag {
+        font-size: var(--big-text-p);
+    }
+
+    i {
+        width: 60px;
+        height: 60px;
+    }
 }

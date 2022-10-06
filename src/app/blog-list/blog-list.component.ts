@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogEntry } from 'src/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
+import { CookiesService } from '../service/cookies.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -9,11 +10,28 @@ import { BlogEntryService } from '../service/blog-entry.service';
 })
 export class BlogListComponent implements OnInit {
 
-  entries!: BlogEntry[];
+  entries: BlogEntry[] = [];
+  canExpand: boolean = false;
+  adminAccess: boolean = false;
 
-  constructor(private blogEntryService: BlogEntryService) {}
+  constructor(private blogEntryService: BlogEntryService, private cookiesService: CookiesService) {
+  }
 
   ngOnInit(): void {
+    this.canExpand = false;
+    
+    this.adminAccess = false;
+
+    // Find a session cookie if there is any stored
+    let sessionCookie = this.cookiesService.getCookie("ADMIN");
+    // Access when there is a session cookie stored. It does NOT verify the cookie password
+    if(sessionCookie.length > 10) {
+      this.adminAccess = true;
+    }
+    else {
+      this.adminAccess = false;
+    }
+
     this.getBlogEntries();
   }
 
@@ -22,15 +40,47 @@ export class BlogListComponent implements OnInit {
    * @returns BlogEntry[]
    */
   getBlogEntries() {
-    this.blogEntryService.getBlogEntries().subscribe(entries => this.entries = entries);
+    this.blogEntryService.getBlogEntries().subscribe((res: any) => {
+      console.debug("Entry");
+      let unformatEntries = res as BlogEntry[];
+      // Check if the blog list is too big and can be expanded
+      if(unformatEntries.length >= 2) this.canExpand = true;
+      // Change the date format to dd/mm/yyyy
+      unformatEntries.forEach(entry => {
+
+        // Get the date
+        let date = entry.date.split('T');
+        // Keep only the numbers
+        let dateNums = date[0].split('-');
+        let dateText = this.blogEntryService.parseDate(`${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`);
+
+        // If there is no front image URL, set one default
+        if(entry.frontImageURL == "") {
+          entry.frontImageURL = '../../assets/Imágenes/Eclipse.png';
+          entry.frontImageAlt = 'Eclipse de lunas'
+        }
+
+        this.entries.push({
+          id: entry.id,
+          tag: decodeURI(entry.tag),
+          title: decodeURI(entry.title),
+          // in this case we don't need to decode de content bcs it will not be shown
+          content: entry.content,
+          date: dateText,
+          brief: decodeURI(entry.brief),
+          frontImageURL: entry.frontImageURL,
+          frontImageAlt: decodeURI(entry.frontImageAlt),
+        })
+      });
+    })
   }
 
-  /* OUTDATED
-  newBlogEntry() {
-    this.blogEntryService.addBlogEntry({title:"New Title", content:"New Content"} as BlogEntry)
-      .subscribe(entry => {
-        this.entries.push(entry);
-      });
+  /**
+   * Expands the list to show more results
+   */
+  expand() {
+    let container = document.getElementById('blog-list');
+    container?.classList.add('expanded');
+    this.canExpand = false;
   }
-  */
 }

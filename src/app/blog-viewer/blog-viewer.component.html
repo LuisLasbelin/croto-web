@@ -1,14 +1,32 @@
-<div *ngIf="entry">
-    <h2>{{entry.title}}</h2>
-    <h3>Por C.Roto</h3>
-    <!-- Renders the entry.content: string as HTML elements -->
-    <ul>
-        <li *ngFor="let fragment of entry.content">
-            <app-content-fragment 
-            [contentType]="fragment.type"
-            [content]="fragment.content"></app-content-fragment>
-        </li>
-    </ul>
-    <button type="submit" (click)="goBack()">Volver</button>
-    <p>Actualizado: {{entry.updated}}</p>
+<div class="viewer-body">
+    <div class="entry-body" *ngIf="entry">
+        <div class="img-container">
+            <img src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
+        </div>
+        <h1>{{entry.title}}</h1>
+        <hr> <!--LINE-->
+        <div class="entry-heading">
+            <div class="left-side">
+                <!--TAG-->
+                <div *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">ENTREVISTAS</div>
+                <div *ngIf="entry.tag == 'Resenyas'" class="entry-tag tag-resenya">RESEÑAS</div>
+                <div *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">NOTICIAS</div>
+                <!--DATE-->
+                <div class="entry-date">{{entry.date}}</div>
+            </div>
+            <div class="right-side">
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
+        <!-- Renders the entry.content: string as HTML elements -->
+        <div>
+            <div *ngFor="let fragment of entry.content">
+                <app-content-fragment 
+                [contentType]="fragment.type"
+                [content]="fragment.content"></app-content-fragment>
+            </div>
+        </div>
+    </div>
 </div>

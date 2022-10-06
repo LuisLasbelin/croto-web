@@ -1,1 +1,20 @@
-<p>character-gallery works!</p>
+<div class="char-body">
+    <div class="title">
+        <h2>Personajes</h2>
+        <div class="buttons">
+            <img id={{b.id}} class="char-button" src='{{buttonSrc}}{{b.button}}' alt={{currCharacter.name}} *ngFor="let b of characters" (click)="selectCharacter(b.name)">
+        </div>
+    </div>
+    <img id="background{{char.id}}"  *ngFor="let char of characters" class="background inactive" src='../../assets/Personajes/Fondos/{{char.background}}' alt={{char.name}}>
+    <div class="content">
+        <div class="column img-container">
+            <img id="portrait{{char.id}}" class="portrait inactive" *ngFor="let char of characters" src='../../assets/Personajes/Ilustraciones/{{char.portrait}}' alt={{char.name}}>
+        </div>
+        <div class="column">
+            <div class="descriptions">
+                <h3 class="char-name">{{currCharacter.name}}</h3>
+                <p *ngFor="let p of currCharacter.description">{{p}}</p>
+            </div>
+        </div>
+    </div>
+</div>
