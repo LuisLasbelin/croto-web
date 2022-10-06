@@ -6,10 +6,6 @@
     mask-image: linear-gradient(180deg, rgb(0,0,0,1), rgb(0,0,0,0));
 }
 
-h1 {
-    margin-left: 3rem;
-}
-
 #content {
     display: flex;
     flex-direction: column;
@@ -308,6 +304,10 @@ i {
 
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
+
+    h1 {
+        margin-left: 3rem;
+    }
 
     .col1 {
         width: 75%;
