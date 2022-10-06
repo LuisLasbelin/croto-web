@@ -16,6 +16,7 @@
                 <p *ngIf="entry.tag == 'Resenyas'" class="entry-tag tag-resenya">RESEÑAS</p>
                 <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">NOTICIAS</p>
                 <button type="submit" routerLink="/blog-editor/{{entry.id}}" *ngIf="adminAccess">Editar</button>
+                <button type="submit" (click)="deleteEntry(entry.id)" *ngIf="adminAccess">Borrar</button>
             </div>
         </div>
     </div>
