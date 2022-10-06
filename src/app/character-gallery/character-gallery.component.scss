@@ -1,6 +1,5 @@
 p {
     color: var(--white-text);
-    font-size: small;
 
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -177,9 +176,6 @@ p {
 }
 
 @media screen and (min-width: 1600px) {
-    p {
-        font-size: var(--big-text-p);
-    }
 
     .column {
         height: 50rem;
@@ -187,6 +183,26 @@ p {
 
     .char-button {
         width: 5rem;
-        height: 5rem;;
+        height: 5rem;
+    }
+}
+
+@media screen and (min-width: 3600px) {
+    .column {
+        height: 110rem;
+    }
+
+    .char-name {
+        font-size: 72px;
+    }
+
+    .char-button {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .btn-active {
+        width: 12rem;
+        height: 12rem;
     }
 }
