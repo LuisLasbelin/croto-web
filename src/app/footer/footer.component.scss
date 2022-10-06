@@ -107,6 +107,20 @@ p {
   
 //--------------------------------------------------------------------
 
+@media screen and (max-width: 1000px) {
+    img {
+        display: none;
+    }
+
+    a {
+        font-size: 11px;
+    }
+
+    .foot-body {
+        gap: 1rem;
+    }
+}
+
 @media screen and (min-width: 1600px) {
     .link {
         font-size: var(--big-text-p);

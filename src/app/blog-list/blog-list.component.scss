@@ -160,6 +160,14 @@
     .list-element {
         width: 100%;
     }
+
+    .title {
+        margin-top: 0;
+    }
+
+    .btn-expand {
+        height: 16rem;
+    }
 }
 
 @media screen and (min-width: 1600px) {
