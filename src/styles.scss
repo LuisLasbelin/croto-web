@@ -3,7 +3,7 @@
 :root {
     --grey-backgrounds: #d1d1d1;
     --white-text: #E7E7E7;
-    --big-text-p: 24px;
+    --big-text-p: 20px;
     --4k-text-p: 36px
 }
 
@@ -122,7 +122,7 @@ h2 {
 
     p {
         font-size: var(--big-text-p);
-        line-height: 32px;
+        line-height: 30px;
     }
 
     .tooltip .tooltiptext {
