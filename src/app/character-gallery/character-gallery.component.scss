@@ -120,6 +120,10 @@ p {
 /* Mobile mode */
 @media screen and (max-width: 500px) {
 
+    .char-name {
+        
+    }
+
     .char-body {
         height: auto;
         margin-bottom: 5rem;
@@ -136,7 +140,7 @@ p {
     }
 
     .img-container {
-        height: 160px;
+        height: 30vh;
     }
     .img-container img {
         width: 40%;
@@ -165,11 +169,14 @@ p {
 
     .column {
         width: 90%;
-        height: 400px;
     }
 
     .img-container img {
         width: 40%;
+    }
+
+    .img-container {
+        height: 40vh;
     }
 
     .background {
