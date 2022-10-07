@@ -12,6 +12,7 @@ p {
     flex-direction: column;
     align-items: center;
     height: 120vh;
+    margin-top: 2rem;
     margin-bottom: 10rem;
 }
 
@@ -95,6 +96,7 @@ p {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-end;
+    z-index: 5;
 }
 
 .char-button {
@@ -184,6 +186,14 @@ p {
     .char-button {
         width: 5rem;
         height: 5rem;
+    }
+
+    .char-body {
+        margin-bottom: 0;
+    }
+
+    .content {
+        margin-top: 10rem;
     }
 }
 
