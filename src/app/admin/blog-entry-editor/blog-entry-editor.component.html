@@ -25,8 +25,11 @@
             <textarea *ngIf="fragment.type.key == 0" name="content-box text" cols="30" rows="30"
             [(ngModel)]="fragment.content">Texto de cuerpo</textarea>
 
+            <textarea *ngIf="fragment.type.key == 1" name="content-box" cols="30" rows="1"
+            [(ngModel)]="fragment.content">Imagen URL</textarea>
+
             <textarea *ngIf="fragment.type.key == 2" name="content-box" cols="30" rows="1"
-            [(ngModel)]="fragment.content">Video URL</textarea>
+            [(ngModel)]="fragment.content">Vídeo URL</textarea>
         </li>
     </ul>
 
