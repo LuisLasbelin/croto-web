@@ -19,17 +19,17 @@ export class MapaMundiFullComponent implements OnInit {
   // create circles to draw
   areas: Area[] = [
     {
-      id: '01',
-      x: 1500,
-      y: 600,
-      radius: 500,
+      id: '1',
+      x: 400,
+      y: 59,
+      radius: 10,
       color: 'blue'
     },
     {
-      id: '02',
-      x: 2400,
-      y: 1200,
-      radius: 500,
+      id: '2',
+      x: 650,
+      y: 160,
+      radius: 10,
       color: 'red'
     }
   ];
@@ -94,7 +94,7 @@ export class MapaMundiFullComponent implements OnInit {
     // only if there is no src already
     if(this.imageBackground.src.length < 10) {
       this.imageBackground = new Image();
-      this.imageBackground.src = '../../assets/Mapa/Mapa general.png';
+      this.imageBackground.src = '../../assets/Mapa/General con zooms.png';
       this.imageBackground.onload = () => {
         if(this.ctx != null) {
           this.ctx.imageSmoothingEnabled = false
@@ -168,7 +168,7 @@ export class MapaMundiFullComponent implements OnInit {
       this.canvas.style.cursor = 'default';
       //this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
       let img = new Image();
-      img.src = `../../assets/Mapa/Mapas_zoom-${a.id}.jpg`;
+      img.src = `../../assets/Mapa/Mapa zoom ${a.id}_sin fondo.png`;
       img.onload = ()=> {
         this.ctx?.drawImage(img, this.canvas.width/4, 0);
       };
