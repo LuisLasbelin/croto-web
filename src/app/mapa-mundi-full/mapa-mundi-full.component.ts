@@ -20,16 +20,16 @@ export class MapaMundiFullComponent implements OnInit {
   areas: Area[] = [
     {
       id: '1',
-      x: 400,
-      y: 59,
-      radius: 10,
+      x: 1690,
+      y: 242,
+      radius: 70,
       color: 'blue'
     },
     {
       id: '2',
-      x: 650,
-      y: 160,
-      radius: 10,
+      x: 2735,
+      y: 655,
+      radius: 70,
       color: 'red'
     }
   ];
@@ -168,7 +168,7 @@ export class MapaMundiFullComponent implements OnInit {
       this.canvas.style.cursor = 'default';
       //this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
       let img = new Image();
-      img.src = `../../assets/Mapa/Mapa zoom ${a.id}_sin fondo.png`;
+      img.src = `../../assets/Mapa/Zooms sin fondo/Mapa_zoom-${a.id}.png`;
       img.onload = ()=> {
         this.ctx?.drawImage(img, this.canvas.width/4, 0);
       };
