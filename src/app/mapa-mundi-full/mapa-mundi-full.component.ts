@@ -19,14 +19,14 @@ export class MapaMundiFullComponent implements OnInit {
   // create circles to draw
   areas: Area[] = [
     {
-      id: '1',
+      id: '01',
       x: 1690,
       y: 242,
       radius: 70,
       color: 'blue'
     },
     {
-      id: '2',
+      id: '02',
       x: 2735,
       y: 655,
       radius: 70,
