@@ -168,7 +168,7 @@ export class MapaMundiFullComponent implements OnInit {
       this.canvas.style.cursor = 'default';
       //this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
       let img = new Image();
-      img.src = `../../assets/Mapa/Zooms sin fondo/Mapa_zoom-${a.id}.png`;
+      img.src = `../../assets/Mapa/Zooms sin fondo/Mapas_zoom-${a.id}.png`;
       img.onload = ()=> {
         this.ctx?.drawImage(img, this.canvas.width/4, 0);
       };
