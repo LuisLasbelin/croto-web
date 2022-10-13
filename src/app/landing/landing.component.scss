@@ -345,8 +345,12 @@ i {
         height: 40rem;
     }
 
+    .flex-book div {
+        justify-content: flex-start;
+    }
+
     .book {
-        width: 80%
+        width: 100%
     }
 
     .primary-button {
