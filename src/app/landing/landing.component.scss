@@ -7,7 +7,7 @@
     z-index: -100;
     width: 100%;
     top: 5%;
-    mask-image: linear-gradient(180deg, rgb(0,0,0,1), rgb(0,0,0,0));
+    mask-image: linear-gradient(180deg, rgba(3,6,15,1) 0%, rgba(3,6,15,0) 50%);
 }
 
 #content {
@@ -257,6 +257,10 @@ i {
     z-index: -200;
 }
 
+.grey-background {
+    background: rgb(3,6,15);
+    background: linear-gradient(180deg, rgba(3,6,15,1) 0%, rgba(49,51,56,1) 95%, rgba(49,51,56,1) 96%, rgba(3,6,15,1) 100%);
+}
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
 
