@@ -98,6 +98,7 @@ i {
     margin-top: 6rem;
     width: 65%;
     z-index: 2;
+    padding-bottom: 5rem;
 }
 
 .col2 {
@@ -259,7 +260,7 @@ i {
 
 .grey-background {
     background: rgb(3,6,15);
-    background: linear-gradient(180deg, rgba(3,6,15,1) 0%, rgba(49,51,56,1) 95%, rgba(49,51,56,1) 96%, rgba(3,6,15,1) 100%);
+    background: linear-gradient(180deg, rgba(3,6,15,1) 0%, #d1d1d1 20%, #d1d1d1 90%, rgba(3,6,15,1) 100%);
 }
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
@@ -337,6 +338,11 @@ i {
 
     .white-box {
         height: 20rem;
+    }
+
+    .primary-button {
+        font-size: var(--big-text-p);
+        padding: 1rem;
     }
 }
 
