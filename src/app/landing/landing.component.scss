@@ -136,9 +136,8 @@ i {
 }
 
 .txt-black {
-    color: black;
-    margin: 2rem 1rem 1rem 0;
-    padding-top: 1rem;
+    color: #242424;
+    margin: 1rem 1rem 1rem 0;
 }
 
 .txt-white {
@@ -259,8 +258,8 @@ i {
 }
 
 .grey-background {
-    background: rgb(3,6,15);
-    background: linear-gradient(180deg, rgba(3,6,15,1) 0%, #d1d1d1 20%, #d1d1d1 90%, rgba(3,6,15,1) 100%);
+    background: #d1d1d1;
+    // background: linear-gradient(180deg, rgba(3,6,15,1) 0%, #d1d1d1 20%, #d1d1d1 90%, rgba(3,6,15,1) 100%);
 }
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
