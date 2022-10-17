@@ -29,7 +29,8 @@ export class BlogEntryService {
     return [
       { key: 0, value: 'Texto'},
       { key: 1, value: 'Imagen'},
-      { key: 2, value: 'Video'}
+      { key: 2, value: 'Video'},
+      { key: 3, value: 'Link'}
     ]
   }
 

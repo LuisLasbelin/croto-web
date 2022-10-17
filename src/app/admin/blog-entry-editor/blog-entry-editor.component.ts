@@ -84,6 +84,14 @@ export class BlogEntryEditorComponent implements OnInit {
   }
 
   /**
+   * Removes a fragment from the content
+   * @param fragmentIndex number of the fragment 
+   */
+  deleteContentFragment(fragmentIndex: number) {
+    this.content.splice(fragmentIndex, 1);
+  }
+
+  /**
    * Adds a new blog entry to the database using form data
    */
   newBlogEntry() {

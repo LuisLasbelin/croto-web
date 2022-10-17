@@ -22,16 +22,30 @@
         <h2>Resumen</h2>
         <textarea name="alt-box" cols="30" rows="1" [(ngModel)]="brief">Alt text de la portada</textarea>
     </div>
+    <!--Fragments-->
     <ul>
-        <li *ngFor="let fragment of content">
-            <textarea *ngIf="fragment.type.key == 0" name="content-box text" cols="30" rows="30"
-            [(ngModel)]="fragment.content">Texto de cuerpo</textarea>
-
-            <textarea *ngIf="fragment.type.key == 1" name="content-box" cols="30" rows="1"
-            [(ngModel)]="fragment.content">Imagen URL</textarea>
-
-            <textarea *ngIf="fragment.type.key == 2" name="content-box" cols="30" rows="1"
-            [(ngModel)]="fragment.content">Vídeo URL</textarea>
+        <li *ngFor="let fragment of content; let i = index">
+            <div *ngIf="fragment.type.key == 0">
+                <h2>Párrafo</h2>
+                <textarea name="content-box text" cols="30" rows="30"
+                [(ngModel)]="fragment.content">Texto de cuerpo</textarea>
+            </div>
+            <div *ngIf="fragment.type.key == 1">
+                <h2>URL Imagen</h2>
+                <textarea name="content-box" cols="30" rows="1"
+                [(ngModel)]="fragment.content">Imagen URL</textarea>
+            </div>
+            <div *ngIf="fragment.type.key == 2">
+                <h2>URL Vídeo</h2>
+                <textarea name="content-box" cols="30" rows="1"
+                [(ngModel)]="fragment.content">Vídeo URL</textarea>
+            </div>
+            <div *ngIf="fragment.type.key == 2">
+                <h2>Nombre#Enlace</h2>
+                <textarea name="content-box" cols="30" rows="1"
+                [(ngModel)]="fragment.content">Nombre#Enlace</textarea>
+            </div>
+            <button type="submit" (click)="deleteContentFragment(i)">Borrar</button>
         </li>
     </ul>
 

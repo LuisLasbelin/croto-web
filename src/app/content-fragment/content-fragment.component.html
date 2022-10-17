@@ -1,3 +1,19 @@
+<a *ngIf="contentType.key == 3" href="{{link[1]}}" target="_blank" rel="noopener noreferrer">
+    <span class="mask">
+        <div class="link-container">
+          <span class="link-title1 title">{{link[0]}}</span>
+          <span class="link-title2 title">{{link[0]}}</span>
+        </div>
+      </span>
+      <div class="link-icon">
+        <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+          <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+        </svg>
+        <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+          <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+        </svg>
+      </div>
+</a>
 <iframe *ngIf="contentType.key == 2" width="640" height="480" [src]="safeUrl" frameborder="0" allowfullscreen></iframe>
-<img *ngIf="contentType.key == 2" src="{{content}}" alt="Imagen">
+<img *ngIf="contentType.key == 1" src="{{content}}" alt="Imagen">
 <p *ngIf="contentType.key == 0">{{content}}</p>
