@@ -43,6 +43,7 @@ export class BlogListComponent implements OnInit {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
       console.debug("Entry");
       let unformatEntries = res as BlogEntry[];
+      unformatEntries = unformatEntries.reverse();
       // Check if the blog list is too big and can be expanded
       if(unformatEntries.length >= 2) this.canExpand = true;
       // Change the date format to dd/mm/yyyy
