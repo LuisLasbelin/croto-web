@@ -49,19 +49,17 @@ input {
     color: #f69797
 }
 
-@media screen and (max-width: 1000px) {
-  .btn-new-entry {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background: aquamarine;
-    border: none;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+.btn-new-entry {
+  position: fixed;
+  right: 1vw;
+  bottom: 0.75vh;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: aquamarine;
+  border: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 
-    // Temp
-    font-size: xx-large;
-  }
+  // Temp
+  font-size: xx-large;
 }

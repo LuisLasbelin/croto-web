@@ -15,8 +15,8 @@
                 <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">ENTREVISTAS</p>
                 <p *ngIf="entry.tag == 'Resenyas'" class="entry-tag tag-resenya">RESEÑAS</p>
                 <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">NOTICIAS</p>
-                <button type="submit" routerLink="/blog-editor/{{entry.id}}" *ngIf="adminAccess">Editar</button>
-                <a (click)="deleteEntry(entry.id)" *ngIf="adminAccess">Borrar</a>
+                <button type="submit" routerLink="/blog-editor/{{entry.id}}" *ngIf="adminAccess"><p>Editar</p></button>
+                <a class="btn-delete" (click)="deleteEntry(entry.id)" *ngIf="adminAccess"><p>Borrar</p></a>
             </div>
         </div>
     </div>

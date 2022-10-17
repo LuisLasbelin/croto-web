@@ -1,23 +1,25 @@
 <div class="vertical-container">
     <div>
+        <h2>Título</h2>
         <textarea name="title-box" id="title-box" cols="30" rows="1" [(ngModel)]="title">Título</textarea>
     </div>
     <div>
+        <h2>Categoría</h2>
         <select name="entry-tag" id="entry-tag" [(ngModel)]="tag">
             <option selected value="">Categoría</option>
             <option *ngFor="let _tag of tags" [value]="_tag" >{{_tag}}</option>
         </select>
     </div>
     <div>
-        <h3>URL de la portada</h3>
+        <h2>URL de la portada</h2>
         <textarea name="url-box" cols="30" rows="1" [(ngModel)]="frontImageURL">URL de la portada</textarea>
     </div>
     <div>
-        <h3>Alt text de la portada</h3>
+        <h2>Alt text de la portada</h2>
         <textarea name="alt-box" cols="30" rows="1" [(ngModel)]="frontImageAlt">Alt text de la portada</textarea>
     </div>
     <div>
-        <h3>Resumen</h3>
+        <h2>Resumen</h2>
         <textarea name="alt-box" cols="30" rows="1" [(ngModel)]="brief">Alt text de la portada</textarea>
     </div>
     <ul>
