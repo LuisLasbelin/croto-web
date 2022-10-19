@@ -1,13 +1,13 @@
+.hide {
+    display: none;
+}
+
 #background {
     position: absolute;
     z-index: -100;
     width: 100%;
     top: 5%;
-    mask-image: linear-gradient(180deg, rgb(0,0,0,1), rgb(0,0,0,0));
-}
-
-h1 {
-    margin-left: 3rem;
+    mask-image: linear-gradient(180deg, rgba(3,6,15,1) 0%, rgba(3,6,15,0) 50%);
 }
 
 #content {
@@ -24,8 +24,9 @@ h1 {
 .links {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 50%;
+    justify-content: center;
+    gap: 2%;
+    width: 70%;
 }
 
 i {
@@ -35,7 +36,7 @@ i {
 .links a {
     width: 100%;
     padding: 0.7rem 0.5rem 0.7rem 0.5rem;
-    border: 1px solid var(--grey-backgrounds);
+    border: 2px solid var(--grey-backgrounds);
     border-radius: 2px;
     margin: 0.5rem;
 
@@ -94,9 +95,10 @@ i {
 }
 
 .intro-body {
-    margin-top: 6rem;
+    margin-top: 2vh;
     width: 65%;
     z-index: 2;
+    padding-bottom: 5rem;
 }
 
 .col2 {
@@ -134,9 +136,8 @@ i {
 }
 
 .txt-black {
-    color: black;
-    margin: 2rem 1rem 1rem 0;
-    padding-top: 1rem;
+    color: #242424;
+    margin: 1rem 1rem 1rem 0;
 }
 
 .txt-white {
@@ -210,7 +211,6 @@ i {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 5rem;
 }
 
 .loading-screen {
@@ -256,58 +256,16 @@ i {
     z-index: -200;
 }
 
-// TOOLTIP
-/* Tooltip container */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+.grey-background {
+    background: #d1d1d1;
+    // background: linear-gradient(180deg, rgba(3,6,15,1) 0%, #d1d1d1 20%, #d1d1d1 90%, rgba(3,6,15,1) 100%);
 }
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 200px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
-  /* Position the tooltip text */
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -100px;
-
-  /* Fade in tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-//--------------------------------------------------------------------
-
 /* Mobile mode */
 @media screen and (max-width: 1007px) {
+
+    h1 {
+        margin-left: 3rem;
+    }
 
     .col1 {
         width: 75%;
@@ -347,7 +305,7 @@ i {
 
         width: 100%;
 
-        margin-bottom: 5rem;
+        margin-bottom: 3rem;
     }
 
     .primary-button {
@@ -368,9 +326,15 @@ i {
         display: flex;
         z-index: 0;
     }
+
+    .tooltip:active .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 @media screen and (min-width: 1600px) {
+
     .links a {
         font-size: var(--big-text-p);
     }
@@ -378,9 +342,14 @@ i {
     .white-box {
         height: 20rem;
     }
+
+    .primary-button {
+        font-size: var(--big-text-p);
+        padding: 1rem;
+    }
 }
 
-@media screen and (min-width: 3600px) {
+@media screen and (min-width: 3200px) {
     .links a {
         font-size: var(--4k-text-p);
     }
@@ -389,8 +358,12 @@ i {
         height: 40rem;
     }
 
+    .flex-book div {
+        justify-content: flex-start;
+    }
+
     .book {
-        width: 80%
+        width: 100%
     }
 
     .primary-button {
@@ -399,8 +372,5 @@ i {
         padding: 3rem;
     }
 
-    .tooltip .tooltiptext {
-        width: 400px;
-        margin-left: -200px;
-    }
+
 }

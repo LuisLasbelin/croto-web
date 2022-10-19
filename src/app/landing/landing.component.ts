@@ -57,7 +57,7 @@ export class LandingComponent implements OnInit, AfterContentChecked {
         this.scrollSteps.push(accumulative);
       }
     }
-    else {
+    else if(this.totalFrames == 150) {
       // if there is no animation only load de last frame of itself
       this.loadImage(150);
     }

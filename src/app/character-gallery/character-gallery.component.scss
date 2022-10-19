@@ -12,6 +12,7 @@ p {
     flex-direction: column;
     align-items: center;
     height: 120vh;
+    margin-top: 2rem;
     margin-bottom: 10rem;
 }
 
@@ -47,11 +48,11 @@ p {
 
 .column {
     width: 50%;
-    height: 600px;
+    height: fit-content;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -95,6 +96,7 @@ p {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-end;
+    z-index: 5;
 }
 
 .char-button {
@@ -118,6 +120,10 @@ p {
 /* Mobile mode */
 @media screen and (max-width: 500px) {
 
+    .char-name {
+        
+    }
+
     .char-body {
         height: auto;
         margin-bottom: 5rem;
@@ -134,7 +140,7 @@ p {
     }
 
     .img-container {
-        height: 160px;
+        height: 30vh;
     }
     .img-container img {
         width: 40%;
@@ -163,11 +169,14 @@ p {
 
     .column {
         width: 90%;
-        height: 400px;
     }
 
     .img-container img {
         width: 40%;
+    }
+
+    .img-container {
+        height: 40vh;
     }
 
     .background {
@@ -177,20 +186,26 @@ p {
 
 @media screen and (min-width: 1600px) {
 
-    .column {
-        height: 44rem;
+    .title {
+        margin-bottom: 0;
     }
 
+
     .char-button {
-        width: 5rem;
-        height: 5rem;
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .char-body {
+        margin-bottom: 0;
+    }
+
+    .content {
+        margin-top: 5rem;
     }
 }
 
-@media screen and (min-width: 3600px) {
-    .column {
-        height: 110rem;
-    }
+@media screen and (min-width: 3200px) {
 
     .char-name {
         font-size: 72px;
@@ -204,5 +219,9 @@ p {
     .btn-active {
         width: 12rem;
         height: 12rem;
+    }
+
+    .content {
+        margin-top: 15rem;
     }
 }

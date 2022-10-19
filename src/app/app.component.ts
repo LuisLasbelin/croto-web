@@ -73,6 +73,19 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        let navbar = document.getElementById("navbar");
+        if(navbar) navbar.style.top = "0";
+      } else {
+        let navbar = document.getElementById("navbar");
+        if(navbar) navbar.style.top = "-10vh";
+      }
+      prevScrollpos = currentScrollPos;
+    }
   }
 
 }

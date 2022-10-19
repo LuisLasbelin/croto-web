@@ -1,9 +1,11 @@
 h3 {
     color: var(--white-text);
+    margin: 0;
 }
 
 .vertical-container {
     margin-top: 10%;
+    margin-left: 1vw;
 }
 
 #title-box {
@@ -30,4 +32,18 @@ select {
 li {
     list-style-type: none;
     color: var(--white-text);
+}
+
+
+@media screen and (min-width: 1600px) {
+    textarea {
+        font-size: var(--big-text-p);
+    }
+}
+
+// 4K
+@media screen and (min-width: 3200px) {
+    textarea {
+        font-size: var(--4k-text-p);
+    }
 }
