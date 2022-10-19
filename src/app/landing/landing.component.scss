@@ -326,6 +326,11 @@ i {
         display: flex;
         z-index: 0;
     }
+
+    .tooltip:active .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 @media screen and (min-width: 1600px) {
