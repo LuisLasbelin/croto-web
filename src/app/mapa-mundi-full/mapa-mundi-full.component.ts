@@ -56,7 +56,7 @@ export class MapaMundiFullComponent implements OnInit {
       let pos = this.getCurrentMousePosition(e, this.canvas);
       this.areas.forEach(area => {
         if (this.isIntersect(pos, area)) {
-          console.log('click on circle: ' + area.id);
+          // console.log('click on circle: ' + area.id);
           this.openArea(area);
         }
       })

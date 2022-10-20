@@ -35,7 +35,7 @@ export class ContentFragmentComponent implements OnInit {
       // Get video ID from youtube url
       let videoId = this.content.split('v=')[1];
 
-      console.log(`Sanitizing video ID: ${videoId}`);
+      // console.log(`Sanitizing video ID: ${videoId}`);
       this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + videoId);
     }
 

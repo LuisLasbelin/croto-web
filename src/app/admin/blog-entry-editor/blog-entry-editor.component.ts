@@ -78,7 +78,7 @@ export class BlogEntryEditorComponent implements OnInit {
    * Adds a new content fragment to the entry
    */
   addContentFragment(fragmentType?: {key: number, value: string}, content: string = "") {
-    console.log("Adding content fragment: " + this.newFragmentType);
+    // console.log("Adding content fragment: " + this.newFragmentType);
     // Only if there is no inserted fragment type
     if(fragmentType == undefined) fragmentType = this.contentFragmentTypes.find(type => type.key == this.newFragmentType);
    
@@ -97,11 +97,11 @@ export class BlogEntryEditorComponent implements OnInit {
    * Adds a new blog entry to the database using form data
    */
   newBlogEntry() {
-    console.log("New blog entry");
-    console.log(this.content);
+    // console.log("New blog entry");
+    // console.log(this.content);
     if(this.title.length > 0 && this.content.length > 0) {
       // Editing an entry
-      console.log(this.id)
+      // console.log(this.id)
       if(this.id > 0) {
         this.blogEntryService.editBlogEntry(this.id,{
           password: this.session.password,
@@ -113,7 +113,7 @@ export class BlogEntryEditorComponent implements OnInit {
           frontImageAlt: this.frontImageAlt, 
           brief: this.brief
         }).subscribe(entry => {
-          console.log(`Entrada editada con id = ${entry.id}`);
+          // console.log(`Entrada editada con id = ${entry.id}`);
           this.back();
         });
       }
@@ -129,13 +129,13 @@ export class BlogEntryEditorComponent implements OnInit {
           frontImageAlt: this.frontImageAlt, 
           brief: this.brief})
           .subscribe(entry => {
-            console.log(`Entrada creada con id = ${entry.id}`);
+            // console.log(`Entrada creada con id = ${entry.id}`);
             this.back();
           });
       }
     }
     else {
-      console.log("No se puede crear una entrada sin título o sin contenido");
+      // console.log("No se puede crear una entrada sin título o sin contenido");
     }
   }
 

@@ -94,7 +94,7 @@ export class LandingComponent implements OnInit, AfterContentChecked {
       // add image to array of frames
       this.frames.push(newImg);
       this.loadImage(index + 1);
-      console.log("Image loaded " + index)
+      // console.log("Image loaded " + index)
     }
   }
 
