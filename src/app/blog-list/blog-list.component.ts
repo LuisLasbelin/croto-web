@@ -51,8 +51,12 @@ export class BlogListComponent implements OnInit {
         let blogList = document.getElementById('blog-list');
         if(blogList) blogList.style.height = 'fit-content';
       }
-      // Change the date format to dd/mm/yyyy
+
+      // Format entries
       unformatEntries.forEach(entry => {
+        // Date in text
+        let dateText = this.blogEntryService.parseDate(entry.date);
+
         // If there is no front image URL, set one default
         if(entry.frontImageURL == "") {
           entry.frontImageURL = '../../assets/Imágenes/Eclipse.png';
@@ -65,7 +69,7 @@ export class BlogListComponent implements OnInit {
           title: decodeURI(entry.title),
           // in this case we don't need to decode de content bcs it will not be shown
           content: entry.content,
-          date: entry.date,
+          date: dateText,
           brief: decodeURI(entry.brief),
           frontImageURL: entry.frontImageURL,
           frontImageAlt: decodeURI(entry.frontImageAlt),

@@ -51,7 +51,7 @@ export var defaultEntries: BlogEntry[] = [
           content: 'Ahora veremos si esto funciona correctamente.'
         }
       ],
-      date: '2022-10-06T00000',
+      date: '6/10/2022',
       brief: 'Esto no es más que una prueba',
       frontImageURL: '',
       frontImageAlt: '',
@@ -66,7 +66,7 @@ export var defaultEntries: BlogEntry[] = [
           content: 'Ahora veremos si esto funciona correctamente.'
         }
       ],
-      date: '2022-10-07T00000',
+      date: '7/10/2022',
       brief: 'Esto no es más que una prueba',
       frontImageURL: '',
       frontImageAlt: '',
@@ -81,7 +81,7 @@ export var defaultEntries: BlogEntry[] = [
           content: 'Ahora veremos si esto funciona correctamente.'
         }
       ],
-      date: '2022-10-08T00000',
+      date: '7/10/2022',
       brief: 'Esto no es más que una prueba',
       frontImageURL: '',
       frontImageAlt: '',
@@ -96,7 +96,7 @@ export var defaultEntries: BlogEntry[] = [
             content: 'Ahora veremos si esto funciona correctamente.'
           }
         ],
-        date: '2022-10-08T00000',
+        date: '8/10/2022',
         brief: 'Esto no es más que una prueba',
         frontImageURL: '',
         frontImageAlt: '',
@@ -111,7 +111,7 @@ export var defaultEntries: BlogEntry[] = [
             content: 'Ahora veremos si esto funciona correctamente.'
           }
         ],
-        date: '2022-10-08T00000',
+        date: '9/10/2022',
         brief: 'Esto no es más que una prueba',
         frontImageURL: '',
         frontImageAlt: '',
