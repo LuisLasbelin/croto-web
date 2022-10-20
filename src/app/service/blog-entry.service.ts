@@ -72,7 +72,7 @@ export class BlogEntryService {
     return this.http.get(url, this.headers).pipe(
       tap(_ => console.log(`fetched blog entry id=${id}`)),
       retry(3),
-      catchError(this.handleError<any[]>(`getBlogEntry id=${id}`, [{"id":2,"title":"Pruebas elégias","tag":"Entrevistas","date":"2022-08-03T00:00:00.000Z","content":"[{\"type\":{\"key\":0,\"value\":\"Texto\"},\"content\":\"Una rese&#241;a hecha At vero eos et accusamus carcárido et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"}]","brief":"Esto es una entrevista nueva","frontImageURL":"https://upload.wikimedia.org/wikipedia/commons/6/6a/Menara_suar_akademia.jpg","frontImageAlt":"Faro"}]))
+      catchError(this.handleError<any[]>(`getBlogEntry id=${id}`, [{"id":2,"title":"Pruebas elégias","tag":"Entrevistas","date":"2022-08-03T00:00:00.000Z","content":"[{\"type\":{\"key\":0,\"value\":\"Texto\"},\"content\":\"Una reseña hecha At vero eos et accusamus carcárido et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. <br>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"}]","brief":"Esto es una entrevista nueva","frontImageURL":"https://upload.wikimedia.org/wikipedia/commons/6/6a/Menara_suar_akademia.jpg","frontImageAlt":"Faro"}]))
     );
   }
 
@@ -198,6 +198,7 @@ export class BlogEntryService {
     let date: string[] = s.split('/');
     // check which number is the month
     let months: string[] = [
+      'Empty',
       'ENERO',
       'FEBRERO',
       'MARZO',
@@ -211,8 +212,7 @@ export class BlogEntryService {
       'NOVIEMBRE',
       'DICIEMBRE',
     ]
-    let monthNum = Number(date[1]);
-    let text = date[0] + ' DE ' + monthNum + ' DE ' + date[2];
+    let text = date[0] + ' DE ' + months[Number(date[1])] + ' DE ' + date[2];
     return text;
   }
 

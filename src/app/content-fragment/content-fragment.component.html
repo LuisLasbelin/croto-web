@@ -16,4 +16,4 @@
 </a>
 <iframe *ngIf="contentType.key == 2" width="640" height="480" [src]="safeUrl" frameborder="0" allowfullscreen></iframe>
 <img *ngIf="contentType.key == 1" src="{{content}}" alt="Imagen">
-<p *ngIf="contentType.key == 0">{{content}}</p>
+<p *ngIf="contentType.key == 0" [innerHtml] = "content"></p>
