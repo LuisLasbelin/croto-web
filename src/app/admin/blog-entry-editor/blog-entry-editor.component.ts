@@ -59,6 +59,7 @@ export class BlogEntryEditorComponent implements OnInit {
         this.content = this.blogEntryService.parseContent(entry[0].content),
         this.title = entry[0].title;
         this.tag = entry[0].tag;
+        this.date = entry[0].date;
         this.brief = entry[0].brief;
         this.frontImageAlt = entry[0].frontImageAlt;
         this.frontImageURL = entry[0].frontImageURL;
