@@ -53,13 +53,6 @@ export class BlogListComponent implements OnInit {
       }
       // Change the date format to dd/mm/yyyy
       unformatEntries.forEach(entry => {
-
-        // Get the date
-        let date = entry.date.split('T');
-        // Keep only the numbers
-        let dateNums = date[0].split('-');
-        let dateText = this.blogEntryService.parseDate(`${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`);
-
         // If there is no front image URL, set one default
         if(entry.frontImageURL == "") {
           entry.frontImageURL = '../../assets/Imágenes/Eclipse.png';
@@ -72,7 +65,7 @@ export class BlogListComponent implements OnInit {
           title: decodeURI(entry.title),
           // in this case we don't need to decode de content bcs it will not be shown
           content: entry.content,
-          date: dateText,
+          date: entry.date,
           brief: decodeURI(entry.brief),
           frontImageURL: entry.frontImageURL,
           frontImageAlt: decodeURI(entry.frontImageAlt),

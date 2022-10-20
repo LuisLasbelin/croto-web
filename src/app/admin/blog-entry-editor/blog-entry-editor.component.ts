@@ -23,6 +23,7 @@ export class BlogEntryEditorComponent implements OnInit {
   brief: string = "";
   frontImageURL: string = "";
   frontImageAlt: string = "";
+  date: string = "";
 
   /// CONTENT FRAGMENT ///
   contentFragmentTypes: {key: number, value: string}[] = [];
@@ -100,42 +101,36 @@ export class BlogEntryEditorComponent implements OnInit {
     if(this.title.length > 0 && this.content.length > 0) {
       // Editing an entry
       console.log(this.id)
-      if(this.id > 0) {
-        // Call get date
-        this.blogEntryService.getDate('Europe/Madrid').subscribe(time => {
-          this.blogEntryService.editBlogEntry(this.id,{
-            password: this.session.password,
-            title: this.title, 
-            tag: this.tag,
-            content: this.content,
-            date: time.datetime,
-            frontImageURL: this.frontImageURL, 
-            frontImageAlt: this.frontImageAlt, 
-            brief: this.brief
-          }).subscribe(entry => {
-            console.log(`Entrada editada con id = ${entry.id}`);
-            this.back();
-          });
-        }); // subscribe
+      if(this.id > 0) {z
+        this.blogEntryService.editBlogEntry(this.id,{
+          password: this.session.password,
+          title: this.title, 
+          tag: this.tag,
+          content: this.content,
+          date: this.date,
+          frontImageURL: this.frontImageURL, 
+          frontImageAlt: this.frontImageAlt, 
+          brief: this.brief
+        }).subscribe(entry => {
+          console.log(`Entrada editada con id = ${entry.id}`);
+          this.back();
+        });
       }
       // Actual new entry
       else {
-        // NOTE: Date is done here, no in the server anymore
-        this.blogEntryService.getDate('Europe/Madrid').subscribe(time => {
-          this.blogEntryService.addBlogEntry({
-            password: this.session.password,
-            title: this.title, 
-            tag: this.tag, 
-            content: this.content, 
-            date: time.datetime, 
-            frontImageURL: this.frontImageURL, 
-            frontImageAlt: this.frontImageAlt, 
-            brief: this.brief})
-            .subscribe(entry => {
-              console.log(`Entrada creada con id = ${entry.id}`);
-              this.back();
-            });
-        }); // subscribe
+        this.blogEntryService.addBlogEntry({
+          password: this.session.password,
+          title: this.title, 
+          tag: this.tag, 
+          content: this.content, 
+          date: this.date, 
+          frontImageURL: this.frontImageURL, 
+          frontImageAlt: this.frontImageAlt, 
+          brief: this.brief})
+          .subscribe(entry => {
+            console.log(`Entrada creada con id = ${entry.id}`);
+            this.back();
+          });
       }
     }
     else {
