@@ -198,6 +198,7 @@ export class BlogEntryService {
     let date: string[] = s.split('/');
     // check which number is the month
     let months: string[] = [
+      'Empty',
       'ENERO',
       'FEBRERO',
       'MARZO',
@@ -211,8 +212,7 @@ export class BlogEntryService {
       'NOVIEMBRE',
       'DICIEMBRE',
     ]
-    let monthNum = Number(date[1]);
-    let text = date[0] + ' DE ' + monthNum + ' DE ' + date[2];
+    let text = date[0] + ' DE ' + months[Number(date[1])] + ' DE ' + date[2];
     return text;
   }
 
