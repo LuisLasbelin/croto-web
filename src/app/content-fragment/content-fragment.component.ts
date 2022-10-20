@@ -29,7 +29,7 @@ export class ContentFragmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentFragmentTypes = this.blogEntryService.getContentFragmentTypes();
-
+    
     // Videos
     if(this.contentType.key == 2) {
       // Get video ID from youtube url
