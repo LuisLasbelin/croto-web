@@ -48,6 +48,11 @@ export class BlogViewerComponent implements OnInit {
           }
         };
 
+        if(this.entry.frontImageURL == "") {
+          this.entry.frontImageURL = '../../assets/Imágenes/Eclipse.png';
+          this.entry.frontImageAlt = 'Eclipse de lunas'
+        }
+
         console.log(this.entry);
       });
   }
