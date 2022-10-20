@@ -12,17 +12,16 @@ import { BlogEntryService } from '../service/blog-entry.service';
 export class BlogViewerComponent implements OnInit {
 
   entry!: BlogEntry;
-
+  url: string = '';
   constructor(
     private route: ActivatedRoute,
     private blogEntryService: BlogEntryService,
     private location: Location
-  ) {
-    
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getBlogEntry();
+    this.url = window.location.href;
   }
   
   getBlogEntry(): void {
