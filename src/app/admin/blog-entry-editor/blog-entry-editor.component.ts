@@ -23,6 +23,7 @@ export class BlogEntryEditorComponent implements OnInit {
   brief: string = "";
   frontImageURL: string = "";
   frontImageAlt: string = "";
+  date: string = "";
 
   /// CONTENT FRAGMENT ///
   contentFragmentTypes: {key: number, value: string}[] = [];
@@ -106,7 +107,7 @@ export class BlogEntryEditorComponent implements OnInit {
           title: this.title, 
           tag: this.tag,
           content: this.content,
-          date: new Date().toDateString(),
+          date: this.date,
           frontImageURL: this.frontImageURL, 
           frontImageAlt: this.frontImageAlt, 
           brief: this.brief
@@ -117,13 +118,12 @@ export class BlogEntryEditorComponent implements OnInit {
       }
       // Actual new entry
       else {
-        // NOTE: Date is done by the server. This one is overwritten
         this.blogEntryService.addBlogEntry({
           password: this.session.password,
           title: this.title, 
           tag: this.tag, 
           content: this.content, 
-          date: new Date().toDateString(), 
+          date: this.date, 
           frontImageURL: this.frontImageURL, 
           frontImageAlt: this.frontImageAlt, 
           brief: this.brief})

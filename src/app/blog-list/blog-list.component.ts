@@ -51,14 +51,11 @@ export class BlogListComponent implements OnInit {
         let blogList = document.getElementById('blog-list');
         if(blogList) blogList.style.height = 'fit-content';
       }
-      // Change the date format to dd/mm/yyyy
-      unformatEntries.forEach(entry => {
 
-        // Get the date
-        let date = entry.date.split('T');
-        // Keep only the numbers
-        let dateNums = date[0].split('-');
-        let dateText = this.blogEntryService.parseDate(`${dateNums[2]}/${dateNums[1]}/${dateNums[0]}`);
+      // Format entries
+      unformatEntries.forEach(entry => {
+        // Date in text
+        let dateText = this.blogEntryService.parseDate(entry.date);
 
         // If there is no front image URL, set one default
         if(entry.frontImageURL == "") {
