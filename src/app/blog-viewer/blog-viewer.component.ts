@@ -29,16 +29,16 @@ export class BlogViewerComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.blogEntryService.getBlogEntry(id)
-      .subscribe((entry) => {
+      .subscribe((_entry) => {
         this.entry = {
-          id: entry[0].id,
-          title: decodeURI(entry[0].title),
-          tag: decodeURI(entry[0].tag),
-          content: this.blogEntryService.parseContent(entry[0].content),
-          date: entry.date,
-          brief: decodeURI(entry[0].brief),
-          frontImageURL: entry[0].frontImageURL,
-          frontImageAlt: decodeURI(entry[0].frontImageAlt)
+          id: _entry[0].id,
+          title: decodeURI(_entry[0].title),
+          tag: decodeURI(_entry[0].tag),
+          content: this.blogEntryService.parseContent(_entry[0].content),
+          date: _entry[0].date,
+          brief: decodeURI(_entry[0].brief),
+          frontImageURL: _entry[0].frontImageURL,
+          frontImageAlt: decodeURI(_entry[0].frontImageAlt)
         }
         // for each fragment content
         for (let i = 0; i < this.entry.content.length; i++) {
