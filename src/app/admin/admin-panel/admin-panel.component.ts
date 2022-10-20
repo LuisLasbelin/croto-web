@@ -58,7 +58,7 @@ export class AdminPanelComponent implements OnInit {
       this.adminAccess = true;
     }
     else {
-      console.log("Could not Login");
+      // console.log("Could not Login");
       this.passFailed = true;
     }
   }

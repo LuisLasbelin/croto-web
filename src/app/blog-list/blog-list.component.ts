@@ -89,7 +89,7 @@ export class BlogListComponent implements OnInit {
 
   deleteEntry(id: number) {
     this.blogEntryService.deleteBlogEntry(id).subscribe((res: any) => {
-      console.log("Entrada eliminada: " + id);
+      // console.log("Entrada eliminada: " + id);
     })
   }
 }

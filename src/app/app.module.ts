@@ -19,6 +19,7 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { MapaMundiFullComponent } from './mapa-mundi-full/mapa-mundi-full.component';
+import { LogoffComponent } from './admin/logoff/logoff.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'blog-editor', component: BlogEntryEditorComponent },
   { path: 'blog-editor/:id', component: BlogEntryEditorComponent},
   { path: 'admin', component: AdminPanelComponent},
-  { path: '**', component: AppComponent }
+  { path: 'logoff', component: LogoffComponent},
+  { path: '**', component: AppComponent },
 ];
 
 @NgModule({
@@ -45,6 +47,7 @@ const routes: Routes = [
     LandingPageComponent,
     FooterComponent,
     MapaMundiFullComponent,
+    LogoffComponent,
   ],
   imports: [
     BrowserModule,

@@ -53,7 +53,7 @@ export class BlogViewerComponent implements OnInit {
           this.entry.frontImageAlt = 'Eclipse de lunas'
         }
 
-        console.log(this.entry);
+        // console.log(this.entry);
       });
   }
 
