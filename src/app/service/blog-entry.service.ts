@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BlogEntry, ContentFragment, defaultEntries } from 'src/defs/blogentry';
+import { BlogEntry, ContentFragment, defaultEntries, WorldTimeDate } from 'src/defs/blogentry';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -43,7 +43,7 @@ export class BlogEntryService {
   }
 
   testFunction(): Observable<any> {
-    console.log("Testing connection api")
+    // console.log("Testing connection api")
     return this.http.get('/api', {responseType: 'text'});
   }
 
@@ -52,10 +52,10 @@ export class BlogEntryService {
    * @returns observable of entries, untyped
    */
   getBlogEntries(): Observable<any> {
-    console.log("getBlogEntries");
+    // console.log("getBlogEntries");
     return this.http.get(`/api/entries`, this.headers)
       .pipe(
-        tap(_ => console.log('fetched blog entries')),
+        //tap(_ => console.log('fetched blog entries')),
         retry(3),
         catchError(this.handleError<any[]>('getBlogEntries', defaultEntries)) // catch error
       ) // pipe
@@ -67,10 +67,10 @@ export class BlogEntryService {
    * @returns 
    */
   getBlogEntry(id: number): Observable<any> {
-    console.log("getBlogEntry");
+    // console.log("getBlogEntry");
     const url = `/api/entries/${id}`;
     return this.http.get(url, this.headers).pipe(
-      tap(_ => console.log(`fetched blog entry id=${id}`)),
+      //tap(_ => console.log(`fetched blog entry id=${id}`)),
       retry(3),
       catchError(this.handleError<any[]>(`getBlogEntry id=${id}`, [{"id":2,"title":"Pruebas elégias","tag":"Entrevistas","date":"2022-08-03T00:00:00.000Z","content":"[{\"type\":{\"key\":0,\"value\":\"Texto\"},\"content\":\"Una reseña hecha At vero eos et accusamus carcárido et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. <br>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"}]","brief":"Esto es una entrevista nueva","frontImageURL":"https://upload.wikimedia.org/wikipedia/commons/6/6a/Menara_suar_akademia.jpg","frontImageAlt":"Faro"}]))
     );
@@ -82,17 +82,16 @@ export class BlogEntryService {
    * @returns Observable of entries
    */
   addBlogEntry(entry: any): Observable<BlogEntry> {
-    console.log("addBlogEntry");
+    //console.log("addBlogEntry");
     const url = `/api/add-entry`;
     // Check if there is a cookie with credentials
     let cookie: string = this.cookiesService.getCookie("ADMIN");
     // We need to upload items as strings to avoid return type problems
-    let today = new Date();
     let data = {
       id: entry.id,
       title: entry.title,
       tag: entry.tag.toString(),
-      date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
+      date: entry.date,
       content: this.contentToString(entry),
       brief: entry.brief,
       frontImageURL: entry.frontImageURL,
@@ -100,23 +99,22 @@ export class BlogEntryService {
       password: cookie
     }
     return this.http.post<BlogEntry>(url, data).pipe(
-      tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
+      //tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
     );
   }
 
   editBlogEntry(id: number, entry: any) {
-    console.log("editBlogEntry");
+    //console.log("editBlogEntry");
     const url = `/api/edit-entry`;
     // Check if there is a cookie with credentials
     let cookie: string = this.cookiesService.getCookie("ADMIN");
     // We need to upload items as strings to avoid return type problems
-    let today = new Date();
     let data = {
       id: id,
       title: entry.title,
       tag: entry.tag.toString(),
-      date: `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`,
+      date: entry.date,
       content: this.contentToString(entry),
       brief: entry.brief,
       frontImageURL: entry.frontImageURL,
@@ -124,7 +122,7 @@ export class BlogEntryService {
       password: cookie
     }
     return this.http.post<BlogEntry>(url, data).pipe(
-      tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
+      //tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
       catchError(this.handleError<BlogEntry>('addBlogEntry'))
     );
   }
@@ -135,7 +133,7 @@ export class BlogEntryService {
    * @returns None
    */
   deleteBlogEntry(id: number) {
-    console.log("deleteBlogEntry");
+    //console.log("deleteBlogEntry");
     const url = `/api/delete-entry`;
     // Check if there is a cookie with credentials
     let cookie: string = this.cookiesService.getCookie("ADMIN");
@@ -154,7 +152,7 @@ export class BlogEntryService {
    * @returns Session result
    */
   login(password: string = this.cookiesService.getCookie('ADMIN')) {
-    console.log("login");
+    //console.log("login");
     const url = `/api/login`;
     return this.http.post<Session>(url, {password: password}).pipe(
       catchError(this.handleError('login'))
@@ -214,6 +212,17 @@ export class BlogEntryService {
     ]
     let text = date[0] + ' DE ' + months[Number(date[1])] + ' DE ' + date[2];
     return text;
+  }
+
+  /**
+   * Get date from timezone 
+   * @params {String} timezone with format f.e. Europe/Madrid
+   * @returns get date
+   */
+  getDate(timezone: string): Observable<any> {
+    return this.http.get<WorldTimeDate>('http://worldtimeapi.org/api/timezone/' + timezone).pipe(
+      catchError(this.handleError('getDate'))
+    );
   }
 
   /**
