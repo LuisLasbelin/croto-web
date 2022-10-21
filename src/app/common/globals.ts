@@ -1,5 +1,5 @@
 export class GlobalVariables {
-    private static loadingPage: boolean = true;
+    public static loadingPage: boolean = true;
 
     public static getLoadingStatus(): boolean {
         return this.loadingPage;
