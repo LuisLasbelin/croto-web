@@ -3,6 +3,7 @@
         <div class="img-container">
             <img src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
         </div>
+        <button class="glow-on-hover" type="submit" (click)="goBack()"><p>Volver atrás</p></button>
         <h1>{{entry.title}}</h1>
         <hr> <!--LINE-->
         <div class="entry-heading">
@@ -15,9 +16,9 @@
                 <div class="entry-date">{{entry.date}}</div>
             </div>
             <div class="right-side">
-                <a href="https://twitter.com/intent/tweet?text={{entry.title}} {{url}}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter fa-2xl"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F{{entry.title}} {{url}}%2F%23%2Flanding&amp;src=sdkpreparse" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook fa-2xl"></i></a>
-                <a href="https://wa.me/?text={{entry.title}} {{url}}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+                <a href="https://twitter.com/intent/tweet?text=<Sinfonía de Sombras> {{entry.title}} {{url}}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter fa-2xl"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{url}}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+                <a href="https://wa.me/?text=<Sinfonía de Sombras> {{entry.title}} {{url}}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
             </div>
         </div>
         <!-- Renders the entry.content: string as HTML elements -->
@@ -28,5 +29,9 @@
                 [content]="fragment.content"></app-content-fragment>
             </div>
         </div>
+        
+        <hr> <!--LINE-->
+
+        <button class="glow-on-hover" type="submit" (click)="goBack()"><p>Volver atrás</p></button>
     </div>
 </div>

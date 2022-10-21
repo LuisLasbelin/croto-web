@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { BlogEntry } from 'src/defs/blogentry';
+import { GlobalVariables } from '../common/globals';
 import { BlogEntryService } from '../service/blog-entry.service';
 import { CookiesService } from '../service/cookies.service';
 
@@ -33,6 +35,7 @@ export class BlogListComponent implements OnInit {
     }
 
     this.getBlogEntries();
+
   }
 
   /**
@@ -74,6 +77,9 @@ export class BlogListComponent implements OnInit {
           frontImageURL: entry.frontImageURL,
           frontImageAlt: decodeURI(entry.frontImageAlt),
         })
+
+        // End loading
+        GlobalVariables.setLoadingStatus(false);
       });
     })
   }

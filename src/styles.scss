@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-p {
+p, span {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -101,7 +101,7 @@ h2 {
         font-size: 24px;
     }
 
-    p {
+    p, span {
         font-size: 11px;
     }
 }
@@ -118,7 +118,7 @@ h2 {
         font-size: 72px;
     }
 
-    p {
+    p, span {
         font-size: var(--big-text-p);
         line-height: 32px;
     }
@@ -142,7 +142,7 @@ h2 {
         font-size: 92px;
     }
 
-    p {
+    p, span {
         font-size: var(--4k-text-p);
         line-height: 60px;
     }

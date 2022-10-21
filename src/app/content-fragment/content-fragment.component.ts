@@ -22,6 +22,7 @@ export class ContentFragmentComponent implements OnInit {
 
   safeUrl!: SafeResourceUrl;
   link!: string;
+  linkParts: string[] = [];
 
   constructor(
     private sanitizer : DomSanitizer,
@@ -42,10 +43,10 @@ export class ContentFragmentComponent implements OnInit {
     // External link
     if(this.contentType.key == 3) {
       // The first part is the text and the second one is the link
-      let link = this.content.split("#");
+      this.linkParts = this.content.split("#");
       // in case there are # in the link, concatenate them into one string
-      for (let i = 1; i < link.length; i++) {
-        link[1] += link[i]
+      for (let i = 2; i < this.linkParts.length; i++) {
+        this.linkParts[1] += this.linkParts[i]
       }
     }
   }
