@@ -3,6 +3,7 @@
         <div class="img-container">
             <img src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
         </div>
+        <button class="glow-on-hover" type="submit" (click)="goBack()"><p>Volver atrás</p></button>
         <h1>{{entry.title}}</h1>
         <hr> <!--LINE-->
         <div class="entry-heading">
@@ -28,5 +29,6 @@
                 [content]="fragment.content"></app-content-fragment>
             </div>
         </div>
+        <button class="glow-on-hover" type="submit" (click)="goBack()"><p>Volver atrás</p></button>
     </div>
 </div>
