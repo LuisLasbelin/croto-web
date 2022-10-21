@@ -11,11 +11,11 @@
             <p class="date">{{entry.date}}</p>
             <p class="entry-brief">{{entry.brief}}</p>
             <div class="entry-bottom">
-                <p class="btn-read" routerLink="/blog-viewer/{{entry.id}}">LEER MÁS</p>
+                <p class="btn-read" routerLink="/blog/{{entry.id}}/{{entry.title.split(' ').join('-')}}">LEER MÁS</p>
                 <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">ENTREVISTAS</p>
                 <p *ngIf="entry.tag == 'Resenyas'" class="entry-tag tag-resenya">RESEÑAS</p>
                 <p *ngIf="entry.tag == 'Noticias'" class="entry-tag tag-noticia">NOTICIAS</p>
-                <button type="submit" routerLink="/blog-editor/{{entry.id}}" *ngIf="adminAccess"><p>Editar</p></button>
+                <button type="submit" routerLink="/blog-editor/{{entry.id}}/{{entry.title.split(' ').join('-')}}" *ngIf="adminAccess"><p>Editar</p></button>
                 <a class="btn-delete" (click)="deleteEntry(entry.id)" *ngIf="adminAccess"><p>Borrar</p></a>
             </div>
         </div>
