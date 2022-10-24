@@ -76,15 +76,18 @@ export class AppComponent {
 
     let prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        let navbar = document.getElementById("navbar");
-        if(navbar) navbar.style.top = "0";
-      } else {
-        let navbar = document.getElementById("navbar");
-        if(navbar) navbar.style.top = "-10vh";
+      console.log(window.innerWidth)
+      if(window.innerWidth > 1000) {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          let navbar = document.getElementById("navbar");
+          if(navbar) navbar.style.top = "0";
+        } else {
+          let navbar = document.getElementById("navbar");
+          if(navbar) navbar.style.top = "-10vh";
+        }
+        prevScrollpos = currentScrollPos;  
       }
-      prevScrollpos = currentScrollPos;
     }
   }
 
