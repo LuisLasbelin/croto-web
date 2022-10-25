@@ -27,6 +27,8 @@
     justify-content: center;
     gap: 2%;
     width: 70%;
+
+    flex-wrap: wrap;
 }
 
 i {
@@ -34,7 +36,7 @@ i {
 }
 
 .links a {
-    width: 100%;
+    width: 20%;
     padding: 0.7rem 0.5rem 0.7rem 0.5rem;
     border: 2px solid var(--grey-backgrounds);
     border-radius: 2px;
@@ -278,7 +280,6 @@ i {
 
     .links {
         width: 75%;
-        flex-wrap: wrap;
     }
 
     .links a {
