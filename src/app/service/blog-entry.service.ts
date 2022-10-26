@@ -19,7 +19,7 @@ export class BlogEntryService {
   constructor(
     private http: HttpClient,
     private cookiesService: CookiesService) { }
-
+    
   /**
    * 
    * @returns string[] types
