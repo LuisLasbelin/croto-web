@@ -3,11 +3,17 @@ hr {
     color: var(--white-text);
 }
 
+a {
+    color: var(--white-text);
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Montserrat';
+}
+
 p {
     color: var(--white-text);
     margin: 0;
 }
-
 .bold {
     font-weight: 400;
 }
