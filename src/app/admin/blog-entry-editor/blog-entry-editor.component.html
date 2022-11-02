@@ -32,6 +32,7 @@
         <li *ngFor="let fragment of content; let i = index">
             <div *ngIf="fragment.type.key == 0">
                 <h2>Párrafo</h2>
+                <button type="submit" (click)="addLink(i)">Añadir enlace</button>
                 <textarea name="content-box text" cols="30" rows="30"
                 [(ngModel)]="fragment.content">Texto de cuerpo</textarea>
             </div>
