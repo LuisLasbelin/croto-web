@@ -12,7 +12,7 @@ img {
 }
 
 // ---------------------------------
-a {
+.link {
     /* RESET */
     text-decoration: none;
     line-height: 1;
@@ -27,7 +27,7 @@ a {
     transition: color .3s ease-out;
 }
 
-a::before {
+.link::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -40,11 +40,11 @@ a::before {
     transition: transform .25s ease-out;
 }
 
-a:hover {
+.link:hover {
     color: #3b3b3b;
 }
 
-a:hover::before {
+.link:hover::before {
     transform: translateY(0);
     transition: transform .25s ease-out;
 }

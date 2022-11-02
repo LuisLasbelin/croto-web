@@ -140,7 +140,7 @@ export class BlogEntryEditorComponent implements OnInit {
   }
 
   addLink(index: number) {
-    let linkString: string = '<a href="ENLACE" target="_blank" rel="noopener noreferrer"><span>NOMBRE</span></a>';
+    let linkString: string = "<a href='ENLACE' target=_blank' rel='noopener noreferrer'><span>NOMBRE</span></a>";
 
     this.content[index].content += linkString;
   }

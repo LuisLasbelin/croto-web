@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { BlogEntryService } from '../service/blog-entry.service';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-content-fragment',
   templateUrl: './content-fragment.component.html',
   styleUrls: ['./content-fragment.component.scss']
