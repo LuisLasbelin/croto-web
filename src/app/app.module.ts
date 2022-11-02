@@ -20,18 +20,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { MapaMundiFullComponent } from './mapa-mundi-full/mapa-mundi-full.component';
 import { LogoffComponent } from './admin/logoff/logoff.component';
-
-const routes: Routes = [
-  { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  { path: 'landing', component: LandingPageComponent },
-  { path: 'mapa-mundi-full', component: MapaMundiFullComponent},
-  { path: 'blog/:id/:title', component: BlogViewerComponent },
-  { path: 'blog-editor', component: BlogEntryEditorComponent },
-  { path: 'blog-editor/:id/:title', component: BlogEntryEditorComponent},
-  { path: 'admin', component: AdminPanelComponent},
-  { path: 'logoff', component: LogoffComponent},
-  { path: '**', component: AppComponent },
-];
+import { MissingPageComponent } from './missing-page/missing-page.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -48,14 +38,15 @@ const routes: Routes = [
     FooterComponent,
     MapaMundiFullComponent,
     LogoffComponent,
+    MissingPageComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, { useHash: false }),
     AngularEditorModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
