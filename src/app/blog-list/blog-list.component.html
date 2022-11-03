@@ -7,9 +7,9 @@
             <div class="img-container">
                 <img class="entry-image" src={{entry.frontImageURL}} alt={{entry.frontImageAlt}}>
             </div>
-            <h3 class="entry-title">{{entry.title}}</h3>
+            <h3 class="entry-title" [innerHTML]="entry.title"></h3>
             <p class="date">{{entry.date}}</p>
-            <p class="entry-brief">{{entry.brief}}</p>
+            <p class="entry-brief" [innerHTML]="entry.brief"></p>
             <div class="entry-bottom">
                 <p class="btn-read" routerLink="/blog/{{entry.id}}/{{entry.title.split(' ').join('-')}}">LEER MÁS</p>
                 <p *ngIf="entry.tag == 'Entrevistas'" class="entry-tag tag-entrevista">ENTREVISTAS</p>
