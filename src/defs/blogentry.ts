@@ -97,7 +97,7 @@ export var defaultEntries: BlogEntry[] = [
           }
         ],
         date: '8/10/2022',
-        brief: 'Esto no es más que una prueba',
+        brief: 'Esto no es más que una <i>prueba</i>',
         frontImageURL: '',
         frontImageAlt: '',
       },
