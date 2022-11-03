@@ -1,17 +1,17 @@
 <nav class="navbar" id="navbar">
     <div class="container">
-        <a class="img-container" routerLink="/landing" (click)="scroll('landing')">
+        <a class="img-container" routerLink="/" (click)="scroll('landing')">
             <img src="../../assets/Imágenes/Luna azul.png" alt="Luna azul">
         </a>
     </div>
     <span class="nav-links">
-        <a routerLink="/landing" (click)="scroll('landing')">DEYTHEA</a>
-        <a routerLink="/landing" (click)="scroll('saga')">LA SAGA</a>
-        <a routerLink="/landing" (click)="scroll('blog')">BLOG</a>
+        <a routerLink="/" (click)="scroll('landing')">DEYTHEA</a>
+        <a routerLink="/" (click)="scroll('saga')">LA SAGA</a>
+        <a routerLink="/" (click)="scroll('blog')">BLOG</a>
         <!--<a routerLink="/landing" (click)="scroll('personajes')">PERSONAJES</a>-->
-        <a routerLink="/landing" (click)="scroll('mundo')">MAPA</a>
-        <a routerLink="/landing" (click)="scroll('contacto')">CONTACTA</a>
-        <a routerLink="/landing" (click)="scroll('landing')">COMPRAR</a>
+        <a routerLink="/" (click)="scroll('mundo')">MAPA</a>
+        <a routerLink="/" (click)="scroll('contacto')">CONTACTA</a>
+        <a routerLink="/" (click)="scroll('landing')">COMPRAR</a>
     </span>
     <a href="https://twitter.com/c__roto" target="_blank" rel="noopener noreferrer" class="tw-link">
         <i class="fa-brands fa-twitter fa-2xl"></i>
@@ -25,12 +25,12 @@
 </nav>
 
 <span class="nav-links-mobile" [@hamburguerX]="isHamburguer ? 'closed' : 'open'">
-    <a routerLink="/landing" (click)="scroll('landing')">DEYTHEA</a>
-    <a routerLink="/landing" (click)="scroll('blog')">BLOG</a>
+    <a routerLink="/" (click)="scroll('landing')">DEYTHEA</a>
+    <a routerLink="/" (click)="scroll('blog')">BLOG</a>
     <!--<a routerLink="/landing" (click)="scroll('personajes')">PERSONAJES</a>-->
-    <a routerLink="/landing" (click)="scroll('mundo')">MAPA</a>
-    <a routerLink="/landing" (click)="scroll('mundo')">CONTACTA</a>
-    <a routerLink="/landing" (click)="scroll('mundo')">COMPRAR</a>
+    <a routerLink="/" (click)="scroll('mundo')">MAPA</a>
+    <a routerLink="/" (click)="scroll('mundo')">CONTACTA</a>
+    <a routerLink="/" (click)="scroll('mundo')">COMPRAR</a>
 </span>
 
 <router-outlet></router-outlet>

@@ -57,7 +57,7 @@ export class BlogViewerComponent implements OnInit {
   }
 
   goBack(): void {
-    window.location.href = '/landing'
+    window.location.href = '/'
   }
 
 }
