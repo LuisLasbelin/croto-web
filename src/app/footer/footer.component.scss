@@ -53,14 +53,20 @@ p {
     gap: 1rem;
 }
 
-.link {
+.footer-link {
     text-decoration: none;
     color: var(--white-text);
     font-family: 'Montserrat';
 }
 
-.link:active {
+.footer-link:active {
     color: var(--white-text);
+}
+
+.author {
+    p {
+        color: rgba(233, 233, 233, 0.648)
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -80,13 +86,13 @@ p {
 }
 
 @media screen and (min-width: 1600px) {
-    .link {
+    .footer-link {
         font-size: var(--big-text-p);
     }
 }
 
 @media screen and (min-width: 3200px) {
-    .link {
+    .footer-link {
         font-size: var(--4k-text-p);
     }
 }
