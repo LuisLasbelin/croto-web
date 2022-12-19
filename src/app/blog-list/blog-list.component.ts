@@ -93,6 +93,15 @@ export class BlogListComponent implements OnInit {
     this.canExpand = false;
   }
 
+  /**
+   * Contracts the blog list
+   */
+  contract() {
+    let container = document.getElementById('blog-list');
+    container?.classList.remove('expanded');
+    this.canExpand = true;
+  }
+
   deleteEntry(id: number) {
     this.blogEntryService.deleteBlogEntry(id).subscribe((res: any) => {
       // console.log("Entrada eliminada: " + id);
