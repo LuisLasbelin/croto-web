@@ -1,5 +1,7 @@
 <img id="background" src="../../assets/Imágenes/Luna.png" alt="Luna azul con nubes">
 <div #content id="content">
+    <span id="comprar"></span>
+
     <h1 class="hide">Sinfonía de Sombras</h1>
     <img id="logo" src="../../assets/Logo/Logo_Sinfonía de sombras_Plata_2 lineas.png" alt="Sinfonía de sombras logo">
     <div class="paragraph mobile-show">
@@ -49,9 +51,7 @@
                     <!--<svg class="white-box"></svg>-->
                     <p class="txt-black">Una historia de fantasía con tintes oscuros que analiza los conflictos derivados de la clase social, la raza, la sexualidad o el género como una forma de reflexionar sobre nuestro propio mundo.          </p>
                     
-                    <button type="submit" class="primary-button txt-white tooltip">COMPRAR AHORA
-                        <span class="tooltiptext">PRÓXIMAMENTE</span>
-                    </button>
+                    <button type="submit" class="primary-button txt-white" (click)="scroll('comprar')">COMPRAR AHORA</button>
                 </div>
                 <div class="flex-book">
                     <div>
@@ -73,8 +73,7 @@
             <p class="txt-white">En la superficie terrestre habitan otras razas de humanos con sus propios conflictos: los Hijos de los Árboles, magos perseguidos por las varitas de hueso que alumbran de sus brazos al alcanzar la pubertad. O los elementales, humanos que sufren las desigualdades derivadas de los enfrentamientos entre sus reinos, históricamente en disputa por ejercer el dominio sobre los demás.</p>    
             <div>
                 <p class="txt-white">Una historia de fantasía con tintes oscuros que analiza los conflictos derivados de la clase social, la raza, la sexualidad o el género como una forma de reflexionar sobre nuestro propio mundo.</p>
-                <button type="submit" class="primary-button txt-white tooltip">COMPRAR AHORA
-                    <span class="tooltiptext">PRÓXIMAMENTE</span>
+                <button type="submit" class="primary-button txt-white" (click)="scroll('comprar')">COMPRAR AHORA
                 </button> 
             </div>
         </div>

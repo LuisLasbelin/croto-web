@@ -29,4 +29,10 @@ export class LandingComponent implements OnInit {
       loading.next(GlobalVariables.loadingPage);
     }, 1000)
   }
+
+  scroll(id: string) {
+    let el: HTMLElement | null = document.getElementById(id);
+
+    if(el != null) el?.scrollIntoView({behavior: 'smooth'});
+  }
 }
