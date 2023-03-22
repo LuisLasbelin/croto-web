@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -22,6 +21,10 @@ import { MapaMundiFullComponent } from './mapa-mundi-full/mapa-mundi-full.compon
 import { LogoffComponent } from './admin/logoff/logoff.component';
 import { MissingPageComponent } from './missing-page/missing-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { AppRoutingModule } from './app-routing.module';
     AngularEditorModule,
     FormsModule,
     AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

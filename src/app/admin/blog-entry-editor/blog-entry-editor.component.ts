@@ -5,6 +5,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
 import { Session } from 'src/defs/session';
 import { BlogEntryService } from '../../service/blog-entry.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-blog-entry-editor',
@@ -32,7 +33,8 @@ export class BlogEntryEditorComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private blogEntryService: BlogEntryService,
-    private location: Location) { }
+    private location: Location,
+    private store: AngularFirestore) { }
 
   ngOnInit(): void {
 

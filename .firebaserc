@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "sinfoniadesombras"
+  },
+  "targets": {
+    "sinfoniadesombras": {
+      "hosting": {
+        "croto-web": [
+          "sinfoniadesombras"
+        ]
+      }
+    }
+  }
+}

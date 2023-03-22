@@ -118,6 +118,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "croto-web:build:production",
+            "firebaseProject": "sinfoniadesombras",
+            "firebaseHostingSite": "sinfoniadesombras"
+          }
         }
       }
     }
