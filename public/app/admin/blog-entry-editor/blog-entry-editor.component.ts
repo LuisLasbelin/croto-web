@@ -2,8 +2,8 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
-import { Session } from 'src/defs/session';
+import { BlogEntry, ContentFragment } from 'public/defs/blogentry';
+import { Session } from 'public/defs/session';
 import { BlogEntryService } from '../../service/blog-entry.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class BlogEntryEditorComponent implements OnInit {
 
   session: Session = {session: false, password: ""};
 
-  id: number = 0;
+  id: string = "";
   content: ContentFragment[] = [];
   title: string = "";
   tags: string[] = [];
@@ -51,10 +51,10 @@ export class BlogEntryEditorComponent implements OnInit {
     this.newFragmentType = 0;
 
     // Check if it is called to edit
-    this.id = 0;
+    this.id = "";
     // When it is undefined = 0
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
-    if(this.id != 0) {
+    this.id = String(this.route.snapshot.paramMap.get('id'));
+    if(this.id != "") {
       this.blogEntryService.getBlogEntry(this.id).subscribe(entry => {
         this.content = this.blogEntryService.parseContent(entry[0].content),
         this.title = entry[0].title;
@@ -102,7 +102,7 @@ export class BlogEntryEditorComponent implements OnInit {
     if(this.title.length > 0 && this.content.length > 0) {
       // Editing an entry
       // console.log(this.id)
-      if(this.id > 0) {
+      if(this.id.length > 0) {
         this.blogEntryService.editBlogEntry(this.id,{
           password: this.session.password,
           title: this.title, 

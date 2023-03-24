@@ -22,6 +22,11 @@ import { MapaMundiFullComponent } from './mapa-mundi-full/mapa-mundi-full.compon
 import { LogoffComponent } from './admin/logoff/logoff.component';
 import { MissingPageComponent } from './missing-page/missing-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from 'public/environments/environment';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,7 @@ import { AppRoutingModule } from './app-routing.module';
     MapaMundiFullComponent,
     LogoffComponent,
     MissingPageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,8 +53,11 @@ import { AppRoutingModule } from './app-routing.module';
     AngularEditorModule,
     FormsModule,
     AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

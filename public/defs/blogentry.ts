@@ -1,6 +1,6 @@
 
 export interface BlogEntry {
-    id: number;
+    id: string;
     tag: string;
     title: string;
     content: ContentFragment[];
@@ -42,7 +42,7 @@ export interface ContentFragment {
 
 export var defaultEntries: BlogEntry[] = [
     {
-      id: 1,
+      id: "1",
       tag: 'Resenyas',
       title: 'Una reseña de prueba',
       content: [
@@ -57,7 +57,7 @@ export var defaultEntries: BlogEntry[] = [
       frontImageAlt: '',
     },
     {
-      id: 2,
+      id: "2",
       tag: 'Entrevistas',
       title: 'Una entrevista de prueba',
       content: [
@@ -72,7 +72,7 @@ export var defaultEntries: BlogEntry[] = [
       frontImageAlt: '',
     },
     {
-      id: 2,
+      id: "2",
       tag: 'Noticias',
       title: 'Una noticia de prueba',
       content: [
@@ -87,7 +87,7 @@ export var defaultEntries: BlogEntry[] = [
       frontImageAlt: '',
     },
     {
-        id: 3,
+        id: "3",
         tag: 'Noticias',
         title: 'Una noticia de prueba',
         content: [
@@ -102,7 +102,7 @@ export var defaultEntries: BlogEntry[] = [
         frontImageAlt: '',
       },
       {
-        id: 4,
+        id: "4",
         tag: 'Noticias',
         title: 'Una noticia de prueba',
         content: [

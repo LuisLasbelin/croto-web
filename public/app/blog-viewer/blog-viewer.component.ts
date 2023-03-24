@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BlogEntry, ContentFragment } from 'src/defs/blogentry';
+import { BlogEntry, ContentFragment } from 'public/defs/blogentry';
 import { BlogEntryService } from '../service/blog-entry.service';
 
 @Component({
@@ -25,19 +25,20 @@ export class BlogViewerComponent implements OnInit {
   }
   
   getBlogEntry(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = String(this.route.snapshot.paramMap.get('id'));
 
     this.blogEntryService.getBlogEntry(id)
-      .subscribe((_entry) => {
+      .subscribe((data) => {
+        let _entry = data.payload.data()
         this.entry = {
-          id: _entry[0].id,
-          title: decodeURI(_entry[0].title),
-          tag: decodeURI(_entry[0].tag),
-          content: this.blogEntryService.parseContent(_entry[0].content),
-          date: _entry[0].date,
-          brief: decodeURI(_entry[0].brief),
-          frontImageURL: _entry[0].frontImageURL,
-          frontImageAlt: decodeURI(_entry[0].frontImageAlt)
+          id: _entry.id,
+          title: decodeURI(_entry.title),
+          tag: decodeURI(_entry.tag),
+          content: this.blogEntryService.parseContent(_entry.content),
+          date: _entry.date,
+          brief: decodeURI(_entry.brief),
+          frontImageURL: _entry.frontImageURL,
+          frontImageAlt: decodeURI(_entry.frontImageAlt)
         }
         // for each fragment content
         for (let i = 0; i < this.entry.content.length; i++) {

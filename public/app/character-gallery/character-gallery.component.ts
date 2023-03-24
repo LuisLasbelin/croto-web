@@ -1,5 +1,5 @@
 import { AfterContentChecked, Component, OnInit } from '@angular/core';
-import { Character, characters } from 'src/defs/characters';
+import { Character, characters } from 'public/defs/characters';
 import {
   trigger,
   state,

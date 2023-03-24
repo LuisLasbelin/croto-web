@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { BlogEntry } from 'src/defs/blogentry';
+import { BlogEntry } from 'public/defs/blogentry';
 import { GlobalVariables } from '../common/globals';
 import { BlogEntryService } from '../service/blog-entry.service';
 import { CookiesService } from '../service/cookies.service';
@@ -45,7 +45,7 @@ export class BlogListComponent implements OnInit {
   getBlogEntries() {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
       console.debug("Entry");
-      let unformatEntries = res as BlogEntry[];
+      let unformatEntries = res;
       unformatEntries = unformatEntries.reverse();
       // Check if the blog list is too big and can be expanded
       if(unformatEntries.length > 3) this.canExpand = true;
@@ -56,26 +56,28 @@ export class BlogListComponent implements OnInit {
       }
 
       // Format entries
-      unformatEntries.forEach(entry => {
+      unformatEntries.forEach((entry: any) => {
+        let data = entry.payload.doc.data()
+        console.log(entry.payload.doc.id)
         // Date in text
-        let dateText = this.blogEntryService.parseDate(entry.date);
+        let dateText = this.blogEntryService.parseDate(data.date);
 
         // If there is no front image URL, set one default
-        if(entry.frontImageURL == "") {
-          entry.frontImageURL = '../../assets/Imágenes/Eclipse.png';
-          entry.frontImageAlt = 'Eclipse de lunas'
+        if(data.frontImageURL == "") {
+          data.frontImageURL = '../../assets/Imágenes/Eclipse.png';
+          data.frontImageAlt = 'Eclipse de lunas'
         }
 
         this.entries.push({
-          id: entry.id,
-          tag: decodeURI(entry.tag),
-          title: decodeURI(entry.title),
+          id: entry.payload.doc.id,
+          tag: decodeURI(data.tag),
+          title: decodeURI(data.title),
           // in this case we don't need to decode de content bcs it will not be shown
-          content: entry.content,
+          content: data.content,
           date: dateText,
-          brief: decodeURI(entry.brief),
-          frontImageURL: entry.frontImageURL,
-          frontImageAlt: decodeURI(entry.frontImageAlt),
+          brief: decodeURI(data.brief),
+          frontImageURL: data.frontImageURL,
+          frontImageAlt: decodeURI(data.frontImageAlt),
         })
 
         // End loading
@@ -102,7 +104,7 @@ export class BlogListComponent implements OnInit {
     this.canExpand = true;
   }
 
-  deleteEntry(id: number) {
+  deleteEntry(id: string) {
     this.blogEntryService.deleteBlogEntry(id).subscribe((res: any) => {
       // console.log("Entrada eliminada: " + id);
     })

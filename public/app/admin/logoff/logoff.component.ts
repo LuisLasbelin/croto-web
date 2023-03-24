@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookiesService } from 'src/app/service/cookies.service';
+import { CookiesService } from 'public/app/service/cookies.service';
 
 @Component({
   selector: 'app-logoff',

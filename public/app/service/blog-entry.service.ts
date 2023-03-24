@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BlogEntry, ContentFragment, defaultEntries, WorldTimeDate } from 'src/defs/blogentry';
+import { BlogEntry, ContentFragment, defaultEntries, WorldTimeDate } from 'public/defs/blogentry';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Session } from 'src/defs/session';
+import { Session } from 'public/defs/session';
 import { CookiesService } from './cookies.service';
-
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class BlogEntryService {
 
   constructor(
     private http: HttpClient,
-    private cookiesService: CookiesService) { }
+    private cookiesService: CookiesService,
+    private firestore: AngularFirestore) { }
     
   /**
    * 
@@ -53,12 +54,7 @@ export class BlogEntryService {
    */
   getBlogEntries(): Observable<any> {
     // console.log("getBlogEntries");
-    return this.http.get(`/api/entries`, this.headers)
-      .pipe(
-        //tap(_ => console.log('fetched blog entries')),
-        retry(3),
-        catchError(this.handleError<any[]>('getBlogEntries', defaultEntries)) // catch error
-      ) // pipe
+    return this.firestore.collection('entries').snapshotChanges();
   }
 
   /**
@@ -66,14 +62,9 @@ export class BlogEntryService {
    * @param id 
    * @returns 
    */
-  getBlogEntry(id: number): Observable<any> {
-    // console.log("getBlogEntry");
-    const url = `/api/entries/${id}`;
-    return this.http.get(url, this.headers).pipe(
-      //tap(_ => console.log(`fetched blog entry id=${id}`)),
-      retry(3),
-      catchError(this.handleError<any[]>(`getBlogEntry id=${id}`, [{"id":2,"title":"Pruebas elégias","tag":"Entrevistas","date":"3/8/2022","content":"[{\"type\":{\"key\":0,\"value\":\"Texto\"},\"content\":\"Una reseña hecha At vero eos et accusamus carcárido et iusto odio <a href='https://www.amazon.es/Sinfon%C3%ADa-Sombras-Despertar-Fantas%C3%ADa-espa%C3%B1ol-ebook/dp/B0BK3519GS/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr=' target='_blank' class='link' rel='noopener noreferrer'><span>AMAZON</span></a> ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. <br>Et harum quidem rerum facilis est et expedita distinctio.\"}, {\"type\":{\"key\":3,\"value\":\"Link\"},\"content\":\"Twitter#https://twitter.com/home\"} ]","brief":"Esto es una entrevista nueva","frontImageURL":"https://upload.wikimedia.org/wikipedia/commons/6/6a/Menara_suar_akademia.jpg","frontImageAlt":"Faro"}]))
-    );
+  getBlogEntry(id: string): Observable<any> {
+     console.log("getBlogEntry " + id);
+    return this.firestore.collection('entries').doc(id).snapshotChanges();
   }
 
   /**
@@ -104,7 +95,7 @@ export class BlogEntryService {
     );
   }
 
-  editBlogEntry(id: number, entry: any) {
+  editBlogEntry(id: String, entry: any) {
     //console.log("editBlogEntry");
     const url = `/api/edit-entry`;
     // Check if there is a cookie with credentials
@@ -132,7 +123,7 @@ export class BlogEntryService {
    * @param id number 
    * @returns None
    */
-  deleteBlogEntry(id: number) {
+  deleteBlogEntry(id: string) {
     //console.log("deleteBlogEntry");
     const url = `/api/delete-entry`;
     // Check if there is a cookie with credentials

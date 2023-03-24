@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Area } from 'src/defs/area';
+import { Area } from 'public/defs/area';
 
 @Component({
   selector: 'app-mapa-mundi',

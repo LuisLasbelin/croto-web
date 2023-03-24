@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogEntryService } from 'src/app/service/blog-entry.service';
-import { CookiesService } from 'src/app/service/cookies.service';
-import { BlogEntry } from 'src/defs/blogentry';
-import { Session } from 'src/defs/session';
+import { BlogEntryService } from 'public/app/service/blog-entry.service';
+import { CookiesService } from 'public/app/service/cookies.service';
+import { BlogEntry } from 'public/defs/blogentry';
+import { Session } from 'public/defs/session';
 
 @Component({
   selector: 'app-admin-panel',
