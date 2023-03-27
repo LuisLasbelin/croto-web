@@ -5,6 +5,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { BlogEntry, ContentFragment } from 'public/defs/blogentry';
 import { Session } from 'public/defs/session';
 import { BlogEntryService } from '../../service/blog-entry.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-blog-entry-editor',
@@ -32,18 +33,16 @@ export class BlogEntryEditorComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private blogEntryService: BlogEntryService,
-    private location: Location) { }
+    private location: Location,
+    private readonly router: Router) { }
 
   ngOnInit(): void {
 
     // Check if you are allowed
-    this.blogEntryService.login().subscribe(result => {
-      this.session = result as Session;
-      // if the sessio is not correct, go away
-      if(!this.session.session) {
-        this.back();
-      }
-    });
+    this.blogEntryService
+      .login()
+      .then(() => console.log("Log in"))
+      .catch((e: { message: any; }) => console.log(e.message));
 
     // preparations
     this.tags = this.blogEntryService.getBlogEntryTags();
@@ -54,15 +53,19 @@ export class BlogEntryEditorComponent implements OnInit {
     this.id = "";
     // When it is undefined = 0
     this.id = String(this.route.snapshot.paramMap.get('id'));
-    if(this.id != "") {
+    if(this.id != "null") {
+      console.log("Editing")
       this.blogEntryService.getBlogEntry(this.id).subscribe(entry => {
-        this.content = this.blogEntryService.parseContent(entry[0].content),
-        this.title = entry[0].title;
-        this.tag = entry[0].tag;
-        this.date = entry[0].date;
-        this.brief = entry[0].brief;
-        this.frontImageAlt = entry[0].frontImageAlt;
-        this.frontImageURL = entry[0].frontImageURL;
+        let _entry = entry.payload.data()
+        console.log(_entry.content)
+
+        this.content = this.blogEntryService.parseContent(_entry.content);
+        this.title = _entry.title;
+        this.tag = _entry.tag;
+        this.date = _entry.date;
+        this.brief = _entry.brief;
+        this.frontImageAlt = _entry.frontImageAlt;
+        this.frontImageURL = _entry.frontImageURL;
       })
       // Add a new fragment for every content fragment
       this.content.forEach(fragment => {
@@ -102,7 +105,7 @@ export class BlogEntryEditorComponent implements OnInit {
     if(this.title.length > 0 && this.content.length > 0) {
       // Editing an entry
       // console.log(this.id)
-      if(this.id.length > 0) {
+      if(this.id != "null") {
         this.blogEntryService.editBlogEntry(this.id,{
           password: this.session.password,
           title: this.title, 
@@ -112,10 +115,7 @@ export class BlogEntryEditorComponent implements OnInit {
           frontImageURL: this.frontImageURL, 
           frontImageAlt: this.frontImageAlt, 
           brief: this.brief
-        }).subscribe(entry => {
-          // console.log(`Entrada editada con id = ${entry.id}`);
-          this.back();
-        });
+        })
       }
       // Actual new entry
       else {
@@ -128,10 +128,6 @@ export class BlogEntryEditorComponent implements OnInit {
           frontImageURL: this.frontImageURL, 
           frontImageAlt: this.frontImageAlt, 
           brief: this.brief})
-          .subscribe(entry => {
-            // console.log(`Entrada creada con id = ${entry.id}`);
-            this.back();
-          });
       }
     }
     else {

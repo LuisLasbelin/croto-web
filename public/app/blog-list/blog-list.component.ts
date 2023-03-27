@@ -25,9 +25,9 @@ export class BlogListComponent implements OnInit {
     this.adminAccess = false;
 
     // Find a session cookie if there is any stored
-    let sessionCookie = this.cookiesService.getCookie("ADMIN");
+    let sessionCookie = this.cookiesService.getCookie("ADMIN-EMAIL");
     // Access when there is a session cookie stored. It does NOT verify the cookie password
-    if(sessionCookie.length > 10) {
+    if(sessionCookie.length > 5) {
       this.adminAccess = true;
     }
     else {
@@ -46,7 +46,6 @@ export class BlogListComponent implements OnInit {
     this.blogEntryService.getBlogEntries().subscribe((res: any) => {
       console.debug("Entry");
       let unformatEntries = res;
-      unformatEntries = unformatEntries.reverse();
       // Check if the blog list is too big and can be expanded
       if(unformatEntries.length > 3) this.canExpand = true;
       // If there are not 3, style make it fit content
@@ -105,8 +104,6 @@ export class BlogListComponent implements OnInit {
   }
 
   deleteEntry(id: string) {
-    this.blogEntryService.deleteBlogEntry(id).subscribe((res: any) => {
-      // console.log("Entrada eliminada: " + id);
-    })
+    this.blogEntryService.deleteBlogEntry(id)
   }
 }

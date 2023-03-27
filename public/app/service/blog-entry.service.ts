@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Session } from 'public/defs/session';
 import { CookiesService } from './cookies.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class BlogEntryService {
   constructor(
     private http: HttpClient,
     private cookiesService: CookiesService,
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore,
+    private auth: Auth) { }
     
   /**
    * 
@@ -72,14 +74,13 @@ export class BlogEntryService {
    * @param entry BlogEntry format with password
    * @returns Observable of entries
    */
-  addBlogEntry(entry: any): Observable<BlogEntry> {
+  addBlogEntry(entry: any) {
     //console.log("addBlogEntry");
     const url = `/api/add-entry`;
     // Check if there is a cookie with credentials
     let cookie: string = this.cookiesService.getCookie("ADMIN");
     // We need to upload items as strings to avoid return type problems
     let data = {
-      id: entry.id,
       title: entry.title,
       tag: entry.tag.toString(),
       date: entry.date,
@@ -89,20 +90,15 @@ export class BlogEntryService {
       frontImageAlt: entry.frontImageAlt,
       password: cookie
     }
-    return this.http.post<BlogEntry>(url, data).pipe(
-      //tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
-      catchError(this.handleError<BlogEntry>('addBlogEntry'))
-    );
+    this.firestore.collection('entries').add(data)
   }
 
-  editBlogEntry(id: String, entry: any) {
+  editBlogEntry(id: string, entry: any) {
     //console.log("editBlogEntry");
-    const url = `/api/edit-entry`;
     // Check if there is a cookie with credentials
-    let cookie: string = this.cookiesService.getCookie("ADMIN");
+    let cookie: string = this.cookiesService.getCookie("ADMIN-EMAIL");
     // We need to upload items as strings to avoid return type problems
     let data = {
-      id: id,
       title: entry.title,
       tag: entry.tag.toString(),
       date: entry.date,
@@ -112,10 +108,7 @@ export class BlogEntryService {
       frontImageAlt: entry.frontImageAlt,
       password: cookie
     }
-    return this.http.post<BlogEntry>(url, data).pipe(
-      //tap((newEntry: BlogEntry) => console.log(`added blog entry w/ id=${newEntry.id}`)),
-      catchError(this.handleError<BlogEntry>('addBlogEntry'))
-    );
+    this.firestore.collection('entries').doc(id).update(data)
   }
 
   /**
@@ -125,16 +118,9 @@ export class BlogEntryService {
    */
   deleteBlogEntry(id: string) {
     //console.log("deleteBlogEntry");
-    const url = `/api/delete-entry`;
     // Check if there is a cookie with credentials
-    let cookie: string = this.cookiesService.getCookie("ADMIN");
-    let data = {
-      id: id,
-      password: cookie
-    }
-    return this.http.post(url, data).pipe(
-      catchError(this.handleError('addBlogEntry'))
-    );
+    let cookie: string = this.cookiesService.getCookie("ADMIN-PASS");
+    if(cookie.length > 5) this.firestore.collection('entries').doc(id).delete()
   }
 
   /**
@@ -142,12 +128,9 @@ export class BlogEntryService {
    * @param password defaults to the cookie ADMIN
    * @returns Session result
    */
-  login(password: string = this.cookiesService.getCookie('ADMIN')) {
+  login(password: string = this.cookiesService.getCookie('ADMIN-PASS'), email: string = this.cookiesService.getCookie('ADMIN-EMAIL'))  {
     //console.log("login");
-    const url = `/api/login`;
-    return this.http.post<Session>(url, {password: password}).pipe(
-      catchError(this.handleError('login'))
-    );
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   /**

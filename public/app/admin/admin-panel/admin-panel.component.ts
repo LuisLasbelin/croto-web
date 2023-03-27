@@ -14,6 +14,7 @@ export class AdminPanelComponent implements OnInit {
   entries: BlogEntry[] = [];
 
   password: string = "";
+  email: string = "";
 
   adminAccess: boolean = false;
   passFailed: boolean = false;
@@ -49,12 +50,15 @@ export class AdminPanelComponent implements OnInit {
   }
 
   login() {
-    this.blogEntryService.login(this.password).subscribe(data => this.afterLogin(data as Session));
+    this.blogEntryService.login(this.password, this.email)
+    .then(() => this.afterLogin(this.password, this.email))
+    .catch((e: { message: any; }) => console.log(e.message));
   }
 
-  afterLogin(data: Session) {
-    if(data.session) {
-      this.cookiesService.setCookie("ADMIN", data.password, 2);
+  afterLogin(_password: string, _email: string) {
+    if(_password) {
+      this.cookiesService.setCookie("ADMIN-PASS", _password, 2);
+      this.cookiesService.setCookie("ADMIN-EMAIL", _email, 2);
       this.adminAccess = true;
     }
     else {
