@@ -67,7 +67,12 @@ export class BlogListComponent implements OnInit {
           data.frontImageAlt = 'Eclipse de lunas'
         }
 
+        // Order index made of year+month+day
+        let s = data.date.split('/');
+        let orderIndex = Number(s[2]+s[1]+s[0])
+
         this.entries.push({
+          order: orderIndex,
           id: entry.payload.doc.id,
           tag: decodeURI(data.tag),
           title: decodeURI(data.title),
@@ -79,10 +84,23 @@ export class BlogListComponent implements OnInit {
           frontImageAlt: decodeURI(data.frontImageAlt),
         })
 
+        // Order the entries by date
+        this.entries = this.entries.sort(this.compareDates);
+
         // End loading
         GlobalVariables.setLoadingStatus(false);
       });
     })
+  }
+
+  compareDates( a: BlogEntry, b: BlogEntry ) {
+    if ( a.order > b.order ){
+      return -1;
+    }
+    if ( a.order < b.order ){
+      return 1;
+    }
+    return 0;
   }
 
   /**

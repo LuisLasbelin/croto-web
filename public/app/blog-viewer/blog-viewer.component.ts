@@ -31,6 +31,7 @@ export class BlogViewerComponent implements OnInit {
       .subscribe((data) => {
         let _entry = data.payload.data()
         this.entry = {
+          order: 0,
           id: _entry.id,
           title: decodeURI(_entry.title),
           tag: decodeURI(_entry.tag),
