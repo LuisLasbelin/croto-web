@@ -1,6 +1,10 @@
 # CrotoWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+You can visit the demo [Web page](https://sinfoniadesombras.firebaseapp.com).
+Made with:
+- Angular TS
+- SCSS
+- Firebase
 
 ## Development server
 
